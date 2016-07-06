@@ -1,0 +1,226 @@
+*{
+	padding: 0px;
+	margin-top: 0px;
+}
+/*中间的小导航，两个紫色块状，表明此页位置*/
+.main{
+	position: absolute;
+	top: 200px;
+	left: 0px;
+	height:40px;
+	width: 1060px;
+	 margin: 20px auto 0px auto;
+    z-index: 990;  	
+}
+/*中间的大部分，框架结构*/
+.kuangj{
+	position: absolute;
+	top: 260px;
+	left: 100px;
+	height: auto;
+	width: 1090px;
+    background: rgba(0, 0, 0, 0) url("../image/r_title_bg.jpg") repeat-y scroll 905px 0;
+    margin: 0 auto;
+    overflow: hidden;
+    
+ 
+}
+/*ul列表，运用了20个ul无序列表*/
+.arrow_box{
+    background: #f8f8f8 none repeat scroll 0 0;
+    border-radius: 6px;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 1px rgba(214, 214, 214, 0.7) inset;
+    margin: 20px 0;
+    padding: 20px 0;
+    position: relative;
+    width: 800px;
+    height: auto;
+}
+
+.arrow_box:hover{
+    background: #f4f2f2;
+    color: #ffb1f1;
+    text-shadow:1px 1px 1px #f7f7f7;
+}
+
+ul {
+    list-style: outside none none;
+}
+
+.sy {
+    overflow: hidden;
+}
+
+.arrow_box p {
+    line-height: 24px;
+    padding: 0 20px 20px;
+    color: #a9a9a9;/*浅灰的文字*/
+}
+/*鼠标放在文字上面颜色变化*/
+.arrow_box p:hover{
+    color: #ff29de;
+    
+}
+
+.arrow_box img {
+    float: left;
+    margin: 0 20px;
+    width: 150px;
+
+}
+
+img {
+    border: 0 none;
+    display: block;
+}
+
+.arrow_box::before{
+    border-color: transparent transparent transparent #fff;
+    border-style: solid;
+    border-width: 0 0 20px 22px;
+    content: "";
+    height: 0;
+    left: 800px;
+    position: absolute;
+    top: 23px;
+    width: 0;
+}
+
+.arrow_box:hover: :before{
+    border-color: transparent transparent transparent #cecccd;
+}
+
+.arrow_box::after {
+    background: #ccccce none repeat scroll 0 0;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    content: "";
+    height: 10px;
+    left: 900px;
+    position: absolute;
+    top: 16px;
+    transition: all 0.5s ease 0s;
+    width: 10px;
+
+}
+
+.arrow_box:hover ::after{
+    background: #d7e1d1 none repeat scroll 0 0;
+    border:2px solid #fff;
+
+
+}
+
+.dateview {
+    background: #ffabec none repeat scroll 0 0;
+    border-radius: 0 40px;
+    color: #00c6ff;
+    left: 960px;
+    line-height: 30px;
+    position: absolute;
+    text-align: center;
+    top: 20px;
+    width: 125px;
+}
+/*页面代码，显眼总共页数和其他*/
+.page{
+    position: absolute;
+    top: 3420px;
+    left: 420px;
+ 
+
+}
+.page a {
+    border: 1px solid #999;
+    color: #f33;
+}
+.page a {
+    border-radius: 50%;
+    display: inline-block;
+    height: 26px;
+    line-height: 26px;
+    margin: 0 2px;
+    text-align: center;
+    width: 26px;
+}
+.page > b, .page a {
+    border-radius: 50%;
+    display: inline-block;
+    height: 26px;
+    line-height: 26px;
+    margin: 0 2px;
+    text-align: center;
+    width: 26px;
+}
+.page > b, .page a:hover{
+    background: #ffa8f2;
+    color: #fff;
+}
+
+a:link, a:visited {
+    text-decoration: none;
+}
+
+
+/*最底部的copyright*/
+.fff{
+    position: absolute;
+    top: 3460px;
+    left: 0px;
+    height: 40px;
+    width: 1060px;
+    z-index: 1000;
+}
+.fff p{
+    display: block;
+    height: 40px;
+    width: 1060px;
+    padding-left: 500px;
+    font-size: 17px;
+    color: gray;
+}
+
+/*分享到各大网站的按钮*/
+.fenxx{
+    height:300px;
+    width: 100px;
+    float: right;
+    position: fixed;
+    right: 0px;
+    top: 160px;
+    z-index: 1100;
+    background-color:#fff1fe;
+
+}
+.bshare-custom li{
+    display: block;
+    height: 30px;
+    width: 90px;
+    padding-top: 10px;
+    font-size: 16px;
+}
+
+.bshare-custom li a:hover{
+    color: red;
+    text-decoration: none;
+}
+/*右下方的链接到顶部*/
+.footer{
+    color: red;
+    font-weight: bold;
+    font-size: 30px;
+    height: 50px;
+    width: 35px;
+    float: right;
+    position: absolute;
+    position: fixed;
+    right: 0px;
+    top: 500px;
+   
+}
+
+.xiass{
+    height: 50px;
+    width: 35px;
+    float: right;
+}

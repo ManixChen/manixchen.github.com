@@ -1,0 +1,26 @@
+body{
+	padding: 0px;
+	margin:0px;
+	/*background: rgba(0, 0, 0, 0) 
+	linear-gradient(to right, #5ac8fb, #52edc7 100%)
+	 repeat scroll 0 0 / 100% auto; 蓝色渐变*/
+}
+
+.contanier{
+	width: 100%;
+	height:1200px;
+	 position: relative;
+	 background: rgba(0, 0, 0, 0) 
+	linear-gradient(to right, #5ac8fb, #52edc7 100%)
+	 repeat scroll 0 0 / 100% auto;
+}
+
+.top{
+	margin-top: 20px;
+	float: left;
+	height: 200px;
+	width: 100%;
+	background: rgba(0, 0, 0, 0) 
+	linear-gradient(to right, #ff5959, #ff7660 100%)
+	 repeat scroll 0 0 / 100% auto;/*红色渐变*/
+}

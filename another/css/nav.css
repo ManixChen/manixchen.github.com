@@ -1,0 +1,236 @@
+/*第二个主网页以及以后（关于我，网页设计，碎言碎语，
+求职简历，职业规划，走过的路）的导航属性*/
+
+*{
+	padding: 0px;
+	margin: 0px;
+}
+.nav ul{
+	margin: 0px;
+	padding: 0px;
+}
+
+.nav{
+	
+	height:40px;
+	width:1060px;
+	margin:0px auto 50px auto;
+	box-shadow: 0 0 18px #ff88f8;
+	border-radius: 5px;
+	z-index: 1000;
+	position: absolute;
+	top: 120px;
+	left: 0px;
+	
+
+}
+.contanier{
+	margin: 0px auto;
+	width: 1060px;
+	height: auto;
+	position: relative;
+	z-index: 1;
+}
+
+.juz{
+	position: relative;
+	top: 8px;
+	left: 250px;
+	background-color: white;
+	height: 75px;
+	width: 520px;
+	border-radius: 10px;
+	box-shadow: 0 0 15px #ff59f1; 
+	text-align: center;
+	font-size: 24px;
+	font-style: normal;
+	z-index: 1000;
+	
+	}
+
+.juz a{
+	color: #30ff00;
+	text-decoration: none;
+}
+
+.log0{
+	top: 3px;
+	left: 100px;
+	float: left;
+	position: absolute;
+	z-index: 1000;
+}
+
+.log0 img{
+	display: block;
+	height: 85px;
+}
+
+.log1{
+	
+	position: absolute;
+	top: 0px;
+	left: 800px;
+	z-index: 1000;
+}
+
+.log1 img{
+	display: block;
+	width: 200px;
+	height: 85px;
+	
+}
+
+.nav ul .first,.second,.third,.fourth,.five,.six,.seven,.last{
+	list-style-type:none;
+	float:left;
+	display: block;
+	height:40px;
+	width: 130px;
+	font-size: 18px;
+	font-weight: bold;
+	line-height: 30px;
+	text-align: center;
+	border-right: 2px solid #ff5d0d;
+	
+}
+
+.first{
+	border-radius: 5px 0px 0px 5px;
+}
+
+.last{
+	border-radius:4px;
+	width:136px;
+	border-right: 0px;
+}	
+
+
+.nav ul .hid3{
+	height: 0px;
+	overflow: hidden;
+	
+}
+
+.nav ul .hid3  .diyi{
+	list-style-type: none;
+	height:30px;
+	display: block;
+	line-height: 30px;
+	text-align: center;
+
+}
+/*当鼠标放在导航栏上面的变化
+*/
+.nav .biaoti  a:hover{
+	
+	height:40px;
+	display: block;
+	line-height: 40px;
+	border-radius: 3px;
+	font-size: 23px;
+	font-weight:normal;
+	background-color: rgba(255,237,228,0.8);
+}
+
+
+
+.nav ul .hid3 .diyi a:hover{
+	background: rgba(180,147,255,0.9);
+	height:30px;
+	display: block;
+	line-height: 30px;
+	border-radius: 3px;
+	color: #1722ff;
+	font-size: 12px;
+}
+
+
+.nav ul .hid3 .dier{
+	list-style-type: none;
+	height:30px;
+	display: block;
+	line-height: 30px;
+	text-align: center;
+	
+}
+.nav ul .hid3 .dier a:hover{
+	background: rgba(73,255,223,0.9);
+	height:30px;
+	display: block;
+	line-height: 30px;
+	border-radius: 3px;
+	color: #1722ff;
+	font-size: 12px;
+}
+
+.nav ul li a{
+	
+	color: #ff28ac;
+	text-decoration: none;
+
+}
+
+
+.nav  li:hover .hid3{
+	height: 60px;
+	width:130px;
+	font-weight: normal;
+	
+}
+
+
+
+.nav  .biaoti .first:hover a{
+	border-radius: 7px 0px 0px 7px;
+}
+.nav .biaoti .last:hover a{
+	border-radius: 0px 7px 5px 7px;
+}
+
+
+.main  .shangz{
+	position: relative;
+	border-bottom: 1px solid #e8e8e8;
+    font-size: 14px;
+    font-weight: normal;
+    height: 40px;
+    line-height: 40px;
+    z-index: 1000;
+}
+
+.shangz .n1{
+	color: #fff;
+    display: block;
+    float: left;
+    text-align: center;
+    width: 100px;
+    background: #ff34f3 none repeat scroll 0 0;
+    text-decoration: none;
+    z-index: 1000;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+.shangz .n2{
+	color: #fff;
+    display: block;
+    float: left;
+    text-align: center;
+    width: 100px;
+	background: #ffbafb none repeat scroll 0 0;
+	text-decoration: none;
+	z-index: 1000;
+    position: absolute;
+    left: 100px;
+    top: 0px;
+}
+
+.shangz .wenz{
+	position: absolute;
+	right: 20px;
+	color:#ff88f8;
+    float: right;
+}
+
