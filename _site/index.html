@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>ManixChen</title>
+  <meta name="description" content="专注于Web方向开发,让我们一起打开中国的IT大门，一起创造大家向往的It新纪元...
+">
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="/">
+  <link rel="alternate" type="application/rss+xml" title="ManixChen" href="/feed.xml">
+	<!--
+	<script>
+		window.addEventListener("load",function(){
+			alert(1);
+		});
+	</script>
+	-->
+  </head>
+
+
+
+  <body>
+		<!---->
+		<header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/">ManixChen</a>
+
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+
+      <div class="trigger">
+        
+          
+          <a class="page-link" href="/about/">About</a>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+	<!--大包围---->
+    <div class="container">
+		<!--左侧文章整体部分-->
+		<div class="page-content">
+		  <div class="wrapper">
+			<div>
+	<!-- 首页文章内容-->
+	
+	  <h1><a href="/jekyll/update/2016/07/03/myself-test.html">如何在Github Pages搭建自己写的页面？</a></h1>
+	  <p class="author">
+		<span class="date">2016-07-03 15:35:07 +0800</span>
+	  </p>
+	  <!--<div class="content">
+		<p>###如何在Github Pages搭建自己写的页面？
+学了前端小半年，如今写了个自己的网页，却发现部署很麻烦，部署到阿里云之类，买域名啊啥的还要收费，说贵也不贵，但我就是傲娇~</p>
+
+<p>google一下了解到Github有一个Github pages的功能可以搭建博客或者托管网页，而且免费耶，搜了下教程，猛地一看感觉步骤也不是很麻烦，所以就用这个了！</p>
+
+<p>教程一大堆，却没有几个能看懂的，问题一：90%的都在讲解如何搭建博客，和我想要将自己的网页部署到上面还是有点区别的。问题二：所有的教程都用到了Git，而我只知道Git是一个开源的分布式版本控制系统。完全不知道命令行是什么鬼，只能照猫画虎的小白来说，那些教程只能帮我到桥头，但想要成功过河，还需要深夜里的一包特浓咖啡。</p>
+
+<p>开始教程之前的准备工作：</p>
+
+<p>1、需要你自己写的网页文件。
+<img src="https://manixchen.github.io/imgs/demo1/1.png" /></p>
+
+<p>2、注册Github。</p>
+
+<p>3、下载安装git。下载地址https://git-scm.com/downloads</p>
+
+<p>教程开始：（以下出现的test指你的网页名或者你想起的一切名字）</p>
+
+<p>步骤一：登录到Github上，新建一个repo，命名为test，勾选 initialize this repository with a README，点击create repository。
+步骤二：打开settings，有一个Github Pages 的设置，点击Launch automatic page generator（启动自动页面生成器）。
+步骤三：点击页面最后的continue to layouts，然后就可以进入设置你的页面主题，你会说这不是我的网页呀，别急嘛，先选择一个主题，点击 publish pages。</p>
+
+<p>这个时候会出现你的网页的网址，也就是下图的 http://jiayili.github.io/test.复制打开这个网址，你看到了什么？
+哇塞，这不是刚自己设置选择的主题页面吗？
+好了，别激动了，真正让一个小白你发疯的阶段开始了，有了自己的网址，但页面显示的是什么鬼？</p>
+
+<p>至此以上，github上要处理的操作告一段落，该上Git了！
+步骤四 ：打开此电脑，选择一个盘，比如 f 盘，右键空白处点击 git bash here。</p>
+
+<p>步骤五：输入如下命令，用来在 f 盘创建 test 文件放你的github上的test repository，克隆test repository到 test 文件中。</p>
+
+<p>这个时候你的 f 盘，就会多一个 test 文件，打开它，</p>
+
+<p>会看到一个 README.md 的文件，这个文件是从哪来的呢？追溯到gihub上，你会发现你有两个分支（branches），而 README 文件是来自 master 分支。</p>
+
+<p>而我们需要编辑的是另一个分支——gh-pages，因为这个分支才能够真正定义github pages的内容和样式，也就是可以呈现你网页的地方。</p>
+
+<p>步骤六：输入以下命令，为了在本地新建一个gh-pages分支，而这个分支是远程分支origin/gh-pages的镜像，也就是我们可以在本地的gh-pages看到github上的gh-pages的内容。</p>
+
+<p>这个时候我们再打开 f 盘，发现变样了</p>
+
+<p>刚才还是README呢，怎们现在成了3个文件了，这3个文件来自哪？</p>
+
+<p>来自github 上的 gh-pages 分支下的文件。</p>
+
+<p>打开f 盘中的 index.html，你会发现就是咱们一开始选择主题的页面。那我们将这个页面替换成自己coding的网页不就好了？</p>
+
+<p>步骤七：执行如下命令，删除原有的gh-pages文件，并提交（commit）本次修改。</p>
+
+<p>这个时候 f 盘没有文件。</p>
+
+<p>步骤八：将自己的网页文件复制粘贴至 f 盘的 test 文件中</p>
+
+<p>输入如下命令，为了本地gh-pages中的网页文件同步到远程的gh-pages中。</p>
+
+<p>输入最后一行 git push origin gh-pages，按回车，等一会，会有弹出框让你输入你的 github 账号和密码。</p>
+
+<p>恭喜你，成功了！！！</p>
+
+<p>##附录一：常用git命令：</p>
+
+<p>$ git clone  //本地如果无远程代码，先做这步，不然就忽略</p>
+
+<p>$ cd //定位到你blog的目录下</p>
+
+<p>$ git status //查看本地自己修改了多少文件</p>
+
+<p>$ git add . //添加远程不存在的git文件</p>
+
+<p>$ git commit  -m “what I want told to someone” //提交修改</p>
+
+<p>$ git push  //更新到远程服务器上</p>
+
+<p>$ git rm //移除文件</p>
+
+<p>##附录二：如何修改你的网页？</p>
+
+<p>方法一：在github上的gh-pages分支中直接进行修改。（如果不添加新的文件推荐此法）</p>
+
+<p>方法二：在github客户端进行修改在同步。（如果添加了新的文集推荐此法）</p>
+
+<p>转载自http://www.cnblogs.com/lijiayi/p/githubpages.html</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">print_hi</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span>
+  <span class="nb">puts</span> <span class="s2">"Hi, </span><span class="si">#{</span><span class="nb">name</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+<span class="n">print_hi</span><span class="p">(</span><span class="s1">'Tom'</span><span class="p">)</span>
+<span class="c1">#=&gt; prints 'Hi, Tom' to STDOUT.</span></code></pre></figure>
+
+<p>Check out the <a href="http://jekyllrb.com/docs/home">Jekyll docs</a> for more info on how to get the most out of Jekyll. File all bugs/feature requests at <a href="https://github.com/jekyll/jekyll">Jekyll’s GitHub repo</a>. If you have questions, you can ask them on <a href="https://talk.jekyllrb.com/">Jekyll Talk</a>.</p>
+
+
+	  </div>-->
+	
+	  <h1><a href="/web%E5%89%8D%E7%AB%AF/2016/07/03/Web-developer.html">Web前端开发简单介绍</a></h1>
+	  <p class="author">
+		<span class="date">2016-07-03 12:35:07 +0800</span>
+	  </p>
+	  <!--<div class="content">
+		<p>Web前端开发工程师是一个很新的职业，在国内乃至国际上真正开始受到重视的时间不超过10年。Web前端开发是从网页制作演变而来的，名称上有很明显的时代特征。在互联网的演化进程中，
+网页制作是Web 1.0时代的产物，那时网站的主要内容都是静态的，用户使用网站的行为也以浏览为主。
+2005年以后，互联网进入Web 2.0时代，各种类似桌面软件的Web应用大量涌现，网站的前端由此发生了翻天覆地的变化。网页不再只是承载单一的文字和图片，各种丰富媒体让网页的内容更加生动，网页上软件化的交互形式为用户提供了更好的使用体验，这些都是基于前端技术实现的。</p>
+
+<p>随着Web 2.0概念的普及和W3C组织的推广，网站重构的影响力正以惊人的速度增长。XHTML+CSS布局、DHTML和Ajax像一阵旋风，铺天盖地席卷而来，包括新浪、搜狐、网易、腾讯、淘宝等在内的各种规模的IT企业都对自己的网站进行了重构。
+为什么它们会对自己的网站进行重构呢？有两个方面的原因：
+第一，根据W3C标准进行重构后，可以让前端的代码组织更有序，显著改善网站的性能，还能提高可维护性，对搜索引擎也更友好；
+第二，重构后网站能带来更好的用户体验，用XHTML+CSS重新布局后的页面，文件更小下载速度更快。
+网站重构的目的仅仅是为了让网页更符合Web标准吗？不是！重构的本质是构建一个前端灵活的类MVC框架，即HTML作为信息模型（Model），CSS控制样式（View），JavaScript负责调度数据和实现某种展现逻辑（Controller）。同时，代码需要具有很好的复用性和可维护性。这是高效率、高质量开发以及协作开发的基础。
+DHTML可以让用户的操作更炫，更吸引眼球；Ajax可以实现无刷新的数据交换，让用户的操作更流畅。对于普通用户来说，一个网站是否专业、功能是否强大，服务器端是用J2EE+Oracle的强大组合，还是用ASP+Access的简单组合，并没有太明显的区别。但是，前端的用户体验却给了用户直观的印象。
+随着人们对用户体验的要求越来越高，前端开发的技术难度越来越大，Web前端开发工程师这一职业终于从设计和制作不分的局面中独立出来。
+Such as:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="o">&lt;</span><span class="n">h3</span><span class="o">&gt;</span><span class="no">Hi</span><span class="err">，</span><span class="no">I</span><span class="err">'</span><span class="n">am</span> <span class="n">comming</span><span class="o">&lt;</span><span class="sr">/h3&gt;/</span><span class="o">/</span><span class="err">这是一个简单的标签</span><span class="p">(</span><span class="err">标记！</span><span class="p">)</span>
+
+<span class="o">&lt;</span><span class="n">script</span><span class="o">&gt;</span>
+	<span class="sr">//</span><span class="err">存放</span><span class="n">javascript</span><span class="err">代码</span>
+	<span class="n">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="s2">"Hello word"</span><span class="p">);</span><span class="sr">//</span><span class="err">输出在控制台</span>
+<span class="o">&lt;</span><span class="sr">/script&gt;</span></code></pre></figure>
+
+<p>三要素编辑
+Web前端开发技术包括三个要素：HTML、CSS和JavaScript，但随着RIA的流行和普及，Flash/Flex、Silverlight、XML和服务器端语言也是前端开发工程师应该掌握的。随着时代的发展，前端开发技术的三要素也演变成为现今的：html5，css3，jquery。Web前端开发工程师既要与上游的交互设计师、视觉设计师和产品经理沟通，又要与下游的服务器端工程师沟通，需要掌握的技能非常多。这就从知识的广度上对Web前端开发工程师提出了要求。如果要精于前端开发这一行，也许要先精十行。然而，全才总是少有的。所以，对于不太重要的知识，我们只需要“通”即可。但“通”到什么程度才算够用呢？对于很多初级前端开发工程师来说，这个问题是非常令人迷惑的。
+前端开发的入门门槛其实非常低，与服务器端语言先慢后快的学习曲线相比，前端开发的学习曲线是先快后慢。所以，对于从事IT工作的人来说，前端开发是个不错的切入点。也正因为如此，前端开发领域有很多自学成“才”的同行，但大多数人都停留在会用的阶段，因为后面的学习曲线越来越陡峭，每前进一步都很难。另一方面，正如前面所说，前端开发是个非常新的职业，对一些规范和最佳实践的研究都处于探索阶段。总有新的灵感和技术不时闪现出来，例如CSS sprite、负边距布局、栅格布局等；各种JavaScript框架层出不穷，为整个前端开发领域注入了巨大的活力；浏览器大战也越来越白热化，跨浏览器兼容方案依然是五花八门。为了满足“高可维护性”的需要，需要更深入、更系统地去掌握前端知识，这样才可能创建一个好的前端架构，保证代码的质量。
+具备条件编辑
+一位好的Web前端开发工程师在知识体系上既要有广度，又要有深度，所以很多大公司即使出高薪也很难招聘到理想的前端开发工程师。现在说的重点不在于讲解技术，而是更侧重于对技巧的讲解。技术非黑即白，只有对和错，而技巧则见仁见智。以前会Photoshop和Dreamweaver就可以制作网页，现在只掌握这些已经远远不够了。无论是开发难度上，还是开发方式上，现在的网页制作都更接近传统的网站后台开发，所以现在不再叫网页制作，而是叫Web前端开发。Web前端开发在产品开发环节中的作用变得越来越重要，而且需要专业的前端工程师才能做好，这方面的专业人才近两年来备受青睐。Web前端开发是一项很特殊的工作，涵盖的知识面非常广，既有具体的技术，又有抽象的理念。简单地说，它的主要职能就是把网站的界面更好地呈现给用户。
+如何才能做得更好呢？
+第一，必须掌握基本的Web前端开发技术，其中包括：CSS、HTML、DOM、BOM、Ajax、JavaScript等，在掌握这些技术的同时，还要清楚地了解它们在不同浏览器上的兼容情况、渲染原理和存在的Bug。
+第二，在一名合格的前端工程师的知识结构中，网站性能优化、SEO和服务器端的基础知识也是必须掌握的。
+第三，必须学会运用各种工具进行辅助开发。
+第四，除了要掌握技术层面的知识，还要掌握理论层面的知识，包括代码的可维护性、组件的易用性、分层语义模板和浏览器分级支持，等等。
+可见，看似简单的网页制作，如果要做得更好、更专业，真的是不简单。这就是前端开发的特点，也是让很多人困惑的原因。如此繁杂的知识体系让新手学习起来无从下手，对于老手来说，也时常不知道下一步该学什么。
+代码质量是前端开发中应该重点考虑的问题之一。例如，实现一个网站界面可能会有无数种方案，但有些方案的维护成本会比较高，有些方案会存在性能问题，而有些方案则更易于维护，而且性能也比较好。这里的关键影响因素就是代码质量。CSS、HTML、JavaScript这三种前端开发语言的特点是不同的，对代码质量的要求也不同，但它们之间又有着千丝万缕的联系。
+web前端工程师现状编辑
+上海互联网紧缺人才报告发布WEB前端开发工程师最紧俏[1] 
+人民网上海11月13日电，由猎聘网发布的《上海互联网行业人才紧缺指数（TSI）报告》显示，WEB前端开发工程师已成为上海互联网行业中最紧俏的职位。根据此次报告，今年三季度，互联网在上海全行业中成为人才需求最为紧迫的行业；而在当地互联网各种紧缺职位中，各类研发技术类岗位稳居前列。
+人才紧缺指数（Talent Shortage Index，通常缩写为TSI） = 需求岗位数/ 求职人数。课工场中关村实训基地TSI大于1，表示人才供不应求；小于1，表示人才供大于求。如果TSI上升，表示人才紧缺程度加剧。猎聘网的报告指出，上海互联网TSI高达2.49，在上海所有行业中排名第一，并以明显的差距与其他行业拉开差距。
+上海互联网行业自2014年第三季度以来，始终保持着较高的TSI，互联网人才严重供不应求。到了2015年三季度，上海互联网TSI达到历史新高，高达2.49。
+在上海互联网行业的细分职能中，排名前十的绝大多数为技术性岗位，其中WEB前端开发工程师最为紧俏，其TSI为13.03。TSI仅次于WEB前端开发工程师为软件工程师，其TSI为6.02，环比增长30.13%。[1] 
+职位描述：[2] 
+1、使用Div+css并结合Javascript负责产品的前端开发和页面制作；
+　　2、熟悉W3C标准和各主流浏览器在前端开发中的差异，能熟练运用DIV+CSS，提供针对不同浏览器的前端 页面解决方案；
+　　3、负责相关产品的需求以及前端程序的实现，提供合理的前端架构；
+　　4、与产品、后台开发人员保持良好沟通，能快速理解、消化各方需求，并落实为具体的开发工作；
+　　5、了解服务器端的相关工作，在交互体验、产品设计等方面有自己的见解。
+任职资格编辑
+1、大学本科学历以上；[2] 
+2、2年以上web前端开发经验,有一定的美术功底和平面设计能力；
+3、精通各种Web前端技术（XHTML/XML/CSS/Javascript/Ajax等）；
+　　4、对Javascript面向对象编程具有深入的了解，熟悉Jquery等主流的Javascript库；
+　　5、对用户体验，交互设计等有深入的理解，对前端页面代码结构及前端交互性能有深入的理解；
+　　6、熟悉flashflax、html5+css3；
+　　7、熟悉会java编程优先优先。</p>
+
+<p>Check out the <a href="http://jekyllrb.com/docs/home">Jekyll docs</a> for more info on how to get the most out of Jekyll. File all bugs/feature requests at <a href="https://github.com/jekyll/jekyll">Jekyll’s GitHub repo</a>. If you have questions, you can ask them on <a href="https://talk.jekyllrb.com/">Jekyll Talk</a>.</p>
+
+
+	  </div>-->
+	
+	<!-- 分页条 -->
+	
+	<!---->
+	<script>
+		window.addEventListener("load",function(){
+			//var bgImgs=["../imgs/1.jpg"];
+			document.body.className="bodyBack";
+			var S1=null;
+			setInterval(function(){
+				var i=parseInt(Math.random()*17+1);
+				document.body.style.backgroundImage="url(../imgs/"+i+".jpg)";
+				//document.body.style.background="background:#fff url(../imgs/"+i+".jpg) no-repeat";无效
+				//console.log("background:#fff url(../imgs/"+i+".jpg) no-repeat");
+			},10000);
+		});
+	</script>
+</div>
+		  </div>
+		</div>
+		<!--右侧的所属标签分类-->
+		<div class="tabs">
+			<!--分类标签-->
+			<h3>分类标签(<a href="http://127.0.0.1:4000/allTabs.html">所有分类</a>)</h3>
+			
+			<span class="my-tabs"><a href="/showCategory.html?categoryName=Web前端">Web前端</a>(1)</span>
+			<!--</span>1</span>
+			<ul class="arc-list">
+				
+					<li>03/07/2016<a href="/web%E5%89%8D%E7%AB%AF/2016/07/03/Web-developer.html">Web前端开发简单介绍</a></li>
+				
+			</ul>-->
+			
+			<span class="my-tabs"><a href="/showCategory.html?categoryName=jekyll">jekyll</a>(1)</span>
+			<!--</span>1</span>
+			<ul class="arc-list">
+				
+					<li>03/07/2016<a href="/jekyll/update/2016/07/03/myself-test.html">如何在Github Pages搭建自己写的页面？</a></li>
+				
+			</ul>-->
+			
+			<span class="my-tabs"><a href="/showCategory.html?categoryName=update">update</a>(1)</span>
+			<!--</span>1</span>
+			<ul class="arc-list">
+				
+					<li>03/07/2016<a href="/jekyll/update/2016/07/03/myself-test.html">如何在Github Pages搭建自己写的页面？</a></li>
+				
+			</ul>-->
+			
+		</div>
+	</div>
+	<!--
+	<h4>分类列表</h4>  
+    <hr>  
+      
+    <li class="category_list_item"><a href="/showCategory.html?categoryName=Web前端">Web前端</a> (1)  
+    </li>  
+      
+    <li class="category_list_item"><a href="/showCategory.html?categoryName=jekyll">jekyll</a> (1)  
+    </li>  
+      
+    <li class="category_list_item"><a href="/showCategory.html?categoryName=update">update</a> (1)  
+    </li>  
+      
+	-->
+		<footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">ManixChen</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li>ManixChen</li>
+          <li><a href="mailto:18064266867@163.com">18064266867@163.com</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-2">
+        <ul class="social-media-list">
+          
+          <li>
+            <a href="https://github.com/ManixChen"><span class="icon icon--github"><svg viewBox="0 0 16 16"><path fill="#828282" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/></svg>
+</span><span class="username">ManixChen</span></a>
+
+          </li>
+          
+
+          
+          <li>
+            <a href="https://twitter.com/陈明安"><span class="icon icon--twitter"><svg viewBox="0 0 16 16"><path fill="#828282" d="M15.969,3.058c-0.586,0.26-1.217,0.436-1.878,0.515c0.675-0.405,1.194-1.045,1.438-1.809c-0.632,0.375-1.332,0.647-2.076,0.793c-0.596-0.636-1.446-1.033-2.387-1.033c-1.806,0-3.27,1.464-3.27,3.27 c0,0.256,0.029,0.506,0.085,0.745C5.163,5.404,2.753,4.102,1.14,2.124C0.859,2.607,0.698,3.168,0.698,3.767 c0,1.134,0.577,2.135,1.455,2.722C1.616,6.472,1.112,6.325,0.671,6.08c0,0.014,0,0.027,0,0.041c0,1.584,1.127,2.906,2.623,3.206 C3.02,9.402,2.731,9.442,2.433,9.442c-0.211,0-0.416-0.021-0.615-0.059c0.416,1.299,1.624,2.245,3.055,2.271 c-1.119,0.877-2.529,1.4-4.061,1.4c-0.264,0-0.524-0.015-0.78-0.046c1.447,0.928,3.166,1.469,5.013,1.469 c6.015,0,9.304-4.983,9.304-9.304c0-0.142-0.003-0.283-0.009-0.423C14.976,4.29,15.531,3.714,15.969,3.058z"/></svg>
+</span><span class="username">陈明安</span></a>
+
+          </li>
+          
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-3">
+        <p>专注于Web方向开发,让我们一起打开中国的IT大门，一起创造大家向往的It新纪元...
+</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>

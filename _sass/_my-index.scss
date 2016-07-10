@@ -1,0 +1,58 @@
+﻿/*新增样式文件*/
+.bodyBack{
+	background:#fff url("../imgs/3.jpg") no-repeat;
+	background-size:100%;/**/
+}
+/*主体部分容器*/
+.container{
+	width:100%;
+	overflow:hidden;
+	/*background-color:lightblue;*/
+}
+.container:before{
+	content:" ";
+	display:block;
+	height:0;
+	visibility:hidden;
+}
+/*左侧的文章导航，右侧的标签介绍*/
+.page-content,.tabs{
+	/*display:inline-block;*/
+	float:left;
+}
+/*左侧的文章导航*/
+.page-content{
+	width:75%;
+}
+/*右侧的标签介绍*/
+.tabs{
+	width:25%;
+}
+.my-tabs{
+		display:inline-block;
+		height:auto;
+		line-height:50px;
+		font-size:14px;
+		width :auto;
+		padding:0 8px;
+		margin:15px 10px 0 0;
+		background-color:$green-color;
+}
+.my-tabs:hover{
+	background-color:$yellow-color;
+}
+
+/*尾部样式*/
+.site-footer .wrapper{
+	width:80%;
+}
+.site-footer .wrapper{
+		width:80%;
+	}
+	
+	
+@meida screen and (max-width:500px){
+	.site-footer .wrapper{
+		width:100%;
+	}
+}
