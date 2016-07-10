@@ -25,7 +25,8 @@
 
 
   <body>
-		<!----><header class="site-header">
+		<!---->
+		<header class="site-header">
 
   <div class="wrapper">
 
@@ -180,6 +181,19 @@
 	</div>
 	
 	<!---->
+	<script>
+		window.addEventListener("load",function(){
+			//var bgImgs=["../imgs/1.jpg"];
+			document.body.className="bodyBack";
+			var S1=null;
+			setInterval(function(){
+				var i=parseInt(Math.random()*17+1);
+				document.body.style.backgroundImage="url(../imgs/"+i+".jpg)";
+				//document.body.style.background="background:#fff url(../imgs/"+i+".jpg) no-repeat";无效
+				//console.log("background:#fff url(../imgs/"+i+".jpg) no-repeat");
+			},10000);
+		});
+	</script>
 </div>
 		  </div>
 		</div>

@@ -181,7 +181,7 @@ pre > code { border: 0; padding-right: 0; padding-left: 0; }
 .highlight .il { color: #099; }
 
 /*新增样式文件*/
-body { background: #9898FF url("../imgs/3.jpg") no-repeat; background-size: 100%; }
+.bodyBack { background: #fff url("../imgs/3.jpg") no-repeat; background-size: 100%; /**/ }
 
 /*主体部分容器*/
 .container { width: 100%; overflow: hidden; /*background-color:lightblue;*/ }
