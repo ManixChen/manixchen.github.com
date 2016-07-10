@@ -41,6 +41,13 @@ layout: default
 	<!---->
 	<script>
 		window.addEventListener("load",function(){
+			setTimeout(function(){
+				var date=document.getElementsByClass("date");
+				for(var i=0;i<date.length;i++){
+					date[i].innerHTML=date[i].innerHTML.slice(0,-5);
+				}
+				
+			},1000);
 			//var bgImgs=["../imgs/1.jpg"];
 			document.body.className="bodyBack";
 			var S1=null;
