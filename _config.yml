@@ -1,0 +1,48 @@
+permalink: /:year-:month-:day/:title/
+
+highlighter: rouge
+markdown: kramdown
+kramdown:
+input:  GFM
+syntax_highlighter: rouge
+
+
+paginate: 10
+paginate_path: ":num"
+baseurl: ""
+gems: [jekyll-paginate]
+
+
+defaults:
+  -
+    scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: post
+      styles : [highlight.css,post.css]
+      scripts : [post.js]
+
+
+
+title: "ManixChen"
+email: "18064266867@163.com"
+description: "ManixChen的个人技术博客（陈明安）"
+github_username:  "ManixChen"
+#搜索功能
+swiftype_searchId: "NPWtAox5cwrizmB19q9k"
+disqus_shortname: "manixchen"
+
+segment: https://segmentfault.com/u/manix
+qqContact: http://wpa.qq.com/msgrd?v=3&uin=1183108660&site=qq&menu=yes
+qqSpace: http://user.qzone.qq.com/1183108660
+
+
+
+
+url: "https://manixchen.github.io/"
+imgrepo: "https://manixchen.github.io/static/img"
+
+
+#url: "http://127.0.0.1:4000"
+#imgrepo: "http://127.0.0.1:4000/static/img"
