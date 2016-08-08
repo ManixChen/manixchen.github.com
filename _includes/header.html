@@ -13,17 +13,18 @@
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav">
                         {% if page.url == "/index.html" %}
-                        <li class="active">{% else %}
+                        <li class="active">
+                          {% else %}
                         <li>{% endif %}
-                        <a href="{{ site.baseurl | prepend: site.url }}/" class="word-keep"><span class="octicon octicon-book"></span></span>&nbsp;&nbsp;Blog</a>
+                          <a href="{{ site.baseurl | prepend: site.url }}/" class="word-keep"><span class="octicon octicon-book"></span></span>&nbsp;&nbsp;Blog</a>
                         </li>
                         {% for p in site.pages %}{% if p.isNavItem %}
-                        {% if p.url == page.url %}
-                        <li class="active">{% else %}
-                        <li>{% endif %}
-                            <a href="{{ p.url | prepend: site.baseurl | prepend: site.url }}" class="word-keep"><span class="octicon {{ p.icon }}"></span>&nbsp;&nbsp;{{ p.title }}</a>
-                        </li>
-                        {% endif %}
+                          {% if p.url == page.url %}
+                          <li class="active">{% else %}
+                          <li>{% endif %}
+                              <a href="{{ p.url | prepend: site.baseurl | prepend: site.url }}" class="word-keep"><span class="octicon {{ p.icon }}"></span>&nbsp;&nbsp;{{ p.title }}</a>
+                          </li>
+                          {% endif %}
                         {% endfor %}
                         <li><a href="#stq=" class="search-button"><span class="octicon octicon-search"></span></a></li>
                     </ul>
