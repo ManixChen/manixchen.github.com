@@ -7,7 +7,7 @@
  */
 $(document).ready(function() {
 
-    console.log("欢迎访问manixchen的技术博客,官方网站http://www.chenmingan.com");
+    console.log("欢迎访问manixchen的技术博客");
 
     backToTop();
     search();
