@@ -1,9 +1,9 @@
-##[点我查看中文说明](https://github.com/dubuyuye/blog/blob/gh-pages/README_zh_CN.md)
+##[点我查看中文说明](https://manixchen.github.io/blob/master/README_zh_CN.md)
 
 # Blog Address
 
-<http://www.chenmignan.top/>
-
+<https://manixchen.github.io/>
+blob/master
 
 # Must Modify
 
