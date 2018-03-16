@@ -147,3 +147,8 @@ file：file是命令文件的名字,表示将file做为crontab的任务列表文
 * 23-7/1 * * * /etc/init.d/smb restart　　晚上11点到早上7点之间，每隔一小时重启smb
 
 0 11 4 * mon-wed /etc/init.d/smb restart　　每月的4号与每周一到周三的11点重启smb
+
+
+
+. 来源，转载自
+https://www.cnblogs.com/xin-jun/p/7814068.html
