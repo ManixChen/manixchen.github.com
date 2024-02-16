@@ -1,4 +1,4 @@
-const { createApp, ref } = Vue
+const { createApp, ref,reactive } = Vue
 
 createApp({
   setup() {
@@ -8,10 +8,15 @@ createApp({
     function changeLoading(){ 
         setTimeout(()=>loading.value = false, 4000)
         
-    }
+    } 
+    const formInline = reactive({
+    search: '', 
+    date: '',
+    })
     return {
       message,
       loading,
+      formInline,
       changeLoading
     }
   }, 

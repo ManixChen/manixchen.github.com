@@ -1,4 +1,9 @@
- /* 默认等待6秒 */
+a,p,span{
+    text-decoration: none;
+    color: rgb(48, 45, 85);
+}
+.el-menu{background: transparent;}
+/* 默认等待6秒 */
  .loading-box {
      /* transition: all 1s;   */
      /* transition: width 1.5s ease, color 0.8s, transform 1s 0.5s ease-in-out;  */
@@ -168,13 +173,13 @@
      margin: 100px auto;
  }
 
- .spinner p {
+ .spinner p.loading-text {
      position: absolute;
      top: 110%;
      left: -100px;
      width: 350px;
-     color: #fff;
-     font-size: 16px;
+     color: #303030;
+     font-size: 20px;
      text-align: center;
  }
 
@@ -225,3 +230,128 @@
  }
 
 /* 导航样式 */
+/* body{ 
+--wp--preset--color--black: #000;
+--wp--preset--color--cyan-bluish-gray: #abb8c3;
+--wp--preset--color--white: #fff;
+--wp--preset--color--pale-pink: #f78da7;
+--wp--preset--color--vivid-red: #cf2e2e;
+--wp--preset--color--luminous-vivid-orange: #ff6900;
+--wp--preset--color--luminous-vivid-amber: #fcb900;
+--wp--preset--color--light-green-cyan: #7bdcb5;
+--wp--preset--color--vivid-green-cyan: #00d084;
+--wp--preset--color--pale-cyan-blue: #8ed1fc;
+--wp--preset--color--vivid-cyan-blue: #0693e3;
+--wp--preset--color--vivid-purple: #9b51e0;
+--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,#9b51e0 100%);
+--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,#7adcb4 0%,#00d082 100%);
+--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);
+--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,#cf2e2e 100%);
+--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,#eee 0%,#a9b8c3 100%);
+--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,#4aeadc 0%,#9778d1 20%,#cf2aba 40%,#ee2c82 60%,#fb6962 80%,#fef84c 100%);
+--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,#ffceec 0%,#9896f0 100%);
+--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,#fecda5 0%,#fe2d2d 50%,#6b003e 100%);
+--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,#ffcb70 0%,#c751c0 50%,#4158d0 100%);
+--wp--preset--gradient--pale-ocean: linear-gradient(135deg,#fff5cb 0%,#b6e3d4 50%,#33a7b5 100%);
+--wp--preset--gradient--electric-grass: linear-gradient(135deg,#caf880 0%,#71ce7e 100%);
+} */
+body{
+    background: linear-gradient(102.7deg, rgba(253, 218, 255,0.2) 8.2%, rgba(223, 173, 252,0.3) 19.6%,
+     rgba(173, 205, 252,0.5) 36.8%, rgba(173, 252, 244,0.5) 73.2%, rgba(202, 248, 208,0.5) 90.9%);
+
+}
+/* 文章排版 */
+.article-box-cloum{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+.article-box-cloum article {
+    display: block;
+    max-width: 90%;
+    padding: 20px;
+}
+.article-box .article-box-cloum:nth-child(odd) article{
+    background: radial-gradient(169px at -2.9% 12.9%, rgb(247, 234, 163) 0%, rgba(236, 180, 238, 0.56) 46.4%, rgb(163, 203, 247) 100.7%);
+
+}
+.article-box .article-box-cloum:nth-child(even) article{
+    background-image: linear-gradient(181.2deg, rgb(181, 239, 249) 10.5%, rgb(254, 254, 254) 86.8%);
+
+}
+
+.article-box-cloum article header img{
+    width: 80%;
+    /* height: 100%; */
+    border-radius: 8px; 
+    margin: 10px;
+}  
+.article-box-cloum article h1 a{ 
+    font-size: 26px;
+    margin-bottom: 0;
+} 
+
+.article-box-cloum .post-excerpt{
+    padding: 8px 0;
+    max-height: 150px;
+    overflow: hidden;
+    margin: 0; 
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: top;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+
+.article-box-cloum .article-tags{
+    border-bottom: 1px dashed #ccc;
+}
+
+.article-box-cloum .article-tags a{
+    margin: 2px 5px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 4px;
+    display: inline-block;
+}
+
+.article-box-cloum .article-tags .pull-right{
+    float: right;
+}
+.article-box-cloum .article-tags .pull-right .datetime{ 
+    display: inline-block;
+    cursor: default;
+    text-transform: lowercase;
+    margin-left: auto;
+    padding-left: 12px;
+}
+
+.article-box-cloum .footer{ 
+    padding: 15px 0;
+}
+
+.article-box-cloum footer a{  
+    display: inline-block;
+    color: #fff;
+    font-size: 16px;
+    padding: 7px 22px;
+    position: relative;
+    z-index: 2;
+    font-family: var(--epcl-font-family);
+    font-weight: 600;
+    border-radius: 8px;
+    background-color: var(--epcl-main-color);
+    letter-spacing: 0;
+    -webkit-transition: all .3s ease;
+    transition: all .3s ease;
+}
+ 
+.article-box-cloum footer a.readmore{
+    float: right;
+}
+ 

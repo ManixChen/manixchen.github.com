@@ -37,14 +37,14 @@
                   {% endif %}
                 {% endfor %}
                 
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                  </form>
-                </el-menu> 
-           </form>
-             
-        </div>
-        
-         
+                <el-form :model="formInline"  :inline="true" style="float: right;margin-right: 80px;"   label-width="120px">
+                    <el-form-item label="Activity search">
+                        <el-input v-model="formInline.search" placeholder="Approved by" clearable />  
+                    </el-form-item> 
+                    <el-form-item>
+                        <el-button type="default" >Search</el-button>
+                      </el-form-item>
+                  </el-form>
+           </form> 
+        </div> 
     </header>
