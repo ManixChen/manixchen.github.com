@@ -1,0 +1,227 @@
+ /* 默认等待6秒 */
+ .loading-box {
+     /* transition: all 1s;   */
+     /* transition: width 1.5s ease, color 0.8s, transform 1s 0.5s ease-in-out;  */
+     opacity: 1;
+     position: fixed;
+     z-index: 11;
+     height: 100%;
+     width: 100%;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     animation: colorswitch 6s 3;
+     -moz-animation: colorswitch 6s 3;
+     -webkit-animation: colorswitch 6s 3;
+     -o-animation: colorswitch 6s 3;
+     background: rgba(255, 100, 100, 0.6);
+ }
+
+ /* 加载完毕只等待三秒，飞出屏幕外 */
+ .loading-box.loaded {
+    transform: translateX(-150%);
+    transition: transform 3s ease;
+ } 
+
+ @keyframes colorswitch {
+     0% {
+         background: rgba(255, 100, 100, 1)
+     }
+
+     16% {
+         background: rgba(59, 255, 227, 1)
+     }
+
+     32% {
+         background: rgba(213, 102, 255, 1);
+     }
+
+     49% {
+         background: rgba(255, 222, 126, 1)
+     }
+
+     65% {
+         background: rgba(44, 211, 137, 1);
+     }
+
+     81% {
+         background: rgba(rgb(154, 213, 255), 1)
+     }
+
+     100% {
+         background: rgba(255, 100, 100, 0.8);
+         left: -1000px;
+     }
+ }
+
+ /* Firefox */
+ @-moz-keyframes colorswitch {
+
+     0% {
+         background: rgba(255, 100, 100, 1)
+     }
+
+     16% {
+         background: rgba(59, 255, 227, 1)
+     }
+
+     32% {
+         background: rgba(213, 102, 255, 1);
+     }
+
+     49% {
+         background: rgba(255, 222, 126, 1)
+     }
+
+     65% {
+         background: rgba(44, 211, 137, 1);
+     }
+
+     81% {
+         background: rgba(rgb(154, 213, 255), 1)
+     }
+
+     100% {
+         background: rgba(255, 100, 100, 0.8);
+         left: -1000px;
+     }
+ }
+
+ /* Safari and Chrome */
+ @-webkit-keyframes colorswitch {
+
+     0% {
+         background: rgba(255, 100, 100, 1)
+     }
+
+     16% {
+         background: rgba(59, 255, 227, 1)
+     }
+
+     32% {
+         background: rgba(213, 102, 255, 1);
+     }
+
+     49% {
+         background: rgba(255, 222, 126, 1)
+     }
+
+     65% {
+         background: rgba(44, 211, 137, 1);
+     }
+
+     81% {
+         background: rgba(rgb(154, 213, 255), 1)
+     }
+
+     100% {
+         background: rgba(255, 100, 100, 0.8);
+         left: -1000px;
+     }
+ }
+
+ /* Opera */
+ @-o-keyframes colorswitch {
+
+     0% {
+         background: rgba(255, 100, 100, 1)
+     }
+
+     16% {
+         background: rgba(59, 255, 227, 1)
+     }
+
+     32% {
+         background: rgba(213, 102, 255, 1);
+     }
+
+     49% {
+         background: rgba(255, 222, 126, 1)
+     }
+
+     65% {
+         background: rgba(44, 211, 137, 1);
+     }
+
+     81% {
+         background: rgba(rgb(154, 213, 255), 1)
+     }
+
+     100% {
+         background: rgba(255, 100, 100, 0.8);
+         left: -1000px;
+     }
+ }
+
+
+
+
+
+
+
+
+ /* 中心动画 */
+ .spinner {
+     width: 160px;
+     height: 160px;
+     position: relative;
+     margin: 100px auto;
+ }
+
+ .spinner p {
+     position: absolute;
+     top: 110%;
+     left: -100px;
+     width: 350px;
+     color: #fff;
+     font-size: 16px;
+     text-align: center;
+ }
+
+ .double-bounce1,
+ .double-bounce2 {
+     width: 100%;
+     height: 100%;
+     border-radius: 50%;
+     background-color: #333;
+     opacity: 0.6;
+     position: absolute;
+     top: 0;
+     left: 0;
+
+     -webkit-animation: sk-bounce 2.0s infinite ease-in-out;
+     animation: sk-bounce 2.0s infinite ease-in-out;
+ }
+
+ .double-bounce2 {
+     -webkit-animation-delay: -1.0s;
+     animation-delay: -1.0s;
+ }
+
+ @-webkit-keyframes sk-bounce {
+
+     0%,
+     100% {
+         -webkit-transform: scale(0.0)
+     }
+
+     50% {
+         -webkit-transform: scale(1.0)
+     }
+ }
+
+ @keyframes sk-bounce {
+
+     0%,
+     100% {
+         transform: scale(0.0);
+         -webkit-transform: scale(0.0);
+     }
+
+     50% {
+         transform: scale(1.0);
+         -webkit-transform: scale(1.0);
+     }
+ }
+
+/* 导航样式 */

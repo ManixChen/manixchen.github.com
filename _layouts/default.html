@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+{% include head.html %}
+
+<body>
+<div id="app" >
+    <div class="loading-box"  :class="`${loading?'loading':'loaded'}`" v-loading="loading" :title="message" >
+        <div class="spinner">
+            <div class="double-bounce1"></div>
+            <div class="double-bounce2"></div>
+            <p>请稍等ManixChens Rudy jekyll 静态站
+                <br>
+                正在解析mkdown 过程中………………
+            </p>
+          </div> 
+    </div>
+{% include header.html %}
+
+<div class="main">
+    <div class="container">
+        {{ content }}
+    </div>
+    <div class="page-scrollTop" data-toggle="tooltip" data-placement="top" title="Top">
+        <a href="javascript:void(0);">
+            <div class="arrow"></div>
+            <div class="stick"></div>
+        </a>
+    </div>
+</div>
+
+{% include footer.html %}
+
+</body>
+</html>

@@ -1,0 +1,50 @@
+    
+    <header>
+        <div class="container">
+           <form action=""> 
+                <el-menu 
+                  class="el-menu-demo"
+                  mode="horizontal"
+                  :ellipsis="false" 
+                >
+                  <el-menu-item index="0">
+                    <a class="navbar-brand" href="{{ site.baseurl | prepend: site.url }}" title="{{ site.title }}">
+                        <img src="{{ site.baseurl | prepend: site.url }}/static/img/logo.png" alt=""> 
+                      </a>
+                  </el-menu-item> 
+                  {% if page.url == "/index.html" %}
+                  <el-menu-item index="1" class="nav-item  active">
+                    <a class="nav-link active" href="{{ site.baseurl | prepend: site.url }}/" class="nav-link">Blog</a>
+                    
+                  </el-menu-item> 
+                  {% else %}
+                  <el-menu-item class="nav-item "> 
+                      <a class="nav-link" href="{{ site.baseurl | prepend: site.url }}/" class="nav-link">Blog</a>
+                  </el-menu-item>
+                  {% endif %}
+                {% for p in site.pages %}
+                
+                  {% if p.isNavItem %}
+                      {% if p.url == page.url %}
+                          <el-menu-item class="nav-item active">
+                              <a class="nav-link active" href="{{ p.url | prepend: site.baseurl | prepend: site.url }}" class="nav-link"><span class="octicon {{ p.icon }}"></span>&nbsp;&nbsp;{{ p.title }}</a>
+                          </el-menu-item>
+                      {% else %}
+                          <el-menu-item class="nav-item">
+                              <a class="nav-link" href="{{ p.url | prepend: site.baseurl | prepend: site.url }}" class="nav-link"><span class="octicon {{ p.icon }}"></span>&nbsp;&nbsp;{{ p.title }}</a>
+                          </el-menu-item>
+                      {% endif %}
+                  {% endif %}
+                {% endfor %}
+                
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                  </form>
+                </el-menu> 
+           </form>
+             
+        </div>
+        
+         
+    </header>

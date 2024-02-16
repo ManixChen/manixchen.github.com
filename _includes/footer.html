@@ -1,0 +1,18 @@
+    <footer  class="footnote footnote-tiffany">
+        <div class="container">
+                <a class="foot-item" href="mailto:{{ site.email }}" target="_blank"><span class="octicon octicon-mail"></span></a>
+                <a class="foot-item" href="https://github.com/{{ site.github_username }}" target="_blank"><span class="octicon octicon-mark-github"></span></a>
+                <!-- <a class="foot-item" href="{{ '/feed.xml' | prepend: site.baseurl | prepend: site.url }}" target="_blank"><span class="octicon octicon-rss"></span></a> -->
+                <a class="foot-item" href="{{ '/link/' | prepend: site.baseurl | prepend: site.url }}">必</a>
+                &nbsp;
+                <a href="#"><span class="word-keep">&copy; ManixChen</span></a>
+        </div>
+    </footer> 
+</div>
+    <!-- <script src="{{'/static/js/jquery-3.7.1.min.js' | append:script | prepend:site.baseurl | prepend: site.url  }}" ></script>
+    <script src="{{'/static/js/bootstrap.min.js' | append:script | prepend:site.baseurl | prepend: site.url  }}" ></script> -->
+ 
+     <!-- <script type="text/javascript" src="{{'/static/js/script.js' | prepend:site.baseurl | prepend: site.url  }}"></script> -->
+    {% for script in page.scripts %}
+    <script type="text/javascript" src="{{'/static/js/' | append:script | prepend:site.baseurl | prepend: site.url  }}"></script>
+    {%endfor%} 
