@@ -37,7 +37,7 @@
                   {% endif %}
                 {% endfor %}
                 
-                <el-form :model="formInline"  :inline="true" style="float: right;margin-right: 80px;"   label-width="120px">
+                <el-form style="display: none;" :model="formInline"  :inline="true" style="float: right;margin-right: 80px;"   label-width="120px">
                     <el-form-item label="Activity search">
                         <el-input v-model="formInline.search" placeholder="Approved by" clearable />  
                     </el-form-item> 

@@ -27,8 +27,8 @@ defaults:
 
 
 title: "ManixChen"
-email: "18064266867@163.com"
-description: "ManixChen的个人技术博客（陈明安）"
+email: "manixchensunshine@163.com"
+description: "ManixChen的个人技术博客,此博客采用VUE3+elementPlus+ jeklly markdown构建，仅供github个人主页使用"
 github_username:  "ManixChen"
 #搜索功能
 swiftype_searchId: "NPWtAox5cwrizmB19q9k"
