@@ -311,6 +311,8 @@ ul,li{
     color: #e5e5e5;
   }
 
+
+  /* 技术栈 */
   .category-tab-box .article-tags{
     margin: 15px 0;
     display: block;
@@ -344,4 +346,13 @@ ul,li{
         display: inline-block;
         max-width: 48%;
     }
+  }
+
+
+  /* 技术中心 */
+  .tab-box-container .post-excerpt{
+     height: auto;
+  }
+  .article-box .article-intro-head{
+    padding-left: 50px;
   }
