@@ -1,0 +1,1723 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ManixChen</title>
+    <description>ManixChen的个人技术博客,此博客采用VUE3+elementPlus+ jeklly markdown构建，仅供github个人主页使用</description>
+    <link>http://localhost:4000/</link>
+    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Sun, 18 Feb 2024 04:38:21 +0800</pubDate>
+    <lastBuildDate>Sun, 18 Feb 2024 04:38:21 +0800</lastBuildDate>
+    <generator>Jekyll v4.3.3</generator>
+    
+      <item>
+        <title>github工作流All workflows</title>
+        <description>&lt;ol&gt;
+  &lt;li&gt;确实方便，github自带的All workflows编译
+    &lt;ul&gt;
+      &lt;li&gt;可以多种配置&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+</description>
+        <pubDate>Sun, 18 Feb 2024 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2024-02-18/github/</link>
+        <guid isPermaLink="true">http://localhost:4000/2024-02-18/github/</guid>
+        
+        <category>github</category>
+        
+        <category>Allworkflows</category>
+        
+        
+        <category>AllWorkflows</category>
+        
+      </item>
+    
+      <item>
+        <title>markdown自动生成github博客</title>
+        <description>&lt;ol&gt;
+  &lt;li&gt;&lt;b&gt; 为什么我要用这么不知名的语言写这个系统&lt;/b&gt;
+    &lt;ul&gt;
+      &lt;li&gt;好奇心驱使，热爱新鲜技术，希望避免重复性劳动&lt;/li&gt;
+      &lt;li&gt;复用率高，每天写写markdown日记便可以同步到github&lt;/li&gt;
+      &lt;li&gt;学的东西都来自开源，总的回馈点什么&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-起因&quot;&gt;  其实都知道github是我们很常用的一个仓库
+. 很多人在上面贡献了大量的优秀项目
+其中的大神也是层出不穷
+谁人不想拥有自己的开源项目，就像尤玉溪一样，当然就是VUE的提出者兼实施者，MVVM框架的创造大佬一样
+言归正传，在我刚大学毕业那会就一直研究怎么不花钱就去搭建博客，那时候还花钱备案去域名备案中心备案，后面接触了github这个平台
+是真的挺好用的，个人用于记录项目并回滚是相当方便的
+
+github既然这么方便，但是大家有没有想过，为什么github个人主页不能进行个性化定制呢，其实不然，giithub是提供了几种定制方法的
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;方法&quot;&gt;方法&lt;/h3&gt;
+&lt;p&gt;今天我使用的便是 ruby jekyll vue3 elementplus 来重构N年前的 jquery  bootstrap 方案
+有兴趣的自行下载，您现在看到的项目便是使用最新的vue3实现的&lt;/p&gt;
+
+&lt;p&gt;###操作&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;安装ruby：
+    &lt;ul&gt;
+      &lt;li&gt;配置淘宝镜像，自行百度，我就不重复性劳动&lt;/li&gt;
+      &lt;li&gt;安装gem
+        &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  ryby安装以及插件 
+  gem sources --add https://gems.ruby-china.com/ --remove https://rubygems.org/ 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;        &lt;/div&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;安装jekyll：&lt;a href=&quot;http://jekyllcn.com/&quot;&gt;官网&lt;/a&gt;
+    &lt;ul&gt;
+      &lt;li&gt;自行百度 使用gem即可
+ ```&lt;br /&gt;
+  gem install jekyll
+  gem install jekyll-paginate –platform=ruby&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; - 创建jekyll项目按照官网很简单，或者直接clone我的项目也可以很快上手
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;     gem install jekyll bundler 
+     jekyll new my-awesome-site 
+     cd my-awesome-site 
+     bundle install 
+     bundle exec jekyll serve
+     # =&amp;gt; 打开浏览器 http://localhost:4000  ```  - 自定义域名  ```  不想再与主机服务商打交道？GitHub Pages 基于 Jekyll 构建，你可以轻而易举地在 GitHub 上免费发布网站——自定义域名等等。
+
+ 进一步了解  [使用GitHub Pages](https://pages.github.com/)
+    
+ GitHub Pages是一个通过GitHub托管和发布网页的服务，官方文档：https://docs.github.com/en/pages。本文使用GitHub Pages部署个人博客网站。
+
+ 每个GitHub用户可以创建一个用户级网站，仓库名为&amp;lt;username&amp;gt;.github.io，发布地址为 https://&amp;lt;username&amp;gt;.github.io。GitHub Pages支持自定义域名，参考文档About custom domains and GitHub Pages。
+
+ 在部署之前，检查_config.yml中的url是否正确配置为上述发布地址（或者自定义域名）。   ```  [参考花裤衩知名git主](https://www.jianshu.com/p/9f71e260925d)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;需要进行配置编译和本地一样即可这样可以做到上传后更新&quot;&gt;需要进行配置编译，和本地一样即可，这样可以做到上传后更新&lt;/h3&gt;
+&lt;p&gt;之后在GitHub上打开仓库设置，点击左侧导航栏 “Pages”，在 “Build and deployment” - “Source” 下拉列表选择 &lt;img src=&quot;/static/img/git/develop/2024-02-17_133214.png&quot; alt=&quot;“GitHub Actions”&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;###细节
+1、 配种网站访问地址哦。可以不修改
+    ```    url: “https://manixchen.github.io/”
+        # imgrepo: “https://manixchen.github.io/static/img” //使用自己的git仓库路径即可，这个地方适应动态的好处是后期只用修改配置文件即可，kekyll页面中使用模板语法即可
+          &lt;img src=&quot;http://127.0.0.1:4000/static/img/clock.webp&quot; alt=&quot;Picture&quot; /&gt;
+        其实就是模板语法，有没有感觉和vue如此类似，其实大概差不多吧所有如果你需要和我一样引用vue的话，需要修改vue的模板引擎，不然前端没法解析模板语法，有所冲突&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    #https://manixchen.github.io/
+
+    # url: &quot;http://127.0.0.1:4000&quot;
+    imgrepo: &quot;http://127.0.0.1:4000/static/img&quot;
+```
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;2、 vue模板语法和它冲突解决办法，修改vue的解析规则
+    1. 参考(我是直接提取了公共JS文件)其实引用VUE和element后基本不需要操作dom，所有一个统一配置差不多了，主要是项目简单功能少，不然还是得遵从路由准则
+    ```
+    const { createApp, ref,reactive } = Vue&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;createApp({
+setup() {
+    const message = ref(&apos;Hello Vue!&apos;)
+    const loading = ref(true) 
+    // 改变加载状态
+    function changeLoading(){ 
+        setTimeout(()=&amp;gt;loading.value = false, 4000)
+        
+    } 
+    const formInline = reactive({
+    search: &apos;&apos;, 
+    date: &apos;&apos;,
+    })
+    return {
+    message,
+    loading,
+    formInline,
+    changeLoading
+    }
+}, 
+mounted() {  
+    Vue.nextTick(this.changeLoading)
+},
+delimiters:[&apos;[[[&apos;,&apos;]]]&apos;]//这里就是修改的模板解析规则
+//   delimiters:[&apos;${&apos;,&apos;}&apos;]
+}).use(ElementPlus).mount(&apos;#app&apos;); 
+
+
+前端使用分两个情况
+1、作为属性和类这些尽量统一，不然看记混了
+&amp;lt;div class=&quot;loading-box&quot;  :class=&quot;`${loading?&apos;loading&apos;:&apos;loaded&apos;}`&quot;               v-loading=&quot;loading&quot; :title=&quot;message&quot; &amp;gt;
+   
+&amp;lt;/div&amp;gt;
+
+2、作为model层的动态监听数据使用新定义规则
+ &amp;lt;div class=&quot;spinner&quot;&amp;gt;
+        &amp;lt;div class=&quot;double-bounce1&quot;&amp;gt;&amp;lt;/div&amp;gt;
+        &amp;lt;div class=&quot;double-bounce2&quot;&amp;gt;&amp;lt;/div&amp;gt;
+        &amp;lt;p class=&quot;loading-text&quot;&amp;gt;
+            [[[message]]]
+        &amp;lt;/p&amp;gt;
+      &amp;lt;/div&amp;gt; 
+```
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+</description>
+        <pubDate>Sat, 17 Feb 2024 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2024-02-17/jekyllweb/</link>
+        <guid isPermaLink="true">http://localhost:4000/2024-02-17/jekyllweb/</guid>
+        
+        <category>jekyll</category>
+        
+        <category>vue3</category>
+        
+        <category>elementplus</category>
+        
+        
+        <category>web建站</category>
+        
+      </item>
+    
+      <item>
+        <title>php定时任务</title>
+        <description>&lt;h3 id=&quot;打包完整示例&quot;&gt;打包完整示例&lt;/h3&gt;
+
+&lt;p&gt;crontab（定时任务）&lt;/p&gt;
+
+&lt;p&gt;查看crontab配置文件&lt;/p&gt;
+
+&lt;p&gt;vi /etc/crontab&lt;/p&gt;
+
+&lt;p&gt;#SHELL变量指定了系统要使用哪个shell
+SHELL=/bin/bash
+#第二行PATH变量指定了系统执行命令的路径
+PATH=/sbin:/bin:/usr/sbin:/usr/bin
+#第三行MAILTO变量指定了crond的任务执行信息将通过电子邮件发送给root用户，如果MAILTO变量的值为空，则表示不发送任务执行信息给用户
+MAILTO=
+#第四行的HOME变量指定了在执行命令或者脚本时使用的主目录
+HOME=/&lt;/p&gt;
+
+&lt;h1 id=&quot;for-details-see-man-4-crontabs&quot;&gt;For details see man 4 crontabs&lt;/h1&gt;
+
+&lt;h1 id=&quot;example-of-job-definition&quot;&gt;Example of job definition:&lt;/h1&gt;
+&lt;h1 id=&quot;--minute-0---59&quot;&gt;.—————- minute (0 - 59)&lt;/h1&gt;
+&lt;h1 id=&quot;---hour-0---23&quot;&gt;| .————- hour (0 - 23)&lt;/h1&gt;
+&lt;h1 id=&quot;----day-of-month-1---31&quot;&gt;| | .———- day of month (1 - 31)&lt;/h1&gt;
+&lt;h1 id=&quot;-----month-1---12-or-janfebmarapr-&quot;&gt;| | | .——- month (1 - 12) OR jan,feb,mar,apr …&lt;/h1&gt;
+&lt;h1 id=&quot;------day-of-week-0---6-sunday0-or-7-or-sunmontuewedthufrisat&quot;&gt;| | | | .—- day of week (0 - 6) (Sunday=0 or 7) OR sun,mon,tue,wed,thu,fri,sat&lt;/h1&gt;
+&lt;h1 id=&quot;----&quot;&gt;| | | | |&lt;/h1&gt;
+&lt;h1 id=&quot;-----user-name-command-to-be-executed&quot;&gt;* * * * * user-name command to be executed&lt;/h1&gt;
+
+&lt;p&gt;用户任务调度：用户定期要执行的工作，比如用户数据备份、定时邮件提醒等。用户可以使用 crontab 工具来定制自己的计划任务。所有用户定义的crontab 文件都被保存在 /var/spool/cron目录中。其文件名与用户名一致。&lt;/p&gt;
+
+&lt;p&gt;minute   hour   day   month   week   command&lt;/p&gt;
+
+&lt;p&gt;其中：&lt;/p&gt;
+
+&lt;p&gt;minute： 表示分钟，可以是从0到59之间的任何整数。&lt;/p&gt;
+
+&lt;p&gt;hour：表示小时，可以是从0到23之间的任何整数。&lt;/p&gt;
+
+&lt;p&gt;day：表示日期，可以是从1到31之间的任何整数。&lt;/p&gt;
+
+&lt;p&gt;month：表示月份，可以是从1到12之间的任何整数。&lt;/p&gt;
+
+&lt;p&gt;week：表示星期几，可以是从0到7之间的任何整数，这里的0或7代表星期日。&lt;/p&gt;
+
+&lt;p&gt;command：要执行的命令，可以是系统命令，也可以是自己编写的脚本文件。&lt;/p&gt;
+
+&lt;p&gt;在以上各个字段中，还可以使用以下特殊字符：&lt;/p&gt;
+
+&lt;p&gt;星号（*）：代表所有可能的值，例如month字段如果是星号，则表示在满足其它字段的制约条件后每月都执行该命令操作。&lt;/p&gt;
+
+&lt;p&gt;逗号（,）：可以用逗号隔开的值指定一个列表范围，例如，“1,2,5,7,8,9”&lt;/p&gt;
+
+&lt;p&gt;中杠（-）：可以用整数之间的中杠表示一个整数范围，例如“2-6”表示“2,3,4,5,6”&lt;/p&gt;
+
+&lt;p&gt;正斜线（/）：可以用正斜线指定时间的间隔频率，例如“0-23/2”表示每两小时执行一次。同时正斜线可以和星号一起使用，例如*/10，如果用在minute字段，表示每十分钟执行一次。&lt;/p&gt;
+
+&lt;p&gt;crontab 服务&lt;/p&gt;
+
+&lt;p&gt;服务操作说明：&lt;/p&gt;
+
+&lt;p&gt;/sbin/service crond start //启动服务&lt;/p&gt;
+
+&lt;p&gt;/sbin/service crond stop //关闭服务&lt;/p&gt;
+
+&lt;p&gt;/sbin/service crond restart //重启服务&lt;/p&gt;
+
+&lt;p&gt;/sbin/service crond reload //重新载入配置&lt;/p&gt;
+
+&lt;p&gt;查看crontab服务状态：&lt;/p&gt;
+
+&lt;p&gt;service crond status&lt;/p&gt;
+
+&lt;p&gt;手动启动crontab服务：&lt;/p&gt;
+
+&lt;p&gt;service crond start&lt;/p&gt;
+
+&lt;p&gt;查看crontab服务是否已设置为开机启动，执行命令：&lt;/p&gt;
+
+&lt;p&gt;ntsysv&lt;/p&gt;
+
+&lt;p&gt;加入开机自动启动：&lt;/p&gt;
+
+&lt;p&gt;chkconfig –level 35 crond on&lt;/p&gt;
+
+&lt;p&gt;crontab命令详解&lt;/p&gt;
+
+&lt;p&gt;1．命令格式：&lt;/p&gt;
+
+&lt;p&gt;crontab [-u user] file&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;crontab [-u user] [ -e&lt;/td&gt;
+      &lt;td&gt;-l&lt;/td&gt;
+      &lt;td&gt;-r ]&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;2．命令功能：&lt;/p&gt;
+
+&lt;p&gt;通过crontab 命令，我们可以在固定的间隔时间执行指定的系统指令或 shell script脚本。时间间隔的单位可以是分钟、小时、日、月、周及以上的任意组合。这个命令非常设合周期性的日志分析或数据备份等工作。&lt;/p&gt;
+
+&lt;p&gt;3．命令参数：&lt;/p&gt;
+
+&lt;p&gt;-u user：用来设定某个用户的crontab服务，例如，“-u ixdba”表示设定ixdba用户的crontab服务，此参数一般有root用户来运行。&lt;/p&gt;
+
+&lt;p&gt;file：file是命令文件的名字,表示将file做为crontab的任务列表文件并载入crontab。如果在命令行中没有指定这个文件，crontab命令将接受标准输入（键盘）上键入的命令，并将它们载入crontab。&lt;/p&gt;
+
+&lt;p&gt;-e：编辑某个用户的crontab文件内容。如果不指定用户，则表示编辑当前用户的crontab文件。&lt;/p&gt;
+
+&lt;p&gt;-l：显示某个用户的crontab文件内容，如果不指定用户，则表示显示当前用户的crontab文件内容。&lt;/p&gt;
+
+&lt;p&gt;-r：从/var/spool/cron目录中删除某个用户的crontab文件，如果不指定用户，则默认删除当前用户的crontab文件。&lt;/p&gt;
+
+&lt;p&gt;-i：在删除用户的crontab文件时给确认提示。&lt;/p&gt;
+
+&lt;p&gt;实例&lt;/p&gt;
+
+&lt;p&gt;3,15 * * * * command    每小时的第3和第15分钟执行&lt;/p&gt;
+
+&lt;p&gt;3,15 8-11 * * * command  在上午8点到11点的第3和第15分钟执行&lt;/p&gt;
+
+&lt;p&gt;3,15 8-11 */2 * * command 每隔两天的上午8点到11点的第3和第15分钟执行&lt;/p&gt;
+
+&lt;p&gt;3,15 8-11 * * 1 command　　每个星期一的上午8点到11点的第3和第15分钟执行&lt;/p&gt;
+
+&lt;p&gt;30 21 * * * /etc/init.d/smb restart 　　每晚的21:30重启smb&lt;/p&gt;
+
+&lt;p&gt;45 4 1,10,22 * * /etc/init.d/smb restart　　每月1、10、22日的4 : 45重启smb&lt;/p&gt;
+
+&lt;p&gt;10 1 * * 6,0 /etc/init.d/smb restart　　每周六、周日的1 : 10重启smb&lt;/p&gt;
+
+&lt;p&gt;0,30 18-23 * * * /etc/init.d/smb restart　　每天18 : 00至23 : 00之间每隔30分钟重启smb&lt;/p&gt;
+
+&lt;p&gt;0 23 * * 6 /etc/init.d/smb restart　　每星期六的晚上11 : 00 pm重启smb&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;*/1 * * * /etc/init.d/smb restart　　每一小时重启smb&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;23-7/1 * * * /etc/init.d/smb restart　　晚上11点到早上7点之间，每隔一小时重启smb&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;0 11 4 * mon-wed /etc/init.d/smb restart　　每月的4号与每周一到周三的11点重启smb&lt;/p&gt;
+
+&lt;p&gt;. 来源，转载自
+https://www.cnblogs.com/xin-jun/p/7814068.html&lt;/p&gt;
+</description>
+        <pubDate>Thu, 15 Mar 2018 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2018-03-15/php-crontab/</link>
+        <guid isPermaLink="true">http://localhost:4000/2018-03-15/php-crontab/</guid>
+        
+        <category>php</category>
+        
+        <category>定时任务</category>
+        
+        
+        <category>php</category>
+        
+      </item>
+    
+      <item>
+        <title>InnoSet打包工具的使用</title>
+        <description>&lt;h3 id=&quot;打包完整示例&quot;&gt;打包完整示例&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;下载地址：
+上传后贴出&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+        <pubDate>Fri, 15 Sep 2017 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2017-09-15/InnoSetupPackage/</link>
+        <guid isPermaLink="true">http://localhost:4000/2017-09-15/InnoSetupPackage/</guid>
+        
+        <category>window</category>
+        
+        <category>打包</category>
+        
+        <category>整合</category>
+        
+        
+        <category>打包</category>
+        
+      </item>
+    
+      <item>
+        <title>前端常见功能模块封装</title>
+        <description>
+</description>
+        <pubDate>Mon, 04 Sep 2017 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2017-09-04/web_eniner_handhelp/</link>
+        <guid isPermaLink="true">http://localhost:4000/2017-09-04/web_eniner_handhelp/</guid>
+        
+        <category>web</category>
+        
+        <category>js</category>
+        
+        <category>html</category>
+        
+        <category>css</category>
+        
+        
+        <category>web_js</category>
+        
+      </item>
+    
+      <item>
+        <title>node npm环境变量以及npm默认保存路径</title>
+        <description>&lt;h2 id=&quot;i软件包&quot;&gt;I、软件包&lt;/h2&gt;
+&lt;p&gt;安装nodejs》
+路径：E:\nodejs&lt;/p&gt;
+
+&lt;p&gt;安装git》
+路径：E:\git&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;h3 id=&quot;1查看npm全局相关配置&quot;&gt;1、查看npm全局相关配置&lt;/h3&gt;
+&lt;p&gt;npm config ls&lt;/p&gt;
+
+&lt;h2 id=&quot;修改配置&quot;&gt;修改配置》&lt;/h2&gt;
+&lt;h3 id=&quot;2设置npm包安装位置&quot;&gt;2、设置npm包安装位置&lt;/h3&gt;
+&lt;p&gt;npm config set prefix “E:\AAHuanjing\nodejs\node_global”&lt;/p&gt;
+
+&lt;h3 id=&quot;npm缓存路径&quot;&gt;npm缓存路径&lt;/h3&gt;
+&lt;p&gt;npm config set cache “E:\AAHuanjing\nodejs\cache”&lt;/p&gt;
+
+&lt;h3 id=&quot;如图-&quot;&gt;如图 ：&lt;/h3&gt;
+&lt;p&gt;![npm全局设置][arg0 “npm 配置文件”]&lt;/p&gt;
+
+&lt;h3 id=&quot;环境变量配置&quot;&gt;环境变量配置!!!&lt;/h3&gt;
+
+&lt;p&gt;1  用户变量path中加上： E:\AAHuanjing\nodejs\node_global&lt;/p&gt;
+
+&lt;p&gt;2  系统变量path中加上： E:\nodejs\;E:\AAHuanjing\nodejs\node_global&lt;/p&gt;
+
+&lt;p&gt;3  系统变量加上：Node_path= E:\AAHuanjing\nodejs\node_global&lt;/p&gt;
+
+</description>
+        <pubDate>Mon, 04 Sep 2017 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2017-09-04/npmconfig/</link>
+        <guid isPermaLink="true">http://localhost:4000/2017-09-04/npmconfig/</guid>
+        
+        <category>node</category>
+        
+        <category>npm</category>
+        
+        <category>npmpackage环境包</category>
+        
+        
+        <category>node_npm</category>
+        
+      </item>
+    
+      <item>
+        <title>设计模式与原则</title>
+        <description>&lt;p&gt;设计模式的定义：在某情境下，针对某问题的某种解决方案。但是满足此定义的方案并不一定是设计模式，设计模式要求解决方案必须是可复用的。
+设计模式的作用大体上是：优化结构，消除依赖，将面向过程转为面向对象。按照功能，一般可以将设计模式分为&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;创建型&lt;/code&gt;，&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;行为型&lt;/code&gt;，&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;结构型&lt;/code&gt;三大类。
+本文将列举这些设计模式，并对每个设计模式进行简要描述，描述格式为：名称，定义，案例，适用性，结构，效果，应用，相关。&lt;/p&gt;
+
+&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#创建型&quot; id=&quot;markdown-toc-创建型&quot;&gt;创建型&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#单例模式&quot; id=&quot;markdown-toc-单例模式&quot;&gt;单例模式&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#工厂模式&quot; id=&quot;markdown-toc-工厂模式&quot;&gt;工厂模式&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#行为型&quot; id=&quot;markdown-toc-行为型&quot;&gt;行为型&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#策略模式&quot; id=&quot;markdown-toc-策略模式&quot;&gt;策略模式&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#模板方法&quot; id=&quot;markdown-toc-模板方法&quot;&gt;模板方法&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#状态模式&quot; id=&quot;markdown-toc-状态模式&quot;&gt;状态模式&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#命令模式&quot; id=&quot;markdown-toc-命令模式&quot;&gt;命令模式&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#观察者模式&quot; id=&quot;markdown-toc-观察者模式&quot;&gt;观察者模式&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#迭代器模式&quot; id=&quot;markdown-toc-迭代器模式&quot;&gt;迭代器模式&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#结构型&quot; id=&quot;markdown-toc-结构型&quot;&gt;结构型&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#装饰者模式&quot; id=&quot;markdown-toc-装饰者模式&quot;&gt;装饰者模式&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#适配器模式&quot; id=&quot;markdown-toc-适配器模式&quot;&gt;适配器模式&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#代理模式&quot; id=&quot;markdown-toc-代理模式&quot;&gt;代理模式&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#外观模式&quot; id=&quot;markdown-toc-外观模式&quot;&gt;外观模式&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#组合模式&quot; id=&quot;markdown-toc-组合模式&quot;&gt;组合模式&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;设计模式是工程师们从工作中总结出来的经验之谈，这些经验除了设计模式，还有一些设计原则，严格来讲，这些东西都是教条，它告诉我们只要按照规矩来，就不容易犯错。当遇到一特殊情况时，打破原则也没什么大不了的。&lt;/p&gt;
+
+&lt;p&gt;这些原则包括：&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;单一责任原则：一个类应该只有一个引起变化的原因。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;里氏替换原则：子类可以扩展父类的功能，但不能改变父类原有的功能。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;依赖倒置原则：高层模块不应该依赖低层模块，二者都应该依赖其抽象；抽象不应该依赖细节；细节应该依赖抽象。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;接口隔离原则：客户端不应该依赖它不需要的接口；一个类对另一个类的依赖应该建立在最小的接口上。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;最少知识原则：一个对象应该对其他对象保持最少的了解。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;开闭原则：一个软件实体如类、模块和函数应该对扩展开放，对修改关闭。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;以及一些叫不上名的原则：&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;找出应用中可能需要变化之处，把他们独立出来，不要和那些不需要变化的代码混在一起。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;针对接口编程，而不是针对实现编程。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;多用组合少用继承。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h1 id=&quot;创建型&quot;&gt;创建型&lt;/h1&gt;
+
+&lt;h2 id=&quot;单例模式&quot;&gt;单例模式&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;定义&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;确保一个类只有一个实例，并提供一个全局访问点。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;案例&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;需要对系统的注册表进行操作，如果同时存在多个注册表对象的话，将无法对并发访问或者临界值进行控制。&lt;/p&gt;
+
+&lt;p&gt;建立一个注册表获取类，从其静态方法中获取注册表对象，单例采用双重检查法创建。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;适用性&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;当对象的操作目标是当前环境中的唯一资源时&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;结构&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://my.csdn.net/uploads/201204/26/1335439688_4086.jpg&quot; alt=&quot;Singleton&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;效果&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;将可以进行并发访问控制&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;应用&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Runtime&lt;/p&gt;
+
+&lt;p&gt;NumberFormat&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;相关&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;简单工厂&lt;/p&gt;
+
+&lt;h2 id=&quot;工厂模式&quot;&gt;工厂模式&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;分类&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;工厂方法，抽象工厂，（简单工厂算工厂方法的特例）&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;定义&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;工厂方法：定义了一个创建对象的接口，但由子类决定需要实例化的类是哪一个。工厂方法将类的实例化推迟到子类。&lt;/p&gt;
+
+&lt;p&gt;抽象工厂：定义一个接口，用于创建相关或依赖对象的家族，而不用明确指定具体的类。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;案例&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;现有系统需要获取一组批萨饼的调料，但是同样的调料在不同的地点会有不同，如海边的海鲜是新鲜的，而内地的海鲜是冷冻的，为了方便扩展，获取的调料不能依赖具体的地点。&lt;/p&gt;
+
+&lt;p&gt;解决方案：将获取调料的地点抽象，由运行时的具体地点生成一组调料。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;适用性&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;当需要依赖运行时上下文来决定生成的产品家族时使用抽象工厂&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;区别&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;工厂方法：一个抽象产品，可以派生出多种具体产品；一个抽象工厂类，可以派生出多个具体工厂。&lt;/p&gt;
+
+&lt;p&gt;抽象工厂：多个抽象产品类，每个抽象产品类可以派生出多个具体产品类。一个抽象工厂类，可以派生出多个具体工厂类。每个具体工厂类可以创建多个具体产品类的实例。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;结构&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;工厂方法&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://hi.csdn.net/attachment/201203/15/0_1331817716F3IJ.gif&quot; alt=&quot;fatocymethod&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;抽象工厂&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://my.csdn.net/uploads/201204/25/1335357105_2682.jpg&quot; alt=&quot;absfactory&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;效果&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;能轻松方便地构造对象实例，而不必关心构造对象实例的细节和依赖条件。&lt;/p&gt;
+
+&lt;p&gt;类数量暴增&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;应用&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;基本装箱类&lt;/p&gt;
+
+&lt;p&gt;Collection的iterator()&lt;/p&gt;
+
+&lt;p&gt;log4j&lt;/p&gt;
+
+&lt;h1 id=&quot;行为型&quot;&gt;行为型&lt;/h1&gt;
+
+&lt;h2 id=&quot;策略模式&quot;&gt;策略模式&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;定义&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;定义了算法家族，分别封装起来，让他们之间可以相互替换，此模式让算法的变化独立于使用算法的客户。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;案例&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;存在一个模拟鸭子的程序，现在需要为其增加飞翔的功能，在鸭子的抽象类上增加&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;fly()&lt;/code&gt;方法后，飞翔能力将传播到所有的子类中。但是，本不应该会飞的 “模型鸭” 也继承了飞翔能力，如果将飞翔能力抽象为 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Flayable&lt;/code&gt;接口，那么随着程序的扩展，那么所有子类都必须重新实现fly()方法，如此一来将出现大量的重复代码，如果已经现存很多扩展类，修改这些类也是很大的工作量。&lt;/p&gt;
+
+&lt;p&gt;此时的解决方案是：将飞翔行为抽象，并提供几个通用实现，将鸭子的飞翔委托给飞翔行为，在抽象类中增加set方法注册委托，这样的改动不会影响现有的结构。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;适用性&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;当类的某个行为随着扩展不断发生变化，而且这种变化只有有限的几种时。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;结构&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://my.csdn.net/uploads/201205/11/1336732187_4598.jpg&quot; alt=&quot;Strategy&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;效果&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;积极：&lt;/p&gt;
+
+&lt;p&gt;1.类与行为可以分别扩展，而且扩展类可以自由设置行为，甚至在运行时改变。&lt;/p&gt;
+
+&lt;p&gt;2.类预置了多个算法，需要要判断调用时上下文从而选择不同算法。策略模式可以消除代码中的 if lese 将选择权交给客户&lt;/p&gt;
+
+&lt;p&gt;消极:&lt;/p&gt;
+
+&lt;p&gt;1.客户端必须知道所有的策略类，并自行决定使用哪一个策略类
+2.策略模式将造成产生很多策略类，可以通过使用享元模式在一定程度上减少对象的数量。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;应用&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ThreadPoolExecutor&lt;/code&gt;中的&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;RejectedExecutionHandler&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SpringSecurity&lt;/code&gt;中的&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;AccessDecisionManager&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;相关&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;模板方法模式&lt;/p&gt;
+
+&lt;p&gt;命令模式&lt;/p&gt;
+
+&lt;p&gt;状态模式&lt;/p&gt;
+
+&lt;h2 id=&quot;模板方法&quot;&gt;模板方法&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;定义&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;在一个方法中一定一个算法的骨架，而将某些步骤延迟到子类中。模板方法使得子类可以在不改变算法结构的情况下，重新定义算法中的某些步骤。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;案例&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;现有一个冲泡饮料的算法，泡咖啡和泡茶的步骤基本相同，但是在加调料的这一步有所区别，如何在不需要重写整个冲泡过程的前提下扩展？&lt;/p&gt;
+
+&lt;p&gt;解决方案：将冲泡过程中的放调料步骤抽象出来做成hook，待具体的实现者来补全算法，而不必重写整个冲泡过程。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;适用性&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;当算法的整体骨架可被复用，只有其中某个步骤可变时&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;结构&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://my.csdn.net/uploads/201205/14/1336965093_1048.jpg&quot; alt=&quot;templatemethod&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;效果&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;复用算法骨架&lt;/p&gt;
+
+&lt;p&gt;算法可变步骤中的每一个特例都要为其创建一个新类&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;应用&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Collections.sort&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;相关&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;与策略模式不同，策略模式定义一个算法家族，算法可以互换，而模板方法定义一个算法大纲，其中个别的步骤可以有不同实现。&lt;/p&gt;
+
+&lt;h2 id=&quot;状态模式&quot;&gt;状态模式&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;定义&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;允许对象内部状态改变时改变它的行为，对象看起来好像修改了它的类。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;案例&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;需要模拟一个自动售货机程序，如果没有投币则只能投币；如果已投币则不能再投币，可以选择退币或者出货；选择出货后如果有货则出货并结束，如果断货则提示断货。&lt;/p&gt;
+
+&lt;p&gt;可以用大量的 if else 将如上描述写成过程话的判断语句以完成功能，然而现在需要增加一个功能，有十分之一的几率双倍出货。这样一来就需要在每个动作方法内判断当前操作者是不是幸运儿。&lt;/p&gt;
+
+&lt;p&gt;解决方案：将状态封装成独立的类，并将动作委托到代表当前状态的对象。省去了类中冗长的状态判断。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;适用性&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;行为因为上下文的不同而需要随之变化&lt;/p&gt;
+
+&lt;p&gt;代码中包含大量与对象状态有关的条件语句:一个操作中含有庞大的多分支的条件（if else(或switch case)语句，且这些分支依赖于该对象的状态。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;结构&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://my.csdn.net/uploads/201205/11/1336719144_5496.jpg&quot; alt=&quot;state&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;效果&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;它将与特定状态相关的行为局部化，并且将不同状态的行为分割开来&lt;/p&gt;
+
+&lt;p&gt;它使得状态转换显式化&lt;/p&gt;
+
+&lt;p&gt;状态对象可被共享&lt;/p&gt;
+
+&lt;p&gt;状态模式的使用必然会增加系统类和对象的个数。&lt;/p&gt;
+
+&lt;p&gt;状态模式的结构与实现都较为复杂，如果使用不当将导致程序结构和代码的混乱。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;应用&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;java.util.Iterator&lt;/p&gt;
+
+&lt;p&gt;动作游戏连招&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;相关&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;是策略模式的增强版，区别在于意图，策略模式虽然也可以在运行时改变行为，但是策略模式通常有一个最适合的策略对象；而状态模式需要在多个状态对象中游走，没有所谓的最适合状态。&lt;/p&gt;
+
+&lt;h2 id=&quot;命令模式&quot;&gt;命令模式&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;定义&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;将请求封装成对象，以便使用不同请求，队列或日志来参数化其他对象，命令模式也支持可撤销的操作。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;案例&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;通用遥控器，当目标为电视时，上下键可以是换台，调整音量；当目标为空调时，上下键可以是调温或者调整定时；而且可以方便地扩展以兼容不同电器。&lt;/p&gt;
+
+&lt;p&gt;解决方案，将遥控器与电器接偶，将遥控器每个按钮抽象为一个命令，由使用者提供命令，遥控器呼叫此命令，由命令自身呼叫真实目标。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;适用性&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;当请求的真实目标不明确，或者对请求进行不明确的处理时(如队列，宏命令，日志记录等)。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;结构&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://my.csdn.net/uploads/201205/09/1336547877_9980.jpg&quot; alt=&quot;cmd&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;效果&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;积极的：&lt;/p&gt;
+
+&lt;p&gt;降低系统的耦合度:Command模式将调用操作的对象与知道如何实现该操作的对象解耦。&lt;/p&gt;
+
+&lt;p&gt;组合命令:你可将多个命令装配成一个组合命令，即可以比较容易地设计一个命令队列和宏命令。一般说来，组合命令是Composite模式的一个实例。&lt;/p&gt;
+
+&lt;p&gt;增加新的Command很容易，因为这无需改变已有的类。&lt;/p&gt;
+
+&lt;p&gt;可以方便地实现对请求的Undo和Redo。用栈存储操作序列，可以实现多层次撤销。&lt;/p&gt;
+
+&lt;p&gt;消极的：&lt;/p&gt;
+
+&lt;p&gt;导致某些系统有过多的具体命令类&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;应用&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;java.lang.Runnable&lt;/p&gt;
+
+&lt;p&gt;javax.swing.Action&lt;/p&gt;
+
+&lt;p&gt;游戏中的自定义键位&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;相关&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;策略模式聚焦的是对相同请求更换解决方案的灵活性；而命令模式聚焦的是对多请求变化的封装以及对相同请求不同的请求形式解决方法的可复用性&lt;/p&gt;
+
+&lt;p&gt;组合模式&lt;/p&gt;
+
+&lt;h2 id=&quot;观察者模式&quot;&gt;观察者模式&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;定义&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;定义了对象之间的一对多依赖，这样一来，当一个对象改变状态时，所有所有依赖者都会接到通知并自动更新&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;案例&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;需要在展板上实时显示当前温度，温度数据来自温度计。初步方案1,是定时询问温度计然后更新数据，这样就需要再开一个定时器线程，如果以后会有更多的功能需要获取温度计数据，那么线程数量将失去控制。数步方案2是当温度计数据发生变化时，直接通知这些数据请求者，但是当有新的请求者时，需要打开温度计类增加一个请求者。&lt;/p&gt;
+
+&lt;p&gt;结局方案：将需要获取温度计数据的请求者抽象，然后注册到温度计中形成一个列表，每当温度计数据发生变化，就依次通知这些注册的对象。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;适用性&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;当一个抽象模型有两个方面, 其中一个方面依赖于另一方面的状态。将这二者封装在独立的对象中以使它们可以各自独立地改变和复用。&lt;/p&gt;
+
+&lt;p&gt;当对一个对象的改变需要同时改变其它对象 , 而不知道具体有多少对象有待改变。&lt;/p&gt;
+
+&lt;p&gt;当一个对象必须通知其它对象，而它又不能假定其它对象是谁。换言之 , 你不希望这些对象是紧密耦合的。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;结构&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://my.csdn.net/uploads/201205/11/1336707179_9037.jpg&quot; alt=&quot;Observer&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;效果&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Observer模式允许你独立的改变目标和观察者&lt;/p&gt;
+
+&lt;p&gt;观察者模式可以实现表示层和数据逻辑层的分离&lt;/p&gt;
+
+&lt;p&gt;支持广播通信&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;应用&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;java.util.EventListener&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;相关&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;终结者模式&lt;/p&gt;
+
+&lt;p&gt;单例模式&lt;/p&gt;
+
+&lt;h2 id=&quot;迭代器模式&quot;&gt;迭代器模式&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;定义&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;提供一种方法顺序访问聚合对象中的每个元素，而又不暴露其内部表示。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;结构&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://my.csdn.net/uploads/201205/28/1338213169_8415.jpg&quot; alt=&quot;Iterator&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;效果&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;封装性良好，用户只需要得到迭代器就可以遍历，而对于遍历算法则不用去关心。&lt;/p&gt;
+
+&lt;p&gt;增加新的聚合类需要对应增加新的迭代器类，类的个数成对增加&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;应用&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;java.util.Iterator
+java.util.Enumeration&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;相关&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;组合模式，常用来便利组合模式的对象图&lt;/p&gt;
+
+&lt;p&gt;备忘录模式&lt;/p&gt;
+
+&lt;p&gt;工厂方法模式，迭代器对象由实现类提供&lt;/p&gt;
+
+&lt;h1 id=&quot;结构型&quot;&gt;结构型&lt;/h1&gt;
+
+&lt;h2 id=&quot;装饰者模式&quot;&gt;装饰者模式&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;定义&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;动态地将职责附加到对象上，若要扩展功能，装饰者提供了比继承更有弹性的替代方案。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;案例&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;模拟一个冲泡咖啡的程序，调料种类未知，而且以后可能增减，每种调料价格不同，客户可自行选择调料份量，现在需要计算该咖啡的价格。初步方案是列出所有可能的组合，然后计算组合的价格，但是如果调料种类较多，那么组合将会爆炸，考虑到调料的份量有无限种可能，列举组合方式不可行。&lt;/p&gt;
+
+&lt;p&gt;解决方案：将咖啡抽象，将每种调料对应一种咖啡，如加奶的咖啡，加摩卡的咖啡等，这些调料的咖啡成分由客户自己提供。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;适用性&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;当需要对一个对象以可选的方式增强功能时&lt;/p&gt;
+
+&lt;p&gt;当无法使用继承的方式增强功能时&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;结构&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://my.csdn.net/uploads/201205/03/1336034007_4657.jpg&quot; alt=&quot;decorater&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;抽象组件角色(Component)：定义一个对象接口，以规范准备接受附加责任的对象，&lt;/p&gt;
+
+&lt;p&gt;即可以给这些对象动态地添加职责。&lt;/p&gt;
+
+&lt;p&gt;具体组件角色(ConcreteComponent) :被装饰者，定义一个将要被装饰增加功能的类。&lt;/p&gt;
+
+&lt;p&gt;可以给这个类的对象添加一些职责&lt;/p&gt;
+
+&lt;p&gt;抽象装饰器(Decorator):维持一个指向构件Component对象的实例，&lt;/p&gt;
+
+&lt;p&gt;并定义一个与抽象组件角色Component接口一致的接口&lt;/p&gt;
+
+&lt;p&gt;具体装饰器角色（ConcreteDecorator):向组件添加职责。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;效果&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;运行时扩展现有对象，比继承灵活。&lt;/p&gt;
+
+&lt;p&gt;产生很多小类&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;应用&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;java.io.BufferedInputStream(InputStream)&lt;/p&gt;
+
+&lt;p&gt;java.io.DataInputStream(InputStream)&lt;/p&gt;
+
+&lt;p&gt;java.io.BufferedOutputStream(OutputStream)&lt;/p&gt;
+
+&lt;p&gt;java.util.zip.ZipOutputStream(OutputStream)&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;java.util.Collections#checkedList&lt;/td&gt;
+      &lt;td&gt;Map&lt;/td&gt;
+      &lt;td&gt;Set&lt;/td&gt;
+      &lt;td&gt;SortedSet&lt;/td&gt;
+      &lt;td&gt;SortedMap&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;strong&gt;相关&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;可与工厂模式和生成器模式配合使用&lt;/p&gt;
+
+&lt;p&gt;Decorator模式不同于Adapter模式，因为装饰仅改变对象的职责而不改变它的接口；而适配器将给对象一个全新的接口。&lt;/p&gt;
+
+&lt;p&gt;Strategy模式：用一个装饰你可以改变对象的外表；而Strategy模式使得你可以改变对象的内核。这是改变对象的两种途径。&lt;/p&gt;
+
+&lt;h2 id=&quot;适配器模式&quot;&gt;适配器模式&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;定义&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;将一个类的接口，转换成客户期望的另一个接口，适配器让原本接口不兼容的类可以合作无间。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;案例&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;插座有插头型号对不上，用适配器抓换下。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;适用性&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;想使用一个已经存在的类，而它的接口不符合需求时。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;结构&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;类适配器&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://my.csdn.net/uploads/201205/02/1335939433_8937.jpg&quot; alt=&quot;adapter1&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;对象适配器&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://my.csdn.net/uploads/201205/02/1335939552_3860.jpg&quot; alt=&quot;adapter2&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;应用&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;java.util.Arrays#asList()&lt;/p&gt;
+
+&lt;p&gt;java.io.InputStreamReader(InputStream)&lt;/p&gt;
+
+&lt;p&gt;java.io.OutputStreamWriter(OutputStream)&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;相关&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;类似装饰者，而者都是包装对象，但是装饰者从不转换接口，只是增加职责，而适配器正是转换接口。&lt;/p&gt;
+
+&lt;p&gt;外观模式&lt;/p&gt;
+
+&lt;h2 id=&quot;代理模式&quot;&gt;代理模式&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;定义&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;为另一个对象提供一个替身或占位符以控制对这个对象的访问&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;案例&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;需要编写一个类来监控远程服务器上的一些数据，但是希望这个类易于使用。结局方案，将远程服务上的数据抽象成一个接口，用RMI进行通信，看起来就好象直接操纵了远程对象。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;适用性&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;1) 远程代理（Remote  Proxy）为一个位于不同的地址空间的对象提供一个本地的代理对象。这个不同的地址空间可以是在同一台主机中，也可是在另一台主机中，远程代理又叫做大使(Ambassador)&lt;/p&gt;
+
+&lt;p&gt;2) 虚拟代理（Virtual Proxy）根据需要创建开销很大的对象。如果需要创建一个资源消耗较大的对象，先创建一个消耗相对较小的对象来表示，真实对象只在需要时才会被真正创建。&lt;/p&gt;
+
+&lt;p&gt;3) 保护代理（Protection Proxy）控制对原始对象的访问。保护代理用于对象应该有不同的访问权限的时候。&lt;/p&gt;
+
+&lt;p&gt;4) 智能指引（Smart Reference）取代了简单的指针，它在访问对象时执行一些附加操作。&lt;/p&gt;
+
+&lt;p&gt;5) Copy-on-Write代理：它是虚拟代理的一种，把复制（克隆）操作延迟到只有在客户端真正需要时才执行。一般来说，对象的深克隆是一个开销较大的操作，Copy-on-Write代理可以让这个操作延迟，只有对象被用到的时候才被克隆。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;结构&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://my.csdn.net/uploads/201205/07/1336371130_8874.jpg&quot; alt=&quot;proxy&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;效果&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;封装实现细节，只暴露数据抽象&lt;/p&gt;
+
+&lt;p&gt;延迟加载&lt;/p&gt;
+
+&lt;p&gt;权限控制&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;应用&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;java.lang.reflect.Proxy&lt;/p&gt;
+
+&lt;p&gt;RMI&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;相关&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;与装饰者很类似，然而目的不同，装饰者增加行为，代理模式控制访问&lt;/p&gt;
+
+&lt;h2 id=&quot;外观模式&quot;&gt;外观模式&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;定义&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;提供了一个统一的接口，用来访问子系统中的一群接口。外观定义了一个高层接口，让子系统更容易使用。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;案例&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;程序由多个子系统联合起来工作，而且这些子组件需要使用者自己组装，这样使用起来会很复杂，而且客户与子组件耦合较高。&lt;/p&gt;
+
+&lt;p&gt;解决方案，提供一套简化的接口，客户端可以直接操作此接口，而无需理会复杂的系统结构。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;适用性&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;当需要为一个复杂子系统提供一个简单接口时。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;结构&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://my.csdn.net/uploads/201207/05/1341473411_7539.JPG&quot; alt=&quot;facade&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;效果&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;对客户屏蔽子系统组件，减少了客户处理的对象数目并使得子系统使用起来更加容易。&lt;/p&gt;
+
+&lt;p&gt;只是提供了一个访问子系统的统一入口，并不影响用户直接使用子系统类。&lt;/p&gt;
+
+&lt;p&gt;不能很好地限制客户使用子系统类&lt;/p&gt;
+
+&lt;p&gt;增加新的子系统可能需要修改外观类或客户端的源代码，违背了“开闭原则”。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;应用&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;java.lang.Class&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;相关&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;适配器模式&lt;/p&gt;
+
+&lt;h2 id=&quot;组合模式&quot;&gt;组合模式&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;定义&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;允许你将对象组合成树形结构来表现“整体/部分”层次结构。组合能让客户以一致的方式处理个别对象以及对象组合。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;案例&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;菜单中有很多道菜，而且其中甜点是个子菜单，现在需要打印整个菜单。&lt;/p&gt;
+
+&lt;p&gt;解决方案是：将子菜单与总顶层菜单的接口统一起来，都为Menu类型，大Menu内部维护菜单列表以及子Menu。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;适用性&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;想表示对象的部分-整体层次结构&lt;/p&gt;
+
+&lt;p&gt;希望用户忽略组合对象与单个对象的不同，用户将统一地使用组合结构中的所有对象。&lt;/p&gt;
+
+&lt;p&gt;需要注意的是，虽然通常情况下组合模式以树形结构体现，但其实不是一回事，组合模式拥有更抽象的语义，它是一种整体与部分一致的抽象。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;结构&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://my.csdn.net/uploads/201205/03/1336015104_5713.jpg&quot; alt=&quot;composive&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;效果&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;定义了包含基本对象和组合对象的类层次结构 基本对象可以被组合成更复杂的组合对象，而这个组合对象又可以被组合，这样不断的递归下去。&lt;/p&gt;
+
+&lt;p&gt;简化客户代码 客户可以一致地使用组合结构和单个对象。&lt;/p&gt;
+
+&lt;p&gt;使得更容易增加新类型的组件&lt;/p&gt;
+
+&lt;p&gt;更难以排除特定类型的组件&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;应用&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;javax.swing.JComponent#add(Component)&lt;/p&gt;
+
+&lt;p&gt;java.awt.Container#add(Component)&lt;/p&gt;
+
+&lt;p&gt;java.util.Map#putAll(Map)&lt;/p&gt;
+
+&lt;p&gt;java.util.List#addAll(Collection)&lt;/p&gt;
+
+&lt;p&gt;java.util.Set#addAll(Collection)&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;相关&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;可与迭代器模式搭配使用&lt;/p&gt;
+
+</description>
+        <pubDate>Wed, 22 Apr 2015 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2015-04-22/design-pattern/</link>
+        <guid isPermaLink="true">http://localhost:4000/2015-04-22/design-pattern/</guid>
+        
+        <category>design</category>
+        
+        <category>pattern</category>
+        
+        <category>设计模式</category>
+        
+        <category>原则</category>
+        
+        <category>面向对象</category>
+        
+        
+        <category>common</category>
+        
+      </item>
+    
+      <item>
+        <title>RMI</title>
+        <description>&lt;p&gt;Java RMI 指的是远程方法调用 (Remote Method Invocation)。RMI能够让在某个 Java 虚拟机上的对象调用另一个 Java 虚拟机中的对象上的方法, 其威力体现在它强大的开发分布式网络应用的能力上，它可以被看作是RPC的Java版本。&lt;/p&gt;
+
+&lt;p&gt;与WebService相比，RMI编写代码更加简单，在小型应用开发上更加合适，相对地，RMI只能在java中使用，而WebSerce可以跨平台。&lt;/p&gt;
+
+&lt;p&gt;RMI示意图：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://127.0.0.1:4000/static/img/rmi.jpg&quot; alt=&quot;rmi&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;#Demo&lt;/p&gt;
+
+&lt;p&gt;定义接口，必须继承Remote&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;java.rmi.Remote&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;java.rmi.RemoteException&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;interface&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;HelloService&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Remote&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;sayHello&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;throws&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;RemoteException&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;实现接口，必须继承UnicastRemoteObject并在空构造中抛出RemoteException, 方法的返回值必须为原语类型或者序列化类型.&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;java.rmi.RemoteException&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;java.rmi.server.UnicastRemoteObject&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;HelloServiceImpl&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;UnicastRemoteObject&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;implements&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;HelloService&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+
+    &lt;span class=&quot;kd&quot;&gt;protected&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;HelloServiceImpl&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;throws&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;RemoteException&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{}&lt;/span&gt;
+
+    &lt;span class=&quot;nd&quot;&gt;@Override&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;sayHello&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;throws&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;RemoteException&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;server says. &apos;Hey&apos;&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;注册服务&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;java.net.MalformedURLException&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;java.rmi.RemoteException&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;java.rmi.registry.LocateRegistry&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;java.rmi.registry.Registry&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;RegistryBook&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;throws&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;RemoteException&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;MalformedURLException&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;nc&quot;&gt;Registry&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;r&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;LocateRegistry&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;createRegistry&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Registry&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;REGISTRY_PORT&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;rebind&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;HelloService&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;HelloServiceImpl&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;());&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;在另一台虚拟机上运行客户端代码，需要获得服务接口文件&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;java.net.MalformedURLException&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;java.rmi.Naming&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;java.rmi.NotBoundException&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;java.rmi.RemoteException&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Client&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[])&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;throws&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;RemoteException&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;MalformedURLException&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;NotBoundException&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;nc&quot;&gt;HelloService&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;helloService&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;HelloService&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Naming&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;lookup&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;rmi://localhost:1099/HelloService&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+            &lt;span class=&quot;nc&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;helloService&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;sayHello&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;());&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;注意，如果你使用的较为古老的jdk，你可能需要通过jdk内置的&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;rmic&lt;/code&gt;命令生成&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;stub&lt;/code&gt;以及&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;skeleton&lt;/code&gt;文件，并将&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;stub&lt;/code&gt;文件提供给客户端使用。&lt;/p&gt;
+
+</description>
+        <pubDate>Thu, 09 Apr 2015 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2015-04-09/rmi/</link>
+        <guid isPermaLink="true">http://localhost:4000/2015-04-09/rmi/</guid>
+        
+        <category>rmi</category>
+        
+        <category>Java</category>
+        
+        
+        <category>java</category>
+        
+      </item>
+    
+      <item>
+        <title>Servlet乱码分析</title>
+        <description>&lt;p&gt;我们知道，web浏览器会将form中的内容打包成HTTP请求体，然后发送到服务端，服务端对请求体解析后可以得到传递的数据。这当中包含两个过程：&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;encode&lt;/code&gt;与&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;decode&lt;/code&gt;。&lt;/p&gt;
+
+&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#http&quot; id=&quot;markdown-toc-http&quot;&gt;HTTP&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#urlencode&quot; id=&quot;markdown-toc-urlencode&quot;&gt;UrlEncode&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#urldecode&quot; id=&quot;markdown-toc-urldecode&quot;&gt;UrlDecode&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#方案&quot; id=&quot;markdown-toc-方案&quot;&gt;方案&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;http&quot;&gt;HTTP&lt;/h1&gt;
+
+&lt;p&gt;我们使用ServerSocket搭建一个小服务器来看清http请求的全貌, 该服务器只有一个功能, 就是打印请求体。&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;HttpPrint&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ServerSocket&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;serverSocket&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;HttpPrint&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;throws&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;IOException&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;serverSocket&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ServerSocket&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;8080&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;show&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;throws&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;IOException&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;while&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;){&lt;/span&gt;
+            &lt;span class=&quot;nc&quot;&gt;Socket&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;socket&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;serverSocket&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;accept&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+            &lt;span class=&quot;kt&quot;&gt;byte&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;buf&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;byte&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1024&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;];&lt;/span&gt;
+            &lt;span class=&quot;nc&quot;&gt;InputStream&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;is&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;socket&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getInputStream&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+            &lt;span class=&quot;nc&quot;&gt;ByteArrayOutputStream&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;os&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ByteArrayOutputStream&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+            &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;while&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;is&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;read&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;buf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;){&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;os&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;write&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;buf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+            &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;os&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;close&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;is&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;close&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;socket&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;close&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+            &lt;span class=&quot;nc&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;os&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;throws&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;IOException&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;HttpPrint&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;show&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;用html页面来发送get与post请求&lt;/p&gt;
+
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;a&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://localhost:8080/hsp?param=你好全世界&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;Test&lt;span class=&quot;nt&quot;&gt;&amp;lt;/a&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;form&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;action=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://localhost:8080/hsp&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;method=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;post&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+   &lt;span class=&quot;nt&quot;&gt;&amp;lt;input&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;text&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;param&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;value=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;你好全世界&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+   &lt;span class=&quot;nt&quot;&gt;&amp;lt;input&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;submit&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/form&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;启动服务器后，查看打印内容，在我的机器上，请求内容如下:&lt;/p&gt;
+
+&lt;p&gt;get&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://127.0.0.1:4000/static/img/servlet-encode/get.png&quot; alt=&quot;get&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;post&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://127.0.0.1:4000/static/img/servlet-encode/post.png&quot; alt=&quot;post&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;从post中的&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Content-Type:application/x-www-form-urlencoded&lt;/code&gt;可以看到，虽然数据为中文，但是在传递的时候，经过了一次urlEncode，这样一来，在数据交换层面就可以屏蔽编码的不一致性。&lt;/p&gt;
+
+&lt;h1 id=&quot;urlencode&quot;&gt;UrlEncode&lt;/h1&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;urlEncode&lt;/code&gt;的任务是将form中的数据进行编码, 编码过程非常简单, 任何字符只要不是&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ASCII&lt;/code&gt;码, 它们都将被转换成字节形式, 每个字节都写成这种形式：一个 “%” 后面跟着两位16进制的数值。
+urlEncode只能识别ASCII码，可以想象的是，那些urlEncode不能识别的字符，也就是十六进制数，一定是依赖于特定的字符集产生的, 字符集包括unicode,iso等。&lt;/p&gt;
+
+&lt;p&gt;那么浏览器用的是什么字符集呢? 答案是：默认与&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;contentType&lt;/code&gt;相同, form可以通过属性&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;accept-charset&lt;/code&gt;指定。&lt;/p&gt;
+
+&lt;p&gt;例如我们通常可以在jsp中看到这样的设置:&lt;/p&gt;
+
+&lt;div class=&quot;language-jsp highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;%@page &lt;/span&gt;&lt;span class=&quot;na&quot;&gt;contentType=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;text/html;charset=UTF-8&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;%&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;或者在html中这样设置:&lt;/p&gt;
+
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;meta&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;http-equiv=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Content-Type&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;content=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;text/html; charset=UTF-8&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;这表示浏览器得到响应流之后，用contentType指定的字符集，将流中的字节转换为字符，同样地，也会用这个字符集将页面中字符转换为字节。&lt;/p&gt;
+
+&lt;p&gt;关于浏览器设定字符集的问题，我们不过多讨论，现在只需要知道有这么个过程就行了, 需要注意的是，无论浏览器使用什么字符集，服务端都是无法获知的。
+这里需要换位考虑一下，浏览器是一个客户端，应该让客户端 “迁就” 服务端, 所以浏览器请求一个服务的时候，应该让浏览器考虑服务端支持什么字符集, 得到了响应后, 用服务端告诉浏览器的字符集进行解析。&lt;/p&gt;
+
+&lt;h1 id=&quot;urldecode&quot;&gt;UrlDecode&lt;/h1&gt;
+
+&lt;p&gt;现在我们将目光转向Servlet, 并使用上面的html来请求服务，请确保请求的字符集为&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;unicode&lt;/code&gt;, 应用服务器使用tomcat6。&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;HttpServletPrint&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;HttpServlet&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nd&quot;&gt;@Override&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;protected&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;doPost&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;HttpServletRequest&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;req&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;HttpServletResponse&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;resp&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;throws&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ServletException&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;IOException&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;nc&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;req&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getParameter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;param&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;));&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;nd&quot;&gt;@Override&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;protected&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;doGet&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;HttpServletRequest&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;req&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;HttpServletResponse&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;resp&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;throws&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ServletException&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;IOException&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;doPost&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;req&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;resp&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;get与post结果如下，果然不负众望地乱码了(如果不乱码，我还写个毛？)。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://127.0.0.1:4000/static/img/servlet-encode/param.png&quot; alt=&quot;param&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;现在我们从Servlet中看看请求体, 修改上面的Servlet代码如下：&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;HttpServletPrint&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;HttpServlet&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nd&quot;&gt;@Override&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;protected&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;doPost&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;HttpServletRequest&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;req&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;HttpServletResponse&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;resp&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;throws&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ServletException&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;IOException&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;c1&quot;&gt;//System.out.println(req.getParameter(&quot;param&quot;));&lt;/span&gt;
+        &lt;span class=&quot;kt&quot;&gt;byte&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;buf&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;byte&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1024&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;];&lt;/span&gt;
+        &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;nc&quot;&gt;ByteArrayOutputStream&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bos&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ByteArrayOutputStream&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+        &lt;span class=&quot;nc&quot;&gt;InputStream&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;is&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;req&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getInputStream&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;while&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;is&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;read&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;buf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;buf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;))&amp;gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;){&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;bos&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;write&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;buf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+        &lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;param&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bos&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;toString&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+        &lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;s&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;URLDecoder&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;decode&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;param&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;utf-8&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;nc&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;nd&quot;&gt;@Override&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;protected&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;doGet&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;HttpServletRequest&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;req&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;HttpServletResponse&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;resp&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;throws&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ServletException&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;IOException&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;doPost&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;req&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;resp&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;get与post结果如下,Servlet将http头部解析完成后，将请求体留了下来供应用程序使用, 这是考虑到http请求可能有多种 &lt;a href=&quot;http://www.w3school.com.cn/tags/att_form_enctype.asp&quot;&gt;enctype&lt;/a&gt; , 请求体的结构可能不同,
+例如，&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;multipart/form-data&lt;/code&gt;就不是这样的key=value结构，关于multipart/form-data，我在这篇 &lt;a href=&quot;http://blog.rainynight.top/2014-04-15/fileupload/&quot;&gt;fileupload&lt;/a&gt; 中曾有过简要分析。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://127.0.0.1:4000/static/img/servlet-encode/body-utf.png&quot; alt=&quot;body-utf&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;从图中可以看到, 设置了正确的字符集后, 服务端将能够正确地解析, get部分什么都没有，这是因为get没有请求体。&lt;/p&gt;
+
+&lt;p&gt;让我们换种字符集试试, 比如, 将servet中的”utf-8”换成”iso-8859-1”。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://127.0.0.1:4000/static/img/servlet-encode/body-iso.png&quot; alt=&quot;body-iso&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;嘿，果然如我所料，而且这个字符串好像很眼熟，和req.getParameter(“param”)结果是一样的，没错，事实上，tomcat默认的字符集就是&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;iso-8859-1&lt;/code&gt;, 我们从中可以得到一个推论，tomcat使用默认的字符集，对http请求进行过一次decode。&lt;/p&gt;
+
+&lt;h1 id=&quot;方案&quot;&gt;方案&lt;/h1&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;urlDecode&lt;/code&gt;的任务是将请求中的百分号码转换成字符，显而易见的是，使用与&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;urlEncode&lt;/code&gt;时相同的字符集才能成功转换。通常的做法是，让服务端支持涵盖多国语言的”utf-8”，然后让客户端也用”utf-8”请求服务。&lt;/p&gt;
+
+&lt;p&gt;指定服务端字符集的方式有两种，一是修改应用服务器的默认编码，二是添加一个过滤器进行编码转换, 方法一最方便, 但是影响了程序的可移植性, 方法二可移植, 它只需要做一件事:&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;requet.setCharacterEncoding(&quot;UTF-8&quot;);&lt;/code&gt;,
+实际上，该过滤器并没有进行任何编码转换的工作，它仅仅只是一个配置，该配置项将被后续程序使用，这些后续程序包括web服务器内置的解析程序，以及第三方解析工具等。&lt;/p&gt;
+
+&lt;p&gt;需要注意的是，requet.setCharacterEncoding(“UTF-8”);，只对请求体有效，也就是说，请求头不归它管，而是由web服务器采用自己配置的字符编码进行解析，此时如果url中包含中文（如get请求的参数），那么将不可避免地出现字符丢失。
+解决办法是在客户端对url进行&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;encodeURI&lt;/code&gt;&lt;strong&gt;两次&lt;/strong&gt;, 然后再在服务端&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;URLDecoder.decode(param,&quot;utf-8&quot;);&lt;/code&gt;。&lt;/p&gt;
+
+&lt;p&gt;为什么要 &lt;a href=&quot;http://www.w3school.com.cn/jsref/jsref_encodeuri.asp&quot;&gt;encodeURI&lt;/a&gt; 两次？talk is cheap， let’s code！&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://127.0.0.1:4000/static/img/servlet-encode/encodeURI.png&quot; alt=&quot;encodeURI&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;注意观察这张图片，从中发现了什么? 没错，第一次encodeURI生成了HTTP一节的示例中一样的结果。
+我们在浏览器窗口中输入 “http://localhost:8080/hsp?param=%E4%BD%A0%E5%A5%BD%E5%85%A8%E4%B8%96%E7%95%8C”, 会发现它变成了 “http://localhost:8080/hsp?param=你好全世界”,
+在url里，浏览器认为%是个转义字符，浏览器会把%与%之间的编码，两位两位取出后进行decode, 也就是变回 “你好全世界”, 然后再用这个url发送请求, 最终实际发送的内容实际上还是&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;%E4%BD%A0%E5%A5%BD%E5%85%A8%E4%B8%96%E7%95%8C&lt;/code&gt;。
+换言之，以明文传递的这种url会被浏览器否决一次，再换言之，在js中进行一次encodeURI等于什么都没做。&lt;/p&gt;
+
+&lt;p&gt;再注意观察第2和第3个输出，有什么规律? 是的，从第二次开始encodeURI只是将&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;%&lt;/code&gt;变成了&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;%25&lt;/code&gt;，
+根据我们刚才总结出的规律可知，在encodeURI两次的情况下，最后发送到浏览器中的数据为&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;%25E4%25BD%25A0%25E5%25A5%25BD%25E5%2585%25A8%25E4%25B8%2596%25E7%2595%258C&lt;/code&gt;,
+理所当然的，web服务器将使用默认的字符集对其decode, 然而, 无论选择哪种字符集, 将&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;%25&lt;/code&gt;转换成&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;%&lt;/code&gt;总是不会出错的, decode之后，&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;%E4%BD%A0%E5%A5%BD%E5%85%A8%E4%B8%96%E7%95%8C&lt;/code&gt; 将完整地送到Servlet手上。&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nc&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;URLDecoder&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;decode&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;req&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getParameter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;param&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;),&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;utf-8&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;));&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;location&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;href&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;http://localhost:8080/hsp?param=&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;encodeURI&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;encodeURI&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;你好全世界&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://127.0.0.1:4000/static/img/servlet-encode/world.png&quot; alt=&quot;world&quot; /&gt;&lt;/p&gt;
+
+</description>
+        <pubDate>Tue, 17 Mar 2015 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2015-03-17/servlet-encode/</link>
+        <guid isPermaLink="true">http://localhost:4000/2015-03-17/servlet-encode/</guid>
+        
+        <category>servlet</category>
+        
+        <category>encode</category>
+        
+        <category>Java</category>
+        
+        
+        <category>web</category>
+        
+      </item>
+    
+      <item>
+        <title>spring security 探秘</title>
+        <description>&lt;h1 id=&quot;概述&quot;&gt;概述&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://projects.spring.io/spring-security&quot;&gt;Spring Security&lt;/a&gt;这是一种基于Spring AOP和Servlet过滤器的安全框架。它提供全面的安全性解决方案，同时在Web请求级和方法调用级处理身份确认和授权。在Spring Framework基础上，Spring Security充分利用了依赖注入（DI，Dependency Injection）和面向切面技术。&lt;/p&gt;
+
+&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#概述&quot; id=&quot;markdown-toc-概述&quot;&gt;概述&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#filter&quot; id=&quot;markdown-toc-filter&quot;&gt;Filter&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#http&quot; id=&quot;markdown-toc-http&quot;&gt;HTTP&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#filterchain&quot; id=&quot;markdown-toc-filterchain&quot;&gt;FilterChain&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#filtersecurityinterceptor&quot; id=&quot;markdown-toc-filtersecurityinterceptor&quot;&gt;FilterSecurityInterceptor&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#authenticationmanager&quot; id=&quot;markdown-toc-authenticationmanager&quot;&gt;AuthenticationManager&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#accessdecisionmanager&quot; id=&quot;markdown-toc-accessdecisionmanager&quot;&gt;AccessDecisionManager&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#securitymetadatasource&quot; id=&quot;markdown-toc-securitymetadatasource&quot;&gt;SecurityMetadataSource&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;本文的宗旨并非描述如何从零开始搭建一个 “hello world” 级的demo，或者列举有哪些可配置项（这种类似于词典的文档，没有比&lt;a href=&quot;http://docs.spring.io/spring-security/site/docs/4.0.1.RELEASE/reference/htmlsingle/&quot;&gt;参考书&lt;/a&gt;更合适的了），而是简单描述spring-security项目的整体结构，设计思想，以及某些重要配置做了什么。&lt;/p&gt;
+
+&lt;p&gt;本文所有内容基于spring-security-4.0.1.RELEASE ,你可以在&lt;a href=&quot;https://github.com/spring-projects/spring-security&quot;&gt;Github&lt;/a&gt;中找到它，或者使用Maven获取，引入spring-security-config是为了通过命名空间简化配置。&lt;/p&gt;
+
+&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;dependency&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;groupId&amp;gt;&lt;/span&gt;org.springframework.security&lt;span class=&quot;nt&quot;&gt;&amp;lt;/groupId&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;artifactId&amp;gt;&lt;/span&gt;spring-security-web&lt;span class=&quot;nt&quot;&gt;&amp;lt;/artifactId&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;version&amp;gt;&lt;/span&gt;4.0.1.RELEASE&lt;span class=&quot;nt&quot;&gt;&amp;lt;/version&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/dependency&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;dependency&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;groupId&amp;gt;&lt;/span&gt;org.springframework.security&lt;span class=&quot;nt&quot;&gt;&amp;lt;/groupId&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;artifactId&amp;gt;&lt;/span&gt;spring-security-config&lt;span class=&quot;nt&quot;&gt;&amp;lt;/artifactId&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;version&amp;gt;&lt;/span&gt;4.0.1.RELEASE&lt;span class=&quot;nt&quot;&gt;&amp;lt;/version&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/dependency&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h1 id=&quot;filter&quot;&gt;Filter&lt;/h1&gt;
+
+&lt;p&gt;spring-security的业务流程是独立于项目的，我们需要在web.xml中指定其入口，注意该过滤器必须在项目的过滤器之前。&lt;/p&gt;
+
+&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;filter&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;filter-name&amp;gt;&lt;/span&gt;springSecurityFilterChain&lt;span class=&quot;nt&quot;&gt;&amp;lt;/filter-name&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;filter-class&amp;gt;&lt;/span&gt;org.springframework.web.filter.DelegatingFilterProxy&lt;span class=&quot;nt&quot;&gt;&amp;lt;/filter-class&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/filter&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;filter-mapping&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;filter-name&amp;gt;&lt;/span&gt;springSecurityFilterChain&lt;span class=&quot;nt&quot;&gt;&amp;lt;/filter-name&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;servlet-name&amp;gt;&lt;/span&gt;/*&lt;span class=&quot;nt&quot;&gt;&amp;lt;/servlet-name&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/filter-mapping&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;值得一提的是，该过滤器的名字具有特殊意义，没有特别需求不建议修改，我们可以在该过滤的源码中看到，其过滤行为委托给了一个&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;delegate&lt;/code&gt;对象，该delegate对象是一个从spring容器中获取的bean，依据的beanid就是filter-name。&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nd&quot;&gt;@Override&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;protected&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;initFilterBean&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;throws&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ServletException&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;kd&quot;&gt;synchronized&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;delegateMonitor&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;delegate&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+
+			&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;targetBeanName&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+				&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;targetBeanName&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;getFilterName&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+			&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+			&lt;span class=&quot;nc&quot;&gt;WebApplicationContext&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;wac&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;findWebApplicationContext&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+			&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;wac&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+				&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;delegate&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;initDelegate&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;wac&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+			&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+		&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+	&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h1 id=&quot;http&quot;&gt;HTTP&lt;/h1&gt;
+
+&lt;p&gt;我们可以在security中声明多个&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;http&lt;/code&gt;元素，每个http元素将产生一个&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;FilterChain&lt;/code&gt;，这些FilterChain将按照声明顺序加入到&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;FilterChainProxy&lt;/code&gt;中，而这个FilterChainProxy就是web.xml中定义的springSecurityFilterChain内部的&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;delegate&lt;/code&gt;。&lt;/p&gt;
+
+&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;security:http&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;security=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;none&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;pattern=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/favicon.ico&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;security:http&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;security=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;none&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;pattern=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/resources/**&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;security:http&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;security=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;none&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;pattern=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/user/login&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;在http元素也就是FilterChain中，以责任链的形式存在多个&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Filter&lt;/code&gt;，这些Filter真正执行过滤操作，http标签中的许多配置项，如&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt; &amp;lt;security:http-basic/&amp;gt;&lt;/code&gt;、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;security:logout/&amp;gt;&lt;/code&gt;等，其实就是创建指定的Filter，以下表格列举了这些Filter。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://127.0.0.1:4000/static/img/spring-security-filter.png&quot; alt=&quot;filter&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;利用别名，我们可以将自定义的过滤器加入指定的位置，或者替换其中的某个过滤器。&lt;/p&gt;
+
+&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;security:custom-filter&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;ref=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;filterSecurityInterceptor&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;before=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;FILTER_SECURITY_INTERCEPTOR&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;整体来看，一个FilterChainProxy中可以包含有多个FilterChain，一个FilterChain中又可以包含有多个Filter，然而对于一个既定请求，只会使用其中一个FilterChain。&lt;/p&gt;
+
+&lt;h1 id=&quot;filterchain&quot;&gt;FilterChain&lt;/h1&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://127.0.0.1:4000/static/img/spring-security-filterChain.jpg&quot; alt=&quot;filterChain&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;上图列举了一些Filter, 此处将说明这些Filter的作用, 在需要插入自定义Filter时, 这些说明可以作为参考。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;SecurityContextPersistenceFilter
+  创建一个空的SecurityContext（如果session中没有SecurityContext实例），然后持久化到session中。在filter原路返回时，还需要保存这个SecurityContext实例到session中。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;RequestCacheAwareFilter
+  用于用户登录成功后，重新恢复因为登录被打断的请求&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;AnonymousAuthenticationFilter
+  如果之前的过滤器都没有认证成功，则为当前的SecurityContext中添加一个经过匿名认证的token, 所有与认证相关的过滤器（如CasAuthenticationFilter）都应当放在AnonymousAuthenticationFilter之前。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;SessionManagementFilter
+  1.session固化保护-通过session-fixation-protection配置
+  2.session并发控制-通过concurrency-control配置&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;ExceptionTranslationFilter
+  主要拦截两类安全异常：认证异常、访问拒绝异常。而且仅仅是捕获后面的过滤器产生的异常。所以在自定义拦截器时，需要注意在链中的顺序。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;FilterSecurityInterceptor
+  通过决策管理器、认证管理器、安全元数据来判断用户是否能够访问资源。&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;filtersecurityinterceptor&quot;&gt;FilterSecurityInterceptor&lt;/h1&gt;
+
+&lt;p&gt;如果一个http请求能够匹配security定义的规则，那么该请求将进入security处理流程，大体上，security分为三个部分：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;AuthenticationManager 处理认证请求&lt;/li&gt;
+  &lt;li&gt;AccessDecisionManager 提供访问决策&lt;/li&gt;
+  &lt;li&gt;SecurityMetadataSource 元数据&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;以下代码摘自&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;AbstractSecurityInterceptor&lt;/code&gt;， 这是&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;FilterSecurityInterceptor&lt;/code&gt;的父类， 也正是在此处区分了web请求拦截器与方法调用拦截器。(代码有所精简)&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;protected&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;InterceptorStatusToken&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;beforeInvocation&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Object&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;object&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+
+	&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(!&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;getSecureObjectClass&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;isAssignableFrom&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;object&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getClass&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()))&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;k&quot;&gt;throw&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;IllegalArgumentException&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+	&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+	&lt;span class=&quot;nc&quot;&gt;Collection&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;ConfigAttribute&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;attributes&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;
+	        &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;obtainSecurityMetadataSource&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getAttributes&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;object&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+
+	&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;attributes&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;attributes&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;isEmpty&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;())&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rejectPublicInvocations&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+			&lt;span class=&quot;k&quot;&gt;throw&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;IllegalArgumentException&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+		&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+		&lt;span class=&quot;n&quot;&gt;publishEvent&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;PublicInvocationEvent&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;object&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;));&lt;/span&gt;
+		&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// no further work post-invocation&lt;/span&gt;
+	&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+	&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;SecurityContextHolder&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getContext&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getAuthentication&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+	    &lt;span class=&quot;c1&quot;&gt;//...&lt;/span&gt;
+	&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+	&lt;span class=&quot;nc&quot;&gt;Authentication&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;authenticated&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;authenticateIfRequired&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+
+	&lt;span class=&quot;c1&quot;&gt;// Attempt authorization&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;try&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;accessDecisionManager&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;decide&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;authenticated&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;object&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;attributes&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+	&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;catch&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;AccessDeniedException&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;accessDeniedException&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;n&quot;&gt;publishEvent&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;AuthorizationFailureEvent&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;object&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;attributes&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
+		            &lt;span class=&quot;n&quot;&gt;authenticated&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;accessDeniedException&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;));&lt;/span&gt;
+		&lt;span class=&quot;k&quot;&gt;throw&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;accessDeniedException&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+
+&lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Authentication&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;authenticateIfRequired&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nc&quot;&gt;Authentication&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;authentication&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;SecurityContextHolder&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getContext&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;
+            &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getAuthentication&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;authentication&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;isAuthenticated&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;alwaysReauthenticate&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;authentication&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;n&quot;&gt;authentication&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;authenticationManager&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;authenticate&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;authentication&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+
+    &lt;span class=&quot;nc&quot;&gt;SecurityContextHolder&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getContext&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;setAuthentication&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;authentication&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;authentication&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;在FilterSecurityInterceptor的处理流程中，首先会处理认证请求，获取用户信息，然后决策处理器根据用户信息与权限元数据进行决策，同样，这三个部分都是可以自定义的。&lt;/p&gt;
+
+&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- 自定义过滤器 --&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;bean&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;filterSecurityInterceptor&quot;&lt;/span&gt;
+            &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;org.springframework.security.web.access.intercept.FilterSecurityInterceptor&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;property&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;securityMetadataSource&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;ref=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;securityMetadataSource&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;property&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;authenticationManager&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;ref=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;authenticationManager&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;property&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;accessDecisionManager&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;ref=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;accessDecisionManager&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/bean&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h1 id=&quot;authenticationmanager&quot;&gt;AuthenticationManager&lt;/h1&gt;
+
+&lt;p&gt;AuthenticationManager处理认证请求，然而它并不直接处理，而是将工作委托给了一个&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ProviderManager&lt;/code&gt;，ProviderManager又将工作委托给了一个&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;AuthenticationProvider&lt;/code&gt;列表，只要任何一个AuthenticationProvider认证通过，则AuthenticationManager认证通过，我们可以配置一个或者多个AuthenticationProvider，还可以对密码进行加密。&lt;/p&gt;
+
+&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;security:authentication-manager&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;authenticationManager&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;security:authentication-provider&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;user-service-ref=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;userDetailsService&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;security:password-encoder&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;base64=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;true&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;hash=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;md5&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;security:salt-source&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;user-property=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;username&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;/security:password-encoder&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/security:authentication-provider&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/security:authentication-manager&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;考虑到一种常见情形，用户输入用户名密码，然后与数据比对，验证用户信息，security提供了类来处理。&lt;/p&gt;
+
+&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;bean&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;userDetailsService&quot;&lt;/span&gt;
+            &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;org.springframework.security.core.userdetails.jdbc.JdbcDaoImpl&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+     &lt;span class=&quot;nt&quot;&gt;&amp;lt;property&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;dataSource&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;ref=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;dataSource&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/bean&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;JdbcDaoImpl使用内置的SQL查询数据，这些SQL以常量的形式出现在JdbcDaoImpl开头，同样可以注入修改。&lt;/p&gt;
+
+&lt;h1 id=&quot;accessdecisionmanager&quot;&gt;AccessDecisionManager&lt;/h1&gt;
+
+&lt;p&gt;AccessDecisionManager提供访问决策，它同样不会直接处理，而是仅仅抽象为一种投票规则，然后决策行为委托给所有投票人。&lt;/p&gt;
+
+&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- 决策管理器 --&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;bean&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;accessDecisionManager&quot;&lt;/span&gt;
+            &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;org.springframework.security.access.vote.AffirmativeBased&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;property&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;allowIfAllAbstainDecisions&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;value=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;false&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;constructor-arg&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;index=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;0&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;list&amp;gt;&lt;/span&gt;
+           &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- &amp;lt;bean class=&quot;org.springframework.security.web.access.expression.WebExpressionVoter&quot;/&amp;gt;--&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;bean&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;org.springframework.security.access.vote.RoleVoter&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+                &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- 支持所有角色名称，无需前缀 --&amp;gt;&lt;/span&gt;
+                &lt;span class=&quot;nt&quot;&gt;&amp;lt;property&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;rolePrefix&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;value=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;/bean&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;bean&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;org.springframework.security.access.vote.AuthenticatedVoter&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;/list&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/constructor-arg&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/bean&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;security提供了三种投票规则：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;AffirmativeBased 只要有一个voter同意就通过&lt;/li&gt;
+  &lt;li&gt;ConsensusBased 只要投同意票的大于投反对票的就通过&lt;/li&gt;
+  &lt;li&gt;UnanimousBased 需要一致同意才通过&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;以下为&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;AffirmativeBased&lt;/code&gt;决策过程&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;decide&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Authentication&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;authentication&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Object&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;object&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;nc&quot;&gt;Collection&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;ConfigAttribute&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;configAttributes&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;throws&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;AccessDeniedException&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;deny&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+
+	&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;AccessDecisionVoter&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;voter&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;getDecisionVoters&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;())&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;voter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;vote&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;authentication&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;object&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;configAttributes&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+
+		&lt;span class=&quot;k&quot;&gt;switch&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;AccessDecisionVoter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;ACCESS_GRANTED&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;
+			&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+
+		&lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;AccessDecisionVoter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;ACCESS_DENIED&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;
+			&lt;span class=&quot;n&quot;&gt;deny&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++;&lt;/span&gt;
+
+			&lt;span class=&quot;k&quot;&gt;break&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+
+		&lt;span class=&quot;k&quot;&gt;default&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;
+			&lt;span class=&quot;k&quot;&gt;break&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+		&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+	&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+	&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;deny&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;k&quot;&gt;throw&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;AccessDeniedException&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;messages&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getMessage&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;
+				&lt;span class=&quot;s&quot;&gt;&quot;AbstractAccessDecisionManager.accessDenied&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Access is denied&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;));&lt;/span&gt;
+	&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+	&lt;span class=&quot;c1&quot;&gt;// To get this far, every AccessDecisionVoter abstained&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;checkAllowIfAllAbstainDecisions&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h1 id=&quot;securitymetadatasource&quot;&gt;SecurityMetadataSource&lt;/h1&gt;
+
+&lt;p&gt;SecurityMetadataSource定义权限元数据（如资源与角色的关系），并提供了一个核心方法&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Collection&amp;lt;ConfigAttribute&amp;gt; getAttributes(Object object)&lt;/code&gt;来获取资源对应的角色列表，这种结构非常类似于Map。&lt;/p&gt;
+
+&lt;p&gt;security提供了&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DefaultFilterInvocationSecurityMetadataSource&lt;/code&gt;来进行角色读取操作，并将数据存储委托给一个&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;LinkedHashMap&lt;/code&gt;对象。&lt;/p&gt;
+
+&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- 资源与角色关系元数据 --&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;bean&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;securityMetadataSource&quot;&lt;/span&gt;
+            &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;org.springframework.security.web.access.intercept.DefaultFilterInvocationSecurityMetadataSource&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;constructor-arg&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;index=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;0&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;bean&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;top.rainynight.site.core.RequestMapFactoryBean&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;property&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;dataSource&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;ref=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;dataSource&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;/bean&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/constructor-arg&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/bean&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;DefaultFilterInvocationSecurityMetadataSource获取角色方法&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Collection&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;ConfigAttribute&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;getAttributes&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Object&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;object&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;kd&quot;&gt;final&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;HttpServletRequest&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;request&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;FilterInvocation&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;object&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getRequest&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Map&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;Entry&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;RequestMatcher&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Collection&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;ConfigAttribute&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;entry&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;requestMap&lt;/span&gt;
+			&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;entrySet&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;())&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;entry&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getKey&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;matches&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+			&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;entry&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getValue&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+		&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+	&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+</description>
+        <pubDate>Thu, 12 Mar 2015 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2015-03-12/spring-security/</link>
+        <guid isPermaLink="true">http://localhost:4000/2015-03-12/spring-security/</guid>
+        
+        <category>spring</category>
+        
+        <category>security</category>
+        
+        <category>Java</category>
+        
+        
+        <category>web</category>
+        
+      </item>
+    
+  </channel>
+</rss>

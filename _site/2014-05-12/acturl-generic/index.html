@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>超类中的泛型</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="keywords" content="超类中的泛型, java, generic,type,Java, ManixChen" />
+    <meta name="description" content="超类中的泛型, java, generic,type,Java, 为了减少工作量，开发者往往喜欢将相同的特性放入超类，通过继承实现代码共享" />
+    <meta name="theme-color" content="#2CA6CB"/>
+    <link rel="shortcut icon" type="image/x-icon" media="screen" href="http://localhost:4000/favicon.ico" />
+    <link rel="canonical" href="http://localhost:4000/2014-05-12/acturl-generic/" />
+    <link rel="alternate" type="application/rss+xml" title="ManixChen" href="http://localhost:4000/feed.xml"  />
+ 
+    <!-- <link rel="stylesheet" type="text/css" href="http://localhost:4000/static/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://localhost:4000/static/css/style.css" /> -->
+     
+    
+    <link rel="stylesheet" type="text/css" href="http://localhost:4000/static/css/elementplus.css" />
+    
+    <link rel="stylesheet" type="text/css" href="http://localhost:4000/static/css/style.css" />
+    
+    <link rel="stylesheet" type="text/css" href="http://localhost:4000/static/css/index.css" />
+    
+    <link rel="stylesheet" type="text/css" href="http://localhost:4000/static/css/highlight.css" />
+    
+    <!-- <link rel="stylesheet" type="text/css" href="http://localhost:4000/static/scss/style.css" /> -->
+
+    <script type="text/javascript" src="http://localhost:4000/static/js/vue@3.js"></script>
+    <script type="text/javascript" src="http://localhost:4000/static/js/element-plus.js"></script>
+    
+</head>
+
+
+<body>
+<div id="app" >
+    <div class="loading-box"  :class="`${loading?'loading':'loaded'}`" v-loading="loading" :title="message" >
+        <div class="spinner">
+            <div class="double-bounce1"></div>
+            <div class="double-bounce2"></div>
+            <p class="loading-text">
+                请稍等ManixChens Rudy jekyll 静态站
+                <br>
+                正在解析mkdown 过程中………………
+            </p>
+          </div> 
+    </div>
+    
+    <header>
+        <div class="container">
+           <form action=""> 
+                <el-menu 
+                  class="el-menu-demo"
+                  mode="horizontal"
+                  :ellipsis="false" 
+                >
+                  <el-menu-item index="0">
+                    <a class="navbar-brand" href="http://localhost:4000" title="ManixChen">
+                        <img src="http://localhost:4000/static/img/logo.png" alt=""> 
+                      </a>
+                  </el-menu-item> 
+                  
+                  <el-menu-item class="nav-item "> 
+                      <a class="nav-link" href="http://localhost:4000/" class="nav-link">首页</a>
+                  </el-menu-item>
+                  
+                
+                
+                  
+                      
+                          <el-menu-item class="nav-item">
+                              <a class="nav-link" href="http://localhost:4000/archive/" class="nav-link"><span class="octicon octicon-repo"></span>&nbsp;&nbsp;时间简史</a>
+                          </el-menu-item>
+                      
+                  
+                
+                
+                  
+                      
+                          <el-menu-item class="nav-item">
+                              <a class="nav-link" href="http://localhost:4000/category/" class="nav-link"><span class="octicon octicon-list-unordered"></span>&nbsp;&nbsp;技术栈</a>
+                          </el-menu-item>
+                      
+                  
+                
+                
+                  
+                      
+                          <el-menu-item class="nav-item">
+                              <a class="nav-link" href="http://localhost:4000/tags/" class="nav-link"><span class="octicon octicon-tag"></span>&nbsp;&nbsp;技术中心</a>
+                          </el-menu-item>
+                      
+                  
+                
+                
+                  
+                
+                
+                  
+                
+                
+                  
+                
+                
+                  
+                
+                
+                  
+                
+                
+                  
+                
+                
+                  
+                
+                
+                  
+                
+                
+                <el-form style="display: none;" :model="formInline"  :inline="true" style="float: right;margin-right: 80px;"   label-width="120px">
+                    <el-form-item label="Activity search">
+                        <el-input v-model="formInline.search" placeholder="Approved by" clearable />  
+                    </el-form-item> 
+                    <el-form-item>
+                        <el-button type="default" >Search</el-button>
+                      </el-form-item>
+                  </el-form>
+           </form> 
+        </div> 
+    </header>
+
+
+	 
+<div class="main">
+    <el-row class="article-box-container" post-cate="All" justify="center">
+    <el-col :sm="24"  >
+      <br>
+      <br>
+      <h1 justify="center">超类中的泛型</h1>
+      <br>
+      <br>
+    </el-col> 
+    <el-col :sm="24" :md="20" :lg="18">
+        <div class="blog-article-box"> 
+            <p>为了减少工作量，开发者往往喜欢将相同的特性放入超类，通过继承实现代码共享</p>
+
+<p>例如web项目中常见的<code class="language-plaintext highlighter-rouge">BaseDao&lt;T&gt;</code>，并使用泛型对参数与返回值类型进行约束</p>
+
+<p>某些情况下，我们可能需要获得真实的类型参数，也就是<code class="language-plaintext highlighter-rouge">T</code>的真实类型</p>
+
+<p>首先，沿着继承链向上追溯，找到传入类型参数的位置，并获取存储类型参数的对象</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="kd">private</span> <span class="kd">static</span> <span class="nc">ParameterizedType</span> <span class="nf">getParameterizedType</span><span class="o">(</span><span class="nc">Class</span><span class="o">&lt;?&gt;</span> <span class="n">clazz</span><span class="o">){</span>
+        <span class="nc">Type</span> <span class="n">st</span> <span class="o">=</span> <span class="n">clazz</span><span class="o">.</span><span class="na">getGenericSuperclass</span><span class="o">();</span>
+        <span class="k">if</span><span class="o">(</span><span class="n">st</span> <span class="o">==</span> <span class="kc">null</span><span class="o">){</span>
+            <span class="k">return</span> <span class="kc">null</span><span class="o">;</span>
+        <span class="o">}</span>
+        <span class="k">if</span><span class="o">(</span><span class="n">st</span> <span class="k">instanceof</span> <span class="nc">ParameterizedType</span><span class="o">){</span>
+            <span class="nc">ParameterizedType</span> <span class="n">pt</span> <span class="o">=</span> <span class="o">(</span><span class="nc">ParameterizedType</span><span class="o">)</span><span class="n">st</span><span class="o">;</span>
+            <span class="k">return</span> <span class="n">pt</span><span class="o">;</span>
+        <span class="o">}</span> <span class="k">else</span><span class="o">{</span>
+            <span class="k">return</span> <span class="nf">getParameterizedType</span><span class="o">(</span><span class="n">clazz</span><span class="o">.</span><span class="na">getSuperclass</span><span class="o">());</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+</code></pre></div></div>
+
+<p>类的参数数量是不定的，如 <code class="language-plaintext highlighter-rouge">Map&lt;K,V&gt;</code> 定义了两个，<code class="language-plaintext highlighter-rouge">List&lt;T&gt;</code> 只定义了一个，所以类型参数是个列表，获取真实类型时需要指定要取哪一个</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="kd">private</span> <span class="kd">static</span> <span class="nc">Class</span><span class="o">&lt;?&gt;</span> <span class="n">getClass</span><span class="o">(</span><span class="nc">ParameterizedType</span> <span class="n">pt</span><span class="o">,</span> <span class="kt">int</span> <span class="n">index</span><span class="o">){</span>
+        <span class="nc">Type</span> <span class="n">param</span> <span class="o">=</span> <span class="n">pt</span><span class="o">.</span><span class="na">getActualTypeArguments</span><span class="o">()[</span><span class="n">index</span><span class="o">];</span>
+        <span class="k">if</span><span class="o">(</span><span class="n">param</span> <span class="k">instanceof</span> <span class="nc">Class</span><span class="o">){</span>
+            <span class="k">return</span> <span class="o">(</span><span class="nc">Class</span><span class="o">&lt;?&gt;)</span><span class="n">param</span><span class="o">;</span>
+        <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="kc">null</span><span class="o">;</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+</code></pre></div></div>
+
+<p>通常情况下，到这里已经可以取到真实类型了，但是上面的代码忽略了一些不正常情况</p>
+
+<p><strong>情况一：</strong></p>
+
+<p>超类定义了多个参数，而子类中是分批传参的，此时从继承链上最近的位置获得的参数列表是不全的</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Generic</span><span class="o">&lt;</span><span class="no">K</span><span class="o">,</span><span class="no">V</span><span class="o">&gt;{}</span>
+<span class="kd">class</span> <span class="nc">SubGeneric</span><span class="o">&lt;</span><span class="no">V</span><span class="o">&gt;</span> <span class="kd">extends</span> <span class="nc">Generic</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">,</span><span class="no">V</span><span class="o">&gt;{}</span>
+<span class="kd">class</span> <span class="nc">Acturl</span> <span class="kd">extends</span> <span class="nc">SubGeneric</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;{}</span>
+</code></pre></div></div>
+
+<p><strong>情况二：</strong></p>
+
+<p>在继承链中的某个位置传入了类型参数，然后又定义了一个新的参数，此时从继承链上最近的位置获取的参数列表和顶层类的参数已经没有关系了</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Generic</span><span class="o">&lt;</span><span class="no">K</span><span class="o">&gt;{}</span>
+<span class="kd">class</span> <span class="nc">SubGeneric</span><span class="o">&lt;</span><span class="no">S</span><span class="o">&gt;</span> <span class="kd">extends</span> <span class="nc">Generic</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;{}</span>
+<span class="kd">class</span> <span class="nc">Acturl</span> <span class="kd">extends</span> <span class="nc">SubGeneric</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;{}</span>
+</code></pre></div></div>
+
+<p><strong>情况三：</strong></p>
+
+<p>这是情况一与情况二的混合版，而且参数<code class="language-plaintext highlighter-rouge">V</code>的位置都变了</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Generic</span><span class="o">&lt;</span><span class="no">K</span><span class="o">,</span><span class="no">V</span><span class="o">&gt;{}</span>
+<span class="kd">class</span> <span class="nc">SubGeneric</span><span class="o">&lt;</span><span class="no">V</span><span class="o">,</span><span class="no">S</span><span class="o">&gt;</span> <span class="kd">extends</span> <span class="nc">Generic</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">,</span><span class="no">V</span><span class="o">&gt;{}</span>
+<span class="kd">class</span> <span class="nc">Acturl</span> <span class="kd">extends</span> <span class="nc">SubGeneric</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">,</span><span class="nc">String</span><span class="o">&gt;{}</span>
+</code></pre></div></div>
+
+<p>这些问题有空再研究</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//TODO</span>
+</code></pre></div></div>
+
+        </div>
+        <el-row class="row-bg blog-article-bottom" justify="space-around">
+            <el-col :sm="24"   :md="14"> 
+                
+                <a href="http://localhost:4000/category/#java">
+                    java
+                </a>
+                
+
+                
+                    <a class="categori-tag" href="http://localhost:4000/tags/#generic">
+                        generic</a>
+                
+                    <a class="categori-tag" href="http://localhost:4000/tags/#type">
+                        type</a>
+                
+                    <a class="categori-tag" href="http://localhost:4000/tags/#Java">
+                        Java</a>
+                 
+            </el-col>
+            <el-col :sm="24"   :md="7">
+                <a class="title" href="http://localhost:4000">
+                    
+                </a>
+            </el-col>
+            <el-col :sm="24"   :md="3">
+                <span> 
+                </span>
+                <span class="pull-right"> 
+                   
+                    
+                    May 12, 2014 
+                 </span>
+                </el-col>
+          </el-row> 
+
+
+        <!-- 外部引用 -->
+        <article>
+            <div class="adjusz">
+              <div class="ds-thread" data-thread-key="2c67cc9d683caea3afc725727b974b5e" 
+              data-title="超类中的泛型" data-url="请替换成文章的网址"></div>
+                <input type="hidden" id="disqus_shortname" value="/manixchen" >
+            </div>
+          </article>
+          <hr class="boundary">
+          <div id="post-share" class="bdsharebuttonbox">
+              <a href="#" class="bds_more" data-cmd="more"></a>
+              <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+              <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+              <a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+              <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+              <a href="#" class="bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+          </div>
+          <div id="post-comment" class="sheet post">
+              <div id="disqus_thread"></div>
+              
+          </div> 
+    </el-col> 
+    <!-- right top -->
+    <el-col :sm="24" :md="4" :lg="3" class="nav-padding"> 
+        <el-collapse  v-model="activeNames">
+            <el-collapse-item title="top" name="1">
+              
+            </el-collapse-item>
+            <el-collapse-item title="Tags" name="2">
+               
+                 
+                    <h4>
+                        <a href="http://localhost:4000/tags#generic">
+                            
+                            generic
+                        </a>
+                    </h4>
+                 
+                    <h4>
+                        <a href="http://localhost:4000/tags#type">
+                            
+                            type
+                        </a>
+                    </h4>
+                 
+                    <h4>
+                        <a href="http://localhost:4000/tags#Java">
+                            
+                            Java
+                        </a>
+                    </h4>
+                
+            </el-collapse-item>
+            <el-collapse-item title="Related" name="3">
+                
+
+                
+
+                
+                    
+                        <h4>
+                            <a href="http://localhost:4000/2015-04-09/rmi/">RMI</a>
+                        </h4>
+                    
+                        <h4>
+                            <a href="http://localhost:4000/2015-03-17/servlet-encode/">Servlet乱码分析</a>
+                        </h4>
+                    
+                        <h4>
+                            <a href="http://localhost:4000/2015-03-12/spring-security/">spring security 探秘</a>
+                        </h4>
+                    
+                        <h4>
+                            <a href="http://localhost:4000/2015-03-05/validator/">Bean Validation</a>
+                        </h4>
+                    
+                        <h4>
+                            <a href="http://localhost:4000/2015-02-22/javajs/">Java中用js解析json</a>
+                        </h4>
+                    
+                        <h4>
+                            <a href="http://localhost:4000/2015-02-13/sqlappend/">SQL 拼接</a>
+                        </h4>
+                    
+                        <h4>
+                            <a href="http://localhost:4000/2014-12-21/webservice/">WebService</a>
+                        </h4>
+                    
+                        <h4>
+                            <a href="http://localhost:4000/2014-12-13/java-newfeature/">Java8 新特性</a>
+                        </h4>
+                    
+                        <h4>
+                            <a href="http://localhost:4000/2014-11-18/java-concurrent/">Java Concurrent</a>
+                        </h4>
+                    
+                        <h4>
+                            <a href="http://localhost:4000/2014-08-20/jvm/">Java虚拟机</a>
+                        </h4>
+                    
+                        <h4>
+                            <a href="http://localhost:4000/2014-06-26/effective/">Effective Java</a>
+                        </h4>
+                    
+                        <h4>
+                            <a href="http://localhost:4000/2014-04-15/fileupload/">Custom Fileupload</a>
+                        </h4>
+                    
+                        <h4>
+                            <a href="http://localhost:4000/2014-03-22/reentrantlock/">可重入锁</a>
+                        </h4>
+                    
+                        <h4>
+                            <a href="http://localhost:4000/2014-03-16/tomcat-https/">Tomcat Https 配置</a>
+                        </h4>
+                    
+                
+            </el-collapse-item> 
+          </el-collapse>
+ 
+    </el-col> 
+     
+</el-row> 
+ 
+</div>
+<div class="epcl-waves-wrapper"> 
+    
+</div>  
+</div>
+<el-backtop :right="100" :bottom="100" />
+      <footer  class="footnote footnote-tiffany">
+        <div class="container">
+                <a class="foot-item" href="mailto:manixchensunshine@163.com" target="_blank">
+                    <span class="octicon octicon-mail"></span>
+                </a>
+                <a class="foot-item" href="https://github.com/ManixChen" target="_blank">
+                    git
+                </a>
+                <a class="foot-item" href="http://localhost:4000/link/">必应</a>
+                <a href="#"><strong >&copy; ManixChen</strong></a>
+        </div>
+    </footer> 
+</div>
+    <!-- <script src="http://localhost:4000/static/js/jquery-3.7.1.min.js" ></script>
+    <script src="http://localhost:4000/static/js/bootstrap.min.js" ></script> -->
+ 
+     <!-- <script type="text/javascript" src="http://localhost:4000/static/js/script.js"></script> -->
+    
+    <script type="text/javascript" src="http://localhost:4000/static/js/index.js"></script>
+     
+</body>
+</html>

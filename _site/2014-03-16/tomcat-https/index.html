@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Tomcat Https 配置</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="keywords" content="Tomcat Https 配置, Java, tomcat,Http,Https,ssl,Java, ManixChen" />
+    <meta name="description" content="Tomcat Https 配置, Java, tomcat,Http,Https,ssl,Java, ####1.生成秘钥库" />
+    <meta name="theme-color" content="#2CA6CB"/>
+    <link rel="shortcut icon" type="image/x-icon" media="screen" href="http://localhost:4000/favicon.ico" />
+    <link rel="canonical" href="http://localhost:4000/2014-03-16/tomcat-https/" />
+    <link rel="alternate" type="application/rss+xml" title="ManixChen" href="http://localhost:4000/feed.xml"  />
+ 
+    <!-- <link rel="stylesheet" type="text/css" href="http://localhost:4000/static/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://localhost:4000/static/css/style.css" /> -->
+     
+    
+    <link rel="stylesheet" type="text/css" href="http://localhost:4000/static/css/elementplus.css" />
+    
+    <link rel="stylesheet" type="text/css" href="http://localhost:4000/static/css/style.css" />
+    
+    <link rel="stylesheet" type="text/css" href="http://localhost:4000/static/css/index.css" />
+    
+    <link rel="stylesheet" type="text/css" href="http://localhost:4000/static/css/highlight.css" />
+    
+    <!-- <link rel="stylesheet" type="text/css" href="http://localhost:4000/static/scss/style.css" /> -->
+
+    <script type="text/javascript" src="http://localhost:4000/static/js/vue@3.js"></script>
+    <script type="text/javascript" src="http://localhost:4000/static/js/element-plus.js"></script>
+    
+</head>
+
+
+<body>
+<div id="app" >
+    <div class="loading-box"  :class="`${loading?'loading':'loaded'}`" v-loading="loading" :title="message" >
+        <div class="spinner">
+            <div class="double-bounce1"></div>
+            <div class="double-bounce2"></div>
+            <p class="loading-text">
+                请稍等ManixChens Rudy jekyll 静态站
+                <br>
+                正在解析mkdown 过程中………………
+            </p>
+          </div> 
+    </div>
+    
+    <header>
+        <div class="container">
+           <form action=""> 
+                <el-menu 
+                  class="el-menu-demo"
+                  mode="horizontal"
+                  :ellipsis="false" 
+                >
+                  <el-menu-item index="0">
+                    <a class="navbar-brand" href="http://localhost:4000" title="ManixChen">
+                        <img src="http://localhost:4000/static/img/logo.png" alt=""> 
+                      </a>
+                  </el-menu-item> 
+                  
+                  <el-menu-item class="nav-item "> 
+                      <a class="nav-link" href="http://localhost:4000/" class="nav-link">首页</a>
+                  </el-menu-item>
+                  
+                
+                
+                  
+                      
+                          <el-menu-item class="nav-item">
+                              <a class="nav-link" href="http://localhost:4000/archive/" class="nav-link"><span class="octicon octicon-repo"></span>&nbsp;&nbsp;时间简史</a>
+                          </el-menu-item>
+                      
+                  
+                
+                
+                  
+                      
+                          <el-menu-item class="nav-item">
+                              <a class="nav-link" href="http://localhost:4000/category/" class="nav-link"><span class="octicon octicon-list-unordered"></span>&nbsp;&nbsp;技术栈</a>
+                          </el-menu-item>
+                      
+                  
+                
+                
+                  
+                      
+                          <el-menu-item class="nav-item">
+                              <a class="nav-link" href="http://localhost:4000/tags/" class="nav-link"><span class="octicon octicon-tag"></span>&nbsp;&nbsp;技术中心</a>
+                          </el-menu-item>
+                      
+                  
+                
+                
+                  
+                
+                
+                  
+                
+                
+                  
+                
+                
+                  
+                
+                
+                  
+                
+                
+                  
+                
+                
+                  
+                
+                
+                  
+                
+                
+                <el-form style="display: none;" :model="formInline"  :inline="true" style="float: right;margin-right: 80px;"   label-width="120px">
+                    <el-form-item label="Activity search">
+                        <el-input v-model="formInline.search" placeholder="Approved by" clearable />  
+                    </el-form-item> 
+                    <el-form-item>
+                        <el-button type="default" >Search</el-button>
+                      </el-form-item>
+                  </el-form>
+           </form> 
+        </div> 
+    </header>
+
+
+	 
+<div class="main">
+    <el-row class="article-box-container" post-cate="All" justify="center">
+    <el-col :sm="24"  >
+      <br>
+      <br>
+      <h1 justify="center">Tomcat Https 配置</h1>
+      <br>
+      <br>
+    </el-col> 
+    <el-col :sm="24" :md="20" :lg="18">
+        <div class="blog-article-box"> 
+            <p>####<code class="language-plaintext highlighter-rouge">1</code>.生成秘钥库</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>keytool 
+    –genkey
+    –keyalg 算法<span class="o">(</span>通常用RSA<span class="o">)</span>
+    –dname <span class="s2">"cn=服务器名,
+            ou=组织单位名,
+            o=组织名,
+            l=城市名,
+            st=省/市/自治区,
+            c=国家双字母代码"</span>
+    <span class="nt">-alias</span> 别名<span class="o">(</span>非必选项<span class="o">)</span>
+    <span class="nt">-keypass</span> 密码
+    <span class="nt">-keystore</span> 秘钥库文件名
+    <span class="nt">-storepass</span> 密码
+    <span class="nt">-validity</span> 有效天数
+</code></pre></div></div>
+
+<p>####<code class="language-plaintext highlighter-rouge">2</code>.生成浏览器证书文件</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>keytool
+    <span class="nt">-export</span> 
+    <span class="nt">-keystore</span> 秘钥库文件名
+    <span class="nt">-alias</span> 秘钥库别名<span class="o">(</span>非必选项<span class="o">)</span>
+    <span class="nt">-storepass</span> 秘钥库密码
+    <span class="nt">-file</span> 证书文件名
+</code></pre></div></div>
+
+<p>####<code class="language-plaintext highlighter-rouge">3</code>.生成私钥文件</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>keytool 
+    <span class="nt">-importkeystore</span> 
+    <span class="nt">-srckeystore</span> 秘钥库文件名
+    <span class="nt">-deststoretype</span> PKCS12
+    <span class="nt">-destkeystore</span> p12文件名
+
+openssl 
+	pkcs12 
+	<span class="nt">-in</span> p12文件名
+	<span class="nt">-out</span> pem文件名
+	<span class="nt">-nodes</span>
+</code></pre></div></div>
+
+<p>####<code class="language-plaintext highlighter-rouge">4</code>.Tomcat配置</p>
+
+<p>打开 %CATALINA_HOME%/conf/server.xml</p>
+
+<p>解开注释或添加代码(443为https默认端口，不会在URL中显示)</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;Connector <span class="nv">port</span><span class="o">=</span><span class="s2">"443"</span> <span class="nv">protocol</span><span class="o">=</span><span class="s2">"HTTP/1.1"</span> <span class="nv">SSLEnabled</span><span class="o">=</span><span class="s2">"true"</span>
+    <span class="nv">maxThreads</span><span class="o">=</span><span class="s2">"150"</span> <span class="nv">scheme</span><span class="o">=</span><span class="s2">"https"</span> <span class="nv">secure</span><span class="o">=</span><span class="s2">"true"</span>
+    <span class="nv">clientAuth</span><span class="o">=</span><span class="s2">"false"</span> <span class="nv">sslProtocol</span><span class="o">=</span><span class="s2">"TLS"</span> 
+    <span class="nv">SSLCertificateFile</span><span class="o">=</span><span class="s2">"证书文件名"</span>   
+    <span class="nv">SSLCertificateKeyFile</span><span class="o">=</span><span class="s2">"pem文件名"</span>/&gt;
+</code></pre></div></div>
+
+<p>####<code class="language-plaintext highlighter-rouge">5</code>.强制https访问</p>
+
+<p>打开 %CATALINA_HOME%/conf/web.xml</p>
+
+<p>添加代码</p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">&lt;!-- SSL --&gt;</span>
+<span class="nt">&lt;login-config&gt;</span>  
+    <span class="c">&lt;!-- Authorization setting for SSL --&gt;</span>  
+    <span class="nt">&lt;auth-method&gt;</span>CLIENT-CERT<span class="nt">&lt;/auth-method&gt;</span>  
+    <span class="nt">&lt;realm-name&gt;</span>Client Cert Users-only Area<span class="nt">&lt;/realm-name&gt;</span>  
+<span class="nt">&lt;/login-config&gt;</span>  
+<span class="nt">&lt;security-constraint&gt;</span>  
+    <span class="c">&lt;!-- Authorization setting for SSL --&gt;</span>  
+    <span class="nt">&lt;web-resource-collection</span> <span class="nt">&gt;</span>  
+        <span class="nt">&lt;web-resource-name</span> <span class="nt">&gt;</span>SSL<span class="nt">&lt;/web-resource-name&gt;</span>  
+        <span class="nt">&lt;url-pattern&gt;</span>/*<span class="nt">&lt;/url-pattern&gt;</span>  
+    <span class="nt">&lt;/web-resource-collection&gt;</span>  
+    <span class="nt">&lt;user-data-constraint&gt;</span>  
+        <span class="nt">&lt;transport-guarantee&gt;</span>CONFIDENTIAL<span class="nt">&lt;/transport-guarantee&gt;</span>  
+    <span class="nt">&lt;/user-data-constraint&gt;</span>  
+<span class="nt">&lt;/security-constraint&gt;</span> 
+</code></pre></div></div>
+
+        </div>
+        <el-row class="row-bg blog-article-bottom" justify="space-around">
+            <el-col :sm="24"   :md="14"> 
+                
+                <a href="http://localhost:4000/category/#Java">
+                    Java
+                </a>
+                
+
+                
+                    <a class="categori-tag" href="http://localhost:4000/tags/#tomcat">
+                        tomcat</a>
+                
+                    <a class="categori-tag" href="http://localhost:4000/tags/#Http">
+                        Http</a>
+                
+                    <a class="categori-tag" href="http://localhost:4000/tags/#Https">
+                        Https</a>
+                
+                    <a class="categori-tag" href="http://localhost:4000/tags/#ssl">
+                        ssl</a>
+                
+                    <a class="categori-tag" href="http://localhost:4000/tags/#Java">
+                        Java</a>
+                 
+            </el-col>
+            <el-col :sm="24"   :md="7">
+                <a class="title" href="http://localhost:4000">
+                    
+                </a>
+            </el-col>
+            <el-col :sm="24"   :md="3">
+                <span> 
+                </span>
+                <span class="pull-right"> 
+                   
+                    
+                    Mar 16, 2014 
+                 </span>
+                </el-col>
+          </el-row> 
+
+
+        <!-- 外部引用 -->
+        <article>
+            <div class="adjusz">
+              <div class="ds-thread" data-thread-key="2c67cc9d683caea3afc725727b974b5e" 
+              data-title="Tomcat Https 配置" data-url="请替换成文章的网址"></div>
+                <input type="hidden" id="disqus_shortname" value="/manixchen" >
+            </div>
+          </article>
+          <hr class="boundary">
+          <div id="post-share" class="bdsharebuttonbox">
+              <a href="#" class="bds_more" data-cmd="more"></a>
+              <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+              <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+              <a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+              <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+              <a href="#" class="bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+          </div>
+          <div id="post-comment" class="sheet post">
+              <div id="disqus_thread"></div>
+              
+          </div> 
+    </el-col> 
+    <!-- right top -->
+    <el-col :sm="24" :md="4" :lg="3" class="nav-padding"> 
+        <el-collapse  v-model="activeNames">
+            <el-collapse-item title="top" name="1">
+              
+            </el-collapse-item>
+            <el-collapse-item title="Tags" name="2">
+               
+                 
+                    <h4>
+                        <a href="http://localhost:4000/tags#tomcat">
+                            
+                            tomcat
+                        </a>
+                    </h4>
+                 
+                    <h4>
+                        <a href="http://localhost:4000/tags#Http">
+                            
+                            Http
+                        </a>
+                    </h4>
+                 
+                    <h4>
+                        <a href="http://localhost:4000/tags#Https">
+                            
+                            Https
+                        </a>
+                    </h4>
+                 
+                    <h4>
+                        <a href="http://localhost:4000/tags#ssl">
+                            
+                            ssl
+                        </a>
+                    </h4>
+                 
+                    <h4>
+                        <a href="http://localhost:4000/tags#Java">
+                            
+                            Java
+                        </a>
+                    </h4>
+                
+            </el-collapse-item>
+            <el-collapse-item title="Related" name="3">
+                
+
+                
+
+                
+                    
+                        <h4>
+                            <a href="http://localhost:4000/2015-04-09/rmi/">RMI</a>
+                        </h4>
+                    
+                        <h4>
+                            <a href="http://localhost:4000/2015-03-17/servlet-encode/">Servlet乱码分析</a>
+                        </h4>
+                    
+                        <h4>
+                            <a href="http://localhost:4000/2015-03-12/spring-security/">spring security 探秘</a>
+                        </h4>
+                    
+                        <h4>
+                            <a href="http://localhost:4000/2015-03-05/validator/">Bean Validation</a>
+                        </h4>
+                    
+                        <h4>
+                            <a href="http://localhost:4000/2015-02-22/javajs/">Java中用js解析json</a>
+                        </h4>
+                    
+                        <h4>
+                            <a href="http://localhost:4000/2015-02-13/sqlappend/">SQL 拼接</a>
+                        </h4>
+                    
+                        <h4>
+                            <a href="http://localhost:4000/2014-12-21/webservice/">WebService</a>
+                        </h4>
+                    
+                        <h4>
+                            <a href="http://localhost:4000/2014-12-13/java-newfeature/">Java8 新特性</a>
+                        </h4>
+                    
+                        <h4>
+                            <a href="http://localhost:4000/2014-11-18/java-concurrent/">Java Concurrent</a>
+                        </h4>
+                    
+                        <h4>
+                            <a href="http://localhost:4000/2014-08-20/jvm/">Java虚拟机</a>
+                        </h4>
+                    
+                        <h4>
+                            <a href="http://localhost:4000/2014-06-26/effective/">Effective Java</a>
+                        </h4>
+                    
+                        <h4>
+                            <a href="http://localhost:4000/2014-05-12/acturl-generic/">超类中的泛型</a>
+                        </h4>
+                    
+                        <h4>
+                            <a href="http://localhost:4000/2014-04-15/fileupload/">Custom Fileupload</a>
+                        </h4>
+                    
+                        <h4>
+                            <a href="http://localhost:4000/2014-03-22/reentrantlock/">可重入锁</a>
+                        </h4>
+                    
+                
+            </el-collapse-item> 
+          </el-collapse>
+ 
+    </el-col> 
+     
+</el-row> 
+ 
+</div>
+<div class="epcl-waves-wrapper"> 
+    
+</div>  
+</div>
+<el-backtop :right="100" :bottom="100" />
+      <footer  class="footnote footnote-tiffany">
+        <div class="container">
+                <a class="foot-item" href="mailto:manixchensunshine@163.com" target="_blank">
+                    <span class="octicon octicon-mail"></span>
+                </a>
+                <a class="foot-item" href="https://github.com/ManixChen" target="_blank">
+                    git
+                </a>
+                <a class="foot-item" href="http://localhost:4000/link/">必应</a>
+                <a href="#"><strong >&copy; ManixChen</strong></a>
+        </div>
+    </footer> 
+</div>
+    <!-- <script src="http://localhost:4000/static/js/jquery-3.7.1.min.js" ></script>
+    <script src="http://localhost:4000/static/js/bootstrap.min.js" ></script> -->
+ 
+     <!-- <script type="text/javascript" src="http://localhost:4000/static/js/script.js"></script> -->
+    
+    <script type="text/javascript" src="http://localhost:4000/static/js/index.js"></script>
+     
+</body>
+</html>

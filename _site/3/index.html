@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Sunshine知识库</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="keywords" content="Sunshine知识库,   ManixChen" />
+    <meta name="description" content="Sunshine知识库,   ManixChen的个人技术博客,此博客采用VUE3+elementPlus+ jeklly markdown构建，仅供github个人主页使用" />
+    <meta name="theme-color" content="#2CA6CB"/>
+    <link rel="shortcut icon" type="image/x-icon" media="screen" href="http://localhost:4000/favicon.ico" />
+    <link rel="canonical" href="http://localhost:4000/3/" />
+    <link rel="alternate" type="application/rss+xml" title="ManixChen" href="http://localhost:4000/feed.xml"  />
+ 
+    <!-- <link rel="stylesheet" type="text/css" href="http://localhost:4000/static/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://localhost:4000/static/css/style.css" /> -->
+     
+    
+    <link rel="stylesheet" type="text/css" href="http://localhost:4000/static/css/elementplus.css" />
+    
+    <link rel="stylesheet" type="text/css" href="http://localhost:4000/static/css/style.css" />
+    
+    <link rel="stylesheet" type="text/css" href="http://localhost:4000/static/css/index.css" />
+    
+    <!-- <link rel="stylesheet" type="text/css" href="http://localhost:4000/static/scss/style.css" /> -->
+
+    <script type="text/javascript" src="http://localhost:4000/static/js/vue@3.js"></script>
+    <script type="text/javascript" src="http://localhost:4000/static/js/element-plus.js"></script>
+    
+</head>
+
+
+<body>
+<div id="app" >
+    <div class="loading-box"  :class="`${loading?'loading':'loaded'}`" v-loading="loading" :title="message" >
+        <div class="spinner">
+            <div class="double-bounce1"></div>
+            <div class="double-bounce2"></div>
+            <p class="loading-text">
+                请稍等ManixChens Rudy jekyll 静态站
+                <br>
+                正在解析mkdown 过程中………………
+            </p>
+          </div> 
+    </div>
+    
+    <header>
+        <div class="container">
+           <form action=""> 
+                <el-menu 
+                  class="el-menu-demo"
+                  mode="horizontal"
+                  :ellipsis="false" 
+                >
+                  <el-menu-item index="0">
+                    <a class="navbar-brand" href="http://localhost:4000" title="ManixChen">
+                        <img src="http://localhost:4000/static/img/logo.png" alt=""> 
+                      </a>
+                  </el-menu-item> 
+                  
+                  <el-menu-item class="nav-item "> 
+                      <a class="nav-link" href="http://localhost:4000/" class="nav-link">首页</a>
+                  </el-menu-item>
+                  
+                
+                
+                  
+                      
+                          <el-menu-item class="nav-item">
+                              <a class="nav-link" href="http://localhost:4000/archive/" class="nav-link"><span class="octicon octicon-repo"></span>&nbsp;&nbsp;时间简史</a>
+                          </el-menu-item>
+                      
+                  
+                
+                
+                  
+                      
+                          <el-menu-item class="nav-item">
+                              <a class="nav-link" href="http://localhost:4000/category/" class="nav-link"><span class="octicon octicon-list-unordered"></span>&nbsp;&nbsp;技术栈</a>
+                          </el-menu-item>
+                      
+                  
+                
+                
+                  
+                      
+                          <el-menu-item class="nav-item">
+                              <a class="nav-link" href="http://localhost:4000/tags/" class="nav-link"><span class="octicon octicon-tag"></span>&nbsp;&nbsp;技术中心</a>
+                          </el-menu-item>
+                      
+                  
+                
+                
+                  
+                
+                
+                  
+                
+                
+                  
+                
+                
+                  
+                
+                
+                  
+                
+                
+                  
+                
+                
+                  
+                
+                
+                  
+                
+                
+                <el-form style="display: none;" :model="formInline"  :inline="true" style="float: right;margin-right: 80px;"   label-width="120px">
+                    <el-form-item label="Activity search">
+                        <el-input v-model="formInline.search" placeholder="Approved by" clearable />  
+                    </el-form-item> 
+                    <el-form-item>
+                        <el-button type="default" >Search</el-button>
+                      </el-form-item>
+                  </el-form>
+           </form> 
+        </div> 
+    </header>
+
+
+	 
+<div class="main">
+    <el-row class="article-box" post-cate="All" justify="center">
+  <el-col>
+    <br>
+    <br>
+    <h1 justify="center">欢迎来到 Markdown Sunshine知识库</h1>
+    <br>
+    <br>
+  </el-col>
+  
+  <el-col class="article-box-cloum"  :sm="24" :md="12" :lg="8" :xl="7" >
+    <article>
+      <header justify="center">
+        <img src="http://localhost:4000/static/img/cat@1366@768.webp" alt="">
+      </header>
+      <main class="module">
+        <div class="article-title">
+          <a class="title" href="http://localhost:4000/2014-06-26/effective/">
+            Effective Java
+          </a>
+        </div>
+          
+          <div class="post-excerpt" >
+            #一 创建和销毁对象##1.考虑用静态工厂方法代替构造器静态工厂方法的优势：1.有名称，可以见名知义了解获取对象的特点2.不必每次调用时都创建一个对象3.可以返回原类型的任何子类型对象4.创建参...
+          </div>
+          
+        
+        
+        <div class="article-tags">
+            
+              <a class="categori-tag" href="http://localhost:4000/tags/#Effective">
+                <span class="octicon octicon-tag"></span> Effective
+              </a>
+            
+              <a class="categori-tag" href="http://localhost:4000/tags/#Java">
+                <span class="octicon octicon-tag"></span> Java
+              </a>
+            
+            <span class="word-keep pull-right">
+              <a class="datetime" href="http://localhost:4000/archive/#2014-06-26">
+                2014-06-26
+              </a>
+            </span>
+        </div>
+        
+      </main>
+      <footer> 
+        
+        <a href="http://localhost:4000/2014-06-26/effective/#post-comment">
+          Comment
+        </a>
+        <a href="http://localhost:4000/2014-06-26/effective/#post-share">
+          Share
+        </a>
+        <a class="readmore" href="http://localhost:4000/2014-06-26/effective/">Read More</a>
+
+      </footer>
+  </article>
+  </el-col>
+
+  <el-col class="article-box-cloum"  :sm="24" :md="12" :lg="8" :xl="7" >
+    <article>
+      <header justify="center">
+        <img src="http://localhost:4000/static/img/cat@1366@768.webp" alt="">
+      </header>
+      <main class="module">
+        <div class="article-title">
+          <a class="title" href="http://localhost:4000/2014-06-10/ssh/">
+            SSH
+          </a>
+        </div>
+          
+          <div class="post-excerpt" >
+            ##登陆-p指定主机的端口$ ssh -p port user@host默认端口为22$ ssh user@host默认使用本机用户名$ ssh host##过程      远程主机接收到用户的...
+          </div>
+          
+        
+        
+        <div class="article-tags">
+            
+              <a class="categori-tag" href="http://localhost:4000/tags/#Linux">
+                <span class="octicon octicon-tag"></span> Linux
+              </a>
+            
+              <a class="categori-tag" href="http://localhost:4000/tags/#命令">
+                <span class="octicon octicon-tag"></span> 命令
+              </a>
+            
+              <a class="categori-tag" href="http://localhost:4000/tags/#SSH">
+                <span class="octicon octicon-tag"></span> SSH
+              </a>
+            
+            <span class="word-keep pull-right">
+              <a class="datetime" href="http://localhost:4000/archive/#2014-06-10">
+                2014-06-10
+              </a>
+            </span>
+        </div>
+        
+      </main>
+      <footer> 
+        
+        <a href="http://localhost:4000/2014-06-10/ssh/#post-comment">
+          Comment
+        </a>
+        <a href="http://localhost:4000/2014-06-10/ssh/#post-share">
+          Share
+        </a>
+        <a class="readmore" href="http://localhost:4000/2014-06-10/ssh/">Read More</a>
+
+      </footer>
+  </article>
+  </el-col>
+
+  <el-col class="article-box-cloum"  :sm="24" :md="12" :lg="8" :xl="7" >
+    <article>
+      <header justify="center">
+        <img src="http://localhost:4000/static/img/cat@1366@768.webp" alt="">
+      </header>
+      <main class="module">
+        <div class="article-title">
+          <a class="title" href="http://localhost:4000/2014-05-12/acturl-generic/">
+            超类中的泛型
+          </a>
+        </div>
+          
+          <div class="post-excerpt">
+            <p>为了减少工作量，开发者往往喜欢将相同的特性放入超类，通过继承实现代码共享</p>
+
+          </div>
+          
+        
+        
+        <div class="article-tags">
+            
+              <a class="categori-tag" href="http://localhost:4000/tags/#generic">
+                <span class="octicon octicon-tag"></span> generic
+              </a>
+            
+              <a class="categori-tag" href="http://localhost:4000/tags/#type">
+                <span class="octicon octicon-tag"></span> type
+              </a>
+            
+              <a class="categori-tag" href="http://localhost:4000/tags/#Java">
+                <span class="octicon octicon-tag"></span> Java
+              </a>
+            
+            <span class="word-keep pull-right">
+              <a class="datetime" href="http://localhost:4000/archive/#2014-05-12">
+                2014-05-12
+              </a>
+            </span>
+        </div>
+        
+      </main>
+      <footer> 
+        
+        <a href="http://localhost:4000/2014-05-12/acturl-generic/#post-comment">
+          Comment
+        </a>
+        <a href="http://localhost:4000/2014-05-12/acturl-generic/#post-share">
+          Share
+        </a>
+        <a class="readmore" href="http://localhost:4000/2014-05-12/acturl-generic/">Read More</a>
+
+      </footer>
+  </article>
+  </el-col>
+
+  <el-col class="article-box-cloum"  :sm="24" :md="12" :lg="8" :xl="7" >
+    <article>
+      <header justify="center">
+        <img src="http://localhost:4000/static/img/cat@1366@768.webp" alt="">
+      </header>
+      <main class="module">
+        <div class="article-title">
+          <a class="title" href="http://localhost:4000/2014-04-20/flex/">
+            Flex
+          </a>
+        </div>
+          
+          <div class="post-excerpt" >
+            #产品      Adobe® Flex™ SDK        Adobe® Flex™ Builder™        Adobe® Flex™ Data Services        A...
+          </div>
+          
+        
+        
+        <div class="article-tags">
+            
+              <a class="categori-tag" href="http://localhost:4000/tags/#Flex">
+                <span class="octicon octicon-tag"></span> Flex
+              </a>
+            
+              <a class="categori-tag" href="http://localhost:4000/tags/#ActionScript">
+                <span class="octicon octicon-tag"></span> ActionScript
+              </a>
+            
+              <a class="categori-tag" href="http://localhost:4000/tags/#script">
+                <span class="octicon octicon-tag"></span> script
+              </a>
+            
+            <span class="word-keep pull-right">
+              <a class="datetime" href="http://localhost:4000/archive/#2014-04-20">
+                2014-04-20
+              </a>
+            </span>
+        </div>
+        
+      </main>
+      <footer> 
+        
+        <a href="http://localhost:4000/2014-04-20/flex/#post-comment">
+          Comment
+        </a>
+        <a href="http://localhost:4000/2014-04-20/flex/#post-share">
+          Share
+        </a>
+        <a class="readmore" href="http://localhost:4000/2014-04-20/flex/">Read More</a>
+
+      </footer>
+  </article>
+  </el-col>
+
+  <el-col class="article-box-cloum"  :sm="24" :md="12" :lg="8" :xl="7" >
+    <article>
+      <header justify="center">
+        <img src="http://localhost:4000/static/img/cat@1366@768.webp" alt="">
+      </header>
+      <main class="module">
+        <div class="article-title">
+          <a class="title" href="http://localhost:4000/2014-04-15/fileupload/">
+            Custom Fileupload
+          </a>
+        </div>
+          
+          <div class="post-excerpt" >
+            本文的目的是简要说明如何编写一个文件上传组件，使他的功能类似 commons-fileupload, 并在结尾处提供了完整代码的获取方式。#HTTP本文讨论的是基于 HTTP 协议的文件上传，下...
+          </div>
+          
+        
+        
+        <div class="article-tags">
+            
+              <a class="categori-tag" href="http://localhost:4000/tags/#fileupload">
+                <span class="octicon octicon-tag"></span> fileupload
+              </a>
+            
+              <a class="categori-tag" href="http://localhost:4000/tags/#Java">
+                <span class="octicon octicon-tag"></span> Java
+              </a>
+            
+              <a class="categori-tag" href="http://localhost:4000/tags/#Http">
+                <span class="octicon octicon-tag"></span> Http
+              </a>
+            
+            <span class="word-keep pull-right">
+              <a class="datetime" href="http://localhost:4000/archive/#2014-04-15">
+                2014-04-15
+              </a>
+            </span>
+        </div>
+        
+      </main>
+      <footer> 
+        
+        <a href="http://localhost:4000/2014-04-15/fileupload/#post-comment">
+          Comment
+        </a>
+        <a href="http://localhost:4000/2014-04-15/fileupload/#post-share">
+          Share
+        </a>
+        <a class="readmore" href="http://localhost:4000/2014-04-15/fileupload/">Read More</a>
+
+      </footer>
+  </article>
+  </el-col>
+
+  <el-col class="article-box-cloum"  :sm="24" :md="12" :lg="8" :xl="7" >
+    <article>
+      <header justify="center">
+        <img src="http://localhost:4000/static/img/cat@1366@768.webp" alt="">
+      </header>
+      <main class="module">
+        <div class="article-title">
+          <a class="title" href="http://localhost:4000/2014-03-22/reentrantlock/">
+            可重入锁
+          </a>
+        </div>
+          
+          <div class="post-excerpt">
+            <p>Java 中的锁是可重入的，当线程试图获得它自己占有的锁时，请求会成功。</p>
+
+          </div>
+          
+        
+        
+        <div class="article-tags">
+            
+              <a class="categori-tag" href="http://localhost:4000/tags/#Java">
+                <span class="octicon octicon-tag"></span> Java
+              </a>
+            
+              <a class="categori-tag" href="http://localhost:4000/tags/#Concurrent">
+                <span class="octicon octicon-tag"></span> Concurrent
+              </a>
+            
+              <a class="categori-tag" href="http://localhost:4000/tags/#Lock">
+                <span class="octicon octicon-tag"></span> Lock
+              </a>
+            
+            <span class="word-keep pull-right">
+              <a class="datetime" href="http://localhost:4000/archive/#2014-03-22">
+                2014-03-22
+              </a>
+            </span>
+        </div>
+        
+      </main>
+      <footer> 
+        
+        <a href="http://localhost:4000/2014-03-22/reentrantlock/#post-comment">
+          Comment
+        </a>
+        <a href="http://localhost:4000/2014-03-22/reentrantlock/#post-share">
+          Share
+        </a>
+        <a class="readmore" href="http://localhost:4000/2014-03-22/reentrantlock/">Read More</a>
+
+      </footer>
+  </article>
+  </el-col>
+
+  <el-col class="article-box-cloum"  :sm="24" :md="12" :lg="8" :xl="7" >
+    <article>
+      <header justify="center">
+        <img src="http://localhost:4000/static/img/cat@1366@768.webp" alt="">
+      </header>
+      <main class="module">
+        <div class="article-title">
+          <a class="title" href="http://localhost:4000/2014-03-16/tomcat-https/">
+            Tomcat Https 配置
+          </a>
+        </div>
+          
+          <div class="post-excerpt">
+            <p>####<code class="language-plaintext highlighter-rouge">1</code>.生成秘钥库</p>
+
+          </div>
+          
+        
+        
+        <div class="article-tags">
+            
+              <a class="categori-tag" href="http://localhost:4000/tags/#tomcat">
+                <span class="octicon octicon-tag"></span> tomcat
+              </a>
+            
+              <a class="categori-tag" href="http://localhost:4000/tags/#Http">
+                <span class="octicon octicon-tag"></span> Http
+              </a>
+            
+              <a class="categori-tag" href="http://localhost:4000/tags/#Https">
+                <span class="octicon octicon-tag"></span> Https
+              </a>
+            
+              <a class="categori-tag" href="http://localhost:4000/tags/#ssl">
+                <span class="octicon octicon-tag"></span> ssl
+              </a>
+            
+              <a class="categori-tag" href="http://localhost:4000/tags/#Java">
+                <span class="octicon octicon-tag"></span> Java
+              </a>
+            
+            <span class="word-keep pull-right">
+              <a class="datetime" href="http://localhost:4000/archive/#2014-03-16">
+                2014-03-16
+              </a>
+            </span>
+        </div>
+        
+      </main>
+      <footer> 
+        
+        <a href="http://localhost:4000/2014-03-16/tomcat-https/#post-comment">
+          Comment
+        </a>
+        <a href="http://localhost:4000/2014-03-16/tomcat-https/#post-share">
+          Share
+        </a>
+        <a class="readmore" href="http://localhost:4000/2014-03-16/tomcat-https/">Read More</a>
+
+      </footer>
+  </article>
+  </el-col>
+
+  <el-col class="article-box-cloum"  :sm="24" :md="12" :lg="8" :xl="7" >
+    <article>
+      <header justify="center">
+        <img src="http://localhost:4000/static/img/cat@1366@768.webp" alt="">
+      </header>
+      <main class="module">
+        <div class="article-title">
+          <a class="title" href="http://localhost:4000/2014-02-23/ip/">
+            IP 类型
+          </a>
+        </div>
+          
+          <div class="post-excerpt" >
+            #分类IP通过地址开头判断类型，将以 0，10，110 开头的地址分为ABC三类将ip转换成十进制后A类地址第一个字节在 0 - 127 之间，B类地址第一个字节在 128 - 191 之间C类...
+          </div>
+          
+        
+        
+        <div class="article-tags">
+            
+              <a class="categori-tag" href="http://localhost:4000/tags/#IP">
+                <span class="octicon octicon-tag"></span> IP
+              </a>
+            
+              <a class="categori-tag" href="http://localhost:4000/tags/#computer">
+                <span class="octicon octicon-tag"></span> computer
+              </a>
+            
+            <span class="word-keep pull-right">
+              <a class="datetime" href="http://localhost:4000/archive/#2014-02-23">
+                2014-02-23
+              </a>
+            </span>
+        </div>
+        
+      </main>
+      <footer> 
+        
+        <a href="http://localhost:4000/2014-02-23/ip/#post-comment">
+          Comment
+        </a>
+        <a href="http://localhost:4000/2014-02-23/ip/#post-share">
+          Share
+        </a>
+        <a class="readmore" href="http://localhost:4000/2014-02-23/ip/">Read More</a>
+
+      </footer>
+  </article>
+  </el-col>
+
+  <el-col class="article-box-cloum"  :sm="24" :md="12" :lg="8" :xl="7" >
+    <article>
+      <header justify="center">
+        <img src="http://localhost:4000/static/img/cat@1366@768.webp" alt="">
+      </header>
+      <main class="module">
+        <div class="article-title">
+          <a class="title" href="http://localhost:4000/2014-01-16/xml/">
+            XML
+          </a>
+        </div>
+          
+          <div class="post-excerpt" >
+            XML 文档可以包含非 ASCII 字符，为了避免错误，需要规定 XML 编码，或者将 XML 文档存为 Unicode，两者需要保持一致。必须包含根元素，该元素是所有其他元素的父元素。所有元素...
+          </div>
+          
+        
+        
+        <div class="article-tags">
+            
+              <a class="categori-tag" href="http://localhost:4000/tags/#XML">
+                <span class="octicon octicon-tag"></span> XML
+              </a>
+            
+            <span class="word-keep pull-right">
+              <a class="datetime" href="http://localhost:4000/archive/#2014-01-16">
+                2014-01-16
+              </a>
+            </span>
+        </div>
+        
+      </main>
+      <footer> 
+        
+        <a href="http://localhost:4000/2014-01-16/xml/#post-comment">
+          Comment
+        </a>
+        <a href="http://localhost:4000/2014-01-16/xml/#post-share">
+          Share
+        </a>
+        <a class="readmore" href="http://localhost:4000/2014-01-16/xml/">Read More</a>
+
+      </footer>
+  </article>
+  </el-col>
+
+  <el-col class="article-box-cloum"  :sm="24" :md="12" :lg="8" :xl="7" >
+    <article>
+      <header justify="center">
+        <img src="http://localhost:4000/static/img/cat@1366@768.webp" alt="">
+      </header>
+      <main class="module">
+        <div class="article-title">
+          <a class="title" href="http://localhost:4000/2013-11-17/complement/">
+            为什么要用补码表示负数
+          </a>
+        </div>
+          
+          <div class="post-excerpt" >
+            抛开二进制不谈，我们先来看看10进制假设世界上没有负号且数字最大只有3位，我们要把 0～999 分成两部分，一部分表示负数，一部分表示正数，而且不影响他们的运算规律，应当如何去做？首先，最大的负...
+          </div>
+          
+        
+        
+        <div class="article-tags">
+            
+              <a class="categori-tag" href="http://localhost:4000/tags/#补码">
+                <span class="octicon octicon-tag"></span> 补码
+              </a>
+            
+              <a class="categori-tag" href="http://localhost:4000/tags/#computer">
+                <span class="octicon octicon-tag"></span> computer
+              </a>
+            
+            <span class="word-keep pull-right">
+              <a class="datetime" href="http://localhost:4000/archive/#2013-11-17">
+                2013-11-17
+              </a>
+            </span>
+        </div>
+        
+      </main>
+      <footer> 
+        
+        <a href="http://localhost:4000/2013-11-17/complement/#post-comment">
+          Comment
+        </a>
+        <a href="http://localhost:4000/2013-11-17/complement/#post-share">
+          Share
+        </a>
+        <a class="readmore" href="http://localhost:4000/2013-11-17/complement/">Read More</a>
+
+      </footer>
+  </article>
+  </el-col>
+
+  <el-col :sm="24" class="pager-container">
+    <ul class="pagers text-warning">  
+      
+          
+                <li><a href="http://localhost:4000/2" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
+          
+          
+              
+                <li><a href="http://localhost:4000/">1</a></li>
+              
+          
+              
+                <li><a href="http://localhost:4000/2">2</a></li>
+              
+          
+              
+                <li class="active"><span>3</span></li>
+              
+          
+           
+      
+      </ul>
+  </el-col>
+</el-row>
+
+ 
+
+</div>
+<div class="epcl-waves-wrapper"> 
+    
+</div>  
+</div>
+<el-backtop :right="100" :bottom="100" />
+      <footer  class="footnote footnote-tiffany">
+        <div class="container">
+                <a class="foot-item" href="mailto:manixchensunshine@163.com" target="_blank">
+                    <span class="octicon octicon-mail"></span>
+                </a>
+                <a class="foot-item" href="https://github.com/ManixChen" target="_blank">
+                    git
+                </a>
+                <a class="foot-item" href="http://localhost:4000/link/">必应</a>
+                <a href="#"><strong >&copy; ManixChen</strong></a>
+        </div>
+    </footer> 
+</div>
+    <!-- <script src="http://localhost:4000/static/js/jquery-3.7.1.min.js" ></script>
+    <script src="http://localhost:4000/static/js/bootstrap.min.js" ></script> -->
+ 
+     <!-- <script type="text/javascript" src="http://localhost:4000/static/js/script.js"></script> -->
+    
+    <script type="text/javascript" src="http://localhost:4000/static/js/index.js"></script>
+     
+</body>
+</html>
