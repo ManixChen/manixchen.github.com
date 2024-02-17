@@ -1,11 +1,11 @@
 ---
 layout: page
-title: Tag
+title: 技术中心
 permalink: /tags/
 icon: octicon-tag
 isNavItem: true
-styles: [tagCloud.css,tags.css]
-scripts: [tagCloud.js,tags.js]
+styles: [elementplus.css,index.css,style.css,tags.css,tagCloud.css]
+scripts: [index.js]
 ---
 
 <div>
@@ -36,10 +36,4 @@ scripts: [tagCloud.js,tags.js]
     {% for tag in site.tags %}
     <a href="#{{ tag | first }}">{{ tag | first }}</a>
     {% endfor %}
-</div>
-<script>
-  window.addEventListener("load",fucntion(){
-      var tags=document.getElementsByClassName(".tag-box").
-                    getElementsByTagName(".");
-  });
-</script>
+</div> 

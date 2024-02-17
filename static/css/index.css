@@ -58,17 +58,22 @@
     -ms-text-size-adjust: 100%;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .article-box-cloum .post-excerpt>*,.article-box-cloum .post-excerpt p{
     display: inline-block;
+    padding: 0;
+    list-style: none;
     height: 20px; 
     line-height: 20px;
     font-size: 14px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    font-weight: normal !important;
+    font-weight: normal;
 }
-
+.article-box-cloum .post-excerpt>*:after{
+    content: ";";
+    margin-right: 8px;
+}
 .article-box-cloum .article-tags{
     border-bottom: 1px dashed #ccc;
     height: 50px;
