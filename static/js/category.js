@@ -1,9 +1,9 @@
 /**
  * 页面ready方法
- */
-$(document).ready(function() {
-    categoryDisplay();
-});
+//  */
+// $(document).ready(function() {
+//     categoryDisplay();
+// });
 
 /**
  * 分类展示
