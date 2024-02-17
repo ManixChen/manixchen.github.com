@@ -195,8 +195,9 @@ ul,li{
      top: 110%;
      left: -100px;
      width: 350px;
-     color: #303030;
-     font-size: 20px;
+     color: #000;
+     font-size: 18px;
+     font-weight: 600;
      text-align: center;
  }
 
@@ -355,4 +356,35 @@ ul,li{
   }
   .article-box .article-intro-head{
     padding-left: 50px;
+  }
+
+  /* 博客 */
+  .article-box-container{
+    font-size: 1.1rem;
+
+  }
+  .blog-article-box{
+    min-height: 400px;    
+    background: rgba(255,255,115,0.3);
+    padding: 15px;
+    border-radius: 15px;
+  }
+  .blog-article-box img{
+    width: 50%;
+    margin: 30px auto;
+  }
+
+  .blog-article-bottom{
+     padding: 15px;
+  }
+
+  .blog-article-bottom  a{
+     padding: 5px 8px;
+     border-bottom: 1px dashed #303030;
+     margin: 8px 15px;
+  }
+
+
+  .nav-padding  .el-collapse>div button,.nav-padding  .el-collapse>div a{
+    padding: 0 20px;
   }

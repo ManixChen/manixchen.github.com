@@ -9,7 +9,6 @@ icon: octicon-link-external
 
 * [接受自己不过是个“小小的我”，但眼里要能够悦纳“大大的世界”，，，]( "送给你们")
 
-* [寂寞时请用手指数脚指，终会过去的，，，](http://cassite.net/ "找点事情做做")
 
 >### <span style="color:#FFDE52">经典仓库</span>
 * github [直达](https://github.com/ "时下最经典的开源仓库")
