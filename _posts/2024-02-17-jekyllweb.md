@@ -1,8 +1,8 @@
 ---
 layout: post
-title: markdown自动生成github博客
+title: markdown自动生成github博客(前篇)
 tags: jekyll vue3 elementplus
-categories: web建站
+categories: web建站 jekyll建站 github
 ---
  
 1. <b> 为什么我要用这么不知名的语言写这个系统</b>
