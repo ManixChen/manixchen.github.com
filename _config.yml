@@ -10,7 +10,7 @@ syntax_highlighter: rouge
 paginate: 10
 paginate_path: ":num"
 baseurl: ""
-# gems: [jekyll-paginate]
+gems: [jekyll-paginate]
 plugins: [jekyll-paginate]
 
 
