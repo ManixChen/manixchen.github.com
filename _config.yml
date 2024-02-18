@@ -9,8 +9,7 @@ syntax_highlighter: rouge
 
 paginate: 10
 paginate_path: ":num"
-url: "https://github.com/ManixChen/"
-baseurl: "/manixchen.github.com"
+baseurl: ""
 gems: [jekyll-paginate]
 plugins: [jekyll-paginate]
 
@@ -47,3 +46,7 @@ imgrepo: "https://manixchen.github.io/static/img"
 
 # url: "http://127.0.0.1:4000"
 # imgrepo: "http://127.0.0.1:4000/static/img"
+
+
+# url: "https://github.com/ManixChen/"
+# baseurl: "/manixchen.github.com"

@@ -9,26 +9,26 @@
     <meta name="keywords" content="为什么要用补码表示负数, common, 补码,computer, ManixChen" />
     <meta name="description" content="为什么要用补码表示负数, common, 补码,computer, 抛开二进制不谈，我们先来看看10进制" />
     <meta name="theme-color" content="#2CA6CB"/>
-    <link rel="shortcut icon" type="image/x-icon" media="screen" href="http://localhost:4000/favicon.ico" />
-    <link rel="canonical" href="http://localhost:4000/2013-11-17/complement/" />
-    <link rel="alternate" type="application/rss+xml" title="ManixChen" href="http://localhost:4000/feed.xml"  />
+    <link rel="shortcut icon" type="image/x-icon" media="screen" href="http://localhost:4000/manixchen.github.com/favicon.ico" />
+    <link rel="canonical" href="http://localhost:4000/manixchen.github.com/2013-11-17/complement/" />
+    <link rel="alternate" type="application/rss+xml" title="ManixChen" href="http://localhost:4000/manixchen.github.com/feed.xml"  />
  
-    <!-- <link rel="stylesheet" type="text/css" href="http://localhost:4000/static/css/bootstrap.min.css" />
-    <link rel="stylesheet" type="text/css" href="http://localhost:4000/static/css/style.css" /> -->
+    <!-- <link rel="stylesheet" type="text/css" href="http://localhost:4000/manixchen.github.com/static/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://localhost:4000/manixchen.github.com/static/css/style.css" /> -->
      
     
-    <link rel="stylesheet" type="text/css" href="http://localhost:4000/static/css/elementplus.css" />
+    <link rel="stylesheet" type="text/css" href="http://localhost:4000/manixchen.github.com/static/css/elementplus.css" />
     
-    <link rel="stylesheet" type="text/css" href="http://localhost:4000/static/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="http://localhost:4000/manixchen.github.com/static/css/style.css" />
     
-    <link rel="stylesheet" type="text/css" href="http://localhost:4000/static/css/index.css" />
+    <link rel="stylesheet" type="text/css" href="http://localhost:4000/manixchen.github.com/static/css/index.css" />
     
-    <link rel="stylesheet" type="text/css" href="http://localhost:4000/static/css/highlight.css" />
+    <link rel="stylesheet" type="text/css" href="http://localhost:4000/manixchen.github.com/static/css/highlight.css" />
     
-    <!-- <link rel="stylesheet" type="text/css" href="http://localhost:4000/static/scss/style.css" /> -->
+    <!-- <link rel="stylesheet" type="text/css" href="http://localhost:4000/manixchen.github.com/static/scss/style.css" /> -->
 
-    <script type="text/javascript" src="http://localhost:4000/static/js/vue@3.js"></script>
-    <script type="text/javascript" src="http://localhost:4000/static/js/element-plus.js"></script>
+    <script type="text/javascript" src="http://localhost:4000/manixchen.github.com/static/js/vue@3.js"></script>
+    <script type="text/javascript" src="http://localhost:4000/manixchen.github.com/static/js/element-plus.js"></script>
     
 </head>
 
@@ -56,13 +56,13 @@
                   :ellipsis="false" 
                 >
                   <el-menu-item index="0">
-                    <a class="navbar-brand" href="http://localhost:4000" title="ManixChen">
-                        <img src="http://localhost:4000/static/img/logo.png" alt=""> 
+                    <a class="navbar-brand" href="http://localhost:4000/manixchen.github.com" title="ManixChen">
+                        <img src="http://localhost:4000/manixchen.github.com/static/img/logo.png" alt=""> 
                       </a>
                   </el-menu-item> 
                   
                   <el-menu-item class="nav-item "> 
-                      <a class="nav-link" href="http://localhost:4000/" class="nav-link">首页</a>
+                      <a class="nav-link" href="http://localhost:4000/manixchen.github.com/" class="nav-link">首页</a>
                   </el-menu-item>
                   
                 
@@ -70,7 +70,7 @@
                   
                       
                           <el-menu-item class="nav-item">
-                              <a class="nav-link" href="http://localhost:4000/archive/" class="nav-link"><span class="octicon octicon-repo"></span>&nbsp;&nbsp;时间简史</a>
+                              <a class="nav-link" href="http://localhost:4000/manixchen.github.com/archive/" class="nav-link"><span class="octicon octicon-repo"></span>&nbsp;&nbsp;时间简史</a>
                           </el-menu-item>
                       
                   
@@ -79,7 +79,7 @@
                   
                       
                           <el-menu-item class="nav-item">
-                              <a class="nav-link" href="http://localhost:4000/category/" class="nav-link"><span class="octicon octicon-list-unordered"></span>&nbsp;&nbsp;技术栈</a>
+                              <a class="nav-link" href="http://localhost:4000/manixchen.github.com/category/" class="nav-link"><span class="octicon octicon-list-unordered"></span>&nbsp;&nbsp;技术栈</a>
                           </el-menu-item>
                       
                   
@@ -88,7 +88,7 @@
                   
                       
                           <el-menu-item class="nav-item">
-                              <a class="nav-link" href="http://localhost:4000/tags/" class="nav-link"><span class="octicon octicon-tag"></span>&nbsp;&nbsp;技术中心</a>
+                              <a class="nav-link" href="http://localhost:4000/manixchen.github.com/tags/" class="nav-link"><span class="octicon octicon-tag"></span>&nbsp;&nbsp;技术中心</a>
                           </el-menu-item>
                       
                   
@@ -182,21 +182,21 @@
         <el-row class="row-bg blog-article-bottom" justify="space-around">
             <el-col :sm="24"   :md="14"> 
                 
-                <a href="http://localhost:4000/category/#common">
+                <a href="http://localhost:4000/manixchen.github.com/category/#common">
                     common
                 </a>
                 
 
                 
-                    <a class="categori-tag" href="http://localhost:4000/tags/#补码">
+                    <a class="categori-tag" href="http://localhost:4000/manixchen.github.com/tags/#补码">
                         补码</a>
                 
-                    <a class="categori-tag" href="http://localhost:4000/tags/#computer">
+                    <a class="categori-tag" href="http://localhost:4000/manixchen.github.com/tags/#computer">
                         computer</a>
                  
             </el-col>
             <el-col :sm="24"   :md="7">
-                <a class="title" href="http://localhost:4000">
+                <a class="title" href="http://localhost:4000/manixchen.github.com">
                     
                 </a>
             </el-col>
@@ -217,7 +217,7 @@
             <div class="adjusz">
               <div class="ds-thread" data-thread-key="2c67cc9d683caea3afc725727b974b5e" 
               data-title="为什么要用补码表示负数" data-url="请替换成文章的网址"></div>
-                <input type="hidden" id="disqus_shortname" value="/manixchen" >
+                <input type="hidden" id="disqus_shortname" value="/manixchen.github.com/manixchen" >
             </div>
           </article>
           <hr class="boundary">
@@ -244,14 +244,14 @@
                
                  
                     <h4>
-                        <a href="http://localhost:4000/tags#补码">
+                        <a href="http://localhost:4000/manixchen.github.com/tags#补码">
                             
                             补码
                         </a>
                     </h4>
                  
                     <h4>
-                        <a href="http://localhost:4000/tags#computer">
+                        <a href="http://localhost:4000/manixchen.github.com/tags#computer">
                             
                             computer
                         </a>
@@ -266,15 +266,15 @@
                 
                     
                         <h4>
-                            <a href="http://localhost:4000/2015-04-22/design-pattern/">设计模式与原则</a>
+                            <a href="http://localhost:4000/manixchen.github.com/2015-04-22/design-pattern/">设计模式与原则</a>
                         </h4>
                     
                         <h4>
-                            <a href="http://localhost:4000/2014-02-23/ip/">IP 类型</a>
+                            <a href="http://localhost:4000/manixchen.github.com/2014-02-23/ip/">IP 类型</a>
                         </h4>
                     
                         <h4>
-                            <a href="http://localhost:4000/2014-01-16/xml/">XML</a>
+                            <a href="http://localhost:4000/manixchen.github.com/2014-01-16/xml/">XML</a>
                         </h4>
                     
                 
@@ -299,17 +299,17 @@
                 <a class="foot-item" href="https://github.com/ManixChen" target="_blank">
                     git
                 </a>
-                <a class="foot-item" href="http://localhost:4000/link/">必应</a>
+                <a class="foot-item" href="http://localhost:4000/manixchen.github.com/link/">必应</a>
                 <a href="#"><strong >&copy; ManixChen</strong></a>
         </div>
     </footer> 
 </div>
-    <!-- <script src="http://localhost:4000/static/js/jquery-3.7.1.min.js" ></script>
-    <script src="http://localhost:4000/static/js/bootstrap.min.js" ></script> -->
+    <!-- <script src="http://localhost:4000/manixchen.github.com/static/js/jquery-3.7.1.min.js" ></script>
+    <script src="http://localhost:4000/manixchen.github.com/static/js/bootstrap.min.js" ></script> -->
  
-     <!-- <script type="text/javascript" src="http://localhost:4000/static/js/script.js"></script> -->
+     <!-- <script type="text/javascript" src="http://localhost:4000/manixchen.github.com/static/js/script.js"></script> -->
     
-    <script type="text/javascript" src="http://localhost:4000/static/js/index.js"></script>
+    <script type="text/javascript" src="http://localhost:4000/manixchen.github.com/static/js/index.js"></script>
      
 </body>
 </html>
