@@ -1,0 +1,36 @@
+---
+layout: page
+title: 时间简史
+permalink: /archive/
+icon: octicon-repo
+isNavItem: true
+styles: [elementplus.css,style.css]
+scripts: [index.js]
+--- 
+<el-row justify="center">
+    <el-col :sm="24" :md="18" :xl="12">
+        <el-timeline> 
+            {% for post in site.posts  %} 
+            <el-timeline-item timestamp="{{ post.date | date: '%Y-%m-%d' }}" placement="bottom">
+              <el-card>
+                <div class="timeline-box">
+                    <div class="timeline-img ">
+                        <img src="{{ '/clock.webp' | prepend: site.imgrepo }}" alt="Picture">
+                    </div>
+                    <div class="timeline-content">
+                        <h2><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h2>
+                         
+                        <div class="post-excerpt" >
+                            {{ post.content | strip_html | strip_newlines | truncate: 100 }}
+
+                          </div>
+                        <span class="time-date">{{ post.date | date: '%Y-%m-%d' }}</span>
+                    </div>
+
+                </div>
+              </el-card>
+            </el-timeline-item> 
+            {% endfor %}
+          </el-timeline>
+    </el-col>
+</el-row>

@@ -1,0 +1,128 @@
+---
+layout: default 
+---
+
+ 
+
+<el-row class="article-box-container" post-cate="All" justify="center">
+    <el-col :sm="24"  >
+      <br>
+      <br>
+      <h1 justify="center">{{ page.title }}</h1>
+      <br>
+      <br>
+    </el-col> 
+    <el-col :sm="24" :md="20" :lg="18">
+        <div class="blog-article-box"> 
+            {{content}}
+        </div>
+        <el-row class="row-bg blog-article-bottom" justify="space-around">
+            <el-col :sm="24"   :md="14"> 
+                {% for cat in page.categories %}
+                <a href="{{ '/category' | prepend: site.baseurl | prepend: site.url }}/#{{ cat }}">
+                    {{ cat }}
+                </a>
+                {% endfor %}
+
+                {% for tag in page.tags %}
+                    <a class="categori-tag" href="{{ '/tags' | prepend: site.baseurl | prepend: site.url }}/#{{ tag }}">
+                        {{ tag }}</a>
+                {% endfor %} 
+            </el-col>
+            <el-col :sm="24"   :md="7">
+                <a class="title" href="{{ post.url | prepend: site.baseurl | prepend: site.url }}">
+                    {{ post.title }}
+                </a>
+            </el-col>
+            <el-col :sm="24"   :md="3">
+                <span> {% if page.author %}  
+                    {{ page.author }}
+                {% endif %}
+                {% if page.meta %}  {{ page.meta }}{% endif %}</span>
+                <span class="pull-right"> 
+                   
+                    
+                    {{ page.date | date: "%b %-d, %Y" }} 
+                 </span>
+                </el-col>
+          </el-row> 
+
+
+        <!-- 外部引用 -->
+        <article>
+            <div class="adjusz">
+              <div class="ds-thread" data-thread-key="2c67cc9d683caea3afc725727b974b5e" 
+              data-title="{{ page.title }}" data-url="请替换成文章的网址"></div>
+                <input type="hidden" id="disqus_shortname" value="{{ post.url | prepend: site.baseurl }}/{{site.disqus_shortname }}" >
+            </div>
+          </article>
+          <hr class="boundary">
+          <div id="post-share" class="bdsharebuttonbox">
+              <a href="#" class="bds_more" data-cmd="more"></a>
+              <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+              <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+              <a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+              <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+              <a href="#" class="bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+          </div>
+          <div id="post-comment" class="sheet post">
+              <div id="disqus_thread"></div>
+              
+          </div> 
+    </el-col> 
+    <!-- right top -->
+    <el-col :sm="24" :md="4" :lg="3" class="nav-padding"> 
+        <el-collapse  v-model="activeNames">
+            <el-collapse-item title="top" name="1">
+              
+            </el-collapse-item>
+            <el-collapse-item title="Tags" name="2">
+               
+                {% for tag in page.tags %} 
+                    <h4>
+                        <a href="{{ '/tags' | prepend: site.baseurl | prepend: site.url }}#{{ tag }}">
+                            
+                            {{ tag }}
+                        </a>
+                    </h4>
+                {% endfor %}
+            </el-collapse-item>
+            <el-collapse-item title="Related" name="3">
+                {% assign postsAfterFilter = '-' | split: "-" %}
+
+                {% for p in site.posts %}
+                    {%if p.url != page.url %}
+                        {% assign commonTagCount = 0 %}
+
+                        {% for tag in p.tags %}
+                            {% if page.tags contains tag %}
+                                {% assign commonTagCount = commonTagCount | plus: 1 %}
+                            {% endif %}
+                        {% endfor %}
+
+                        {% for cat in p.categories %}
+                            {% if page.categories contains cat %}
+                                {% assign commonTagCount = commonTagCount | plus: 1 %}
+                            {% endif %}
+                        {% endfor %}
+
+                        {% if commonTagCount > 0 %}
+                            {% assign postsAfterFilter = postsAfterFilter | push: p %}
+                        {% endif %}
+                    {% endif %}
+                {% endfor %}
+
+                {% if postsAfterFilter.size > 0 %}
+                    {% for p in postsAfterFilter limit: 15 %}
+                        <h4>
+                            <a href="{{ p.url | prepend: site.baseurl | prepend: site.url }}">{{ p.title }}</a>
+                        </h4>
+                    {% endfor %}
+                {% endif %}
+            </el-collapse-item> 
+          </el-collapse>
+ 
+    </el-col> 
+     
+</el-row> 
+ 

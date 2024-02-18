@@ -1,0 +1,50 @@
+    
+    <header>
+        <div class="container">
+           <form action=""> 
+                <el-menu 
+                  class="el-menu-demo"
+                  mode="horizontal"
+                  :ellipsis="false" 
+                >
+                  <el-menu-item index="0">
+                    <a class="navbar-brand" href="{{ site.baseurl | prepend: site.url }}" title="{{ site.title }}">
+                        <img src="{{ site.baseurl | prepend: site.url }}/static/img/logo.png" alt=""> 
+                      </a>
+                  </el-menu-item> 
+                  {% if page.url == "/index.html" %}
+                  <el-menu-item index="1" class="nav-item  active">
+                    <a class="nav-link active" href="{{ site.baseurl | prepend: site.url }}/" class="nav-link">首页</a>
+                    
+                  </el-menu-item> 
+                  {% else %}
+                  <el-menu-item class="nav-item "> 
+                      <a class="nav-link" href="{{ site.baseurl | prepend: site.url }}/" class="nav-link">首页</a>
+                  </el-menu-item>
+                  {% endif %}
+                {% for p in site.pages %}
+                
+                  {% if p.isNavItem %}
+                      {% if p.url == page.url %}
+                          <el-menu-item class="nav-item active">
+                              <a class="nav-link active" href="{{ p.url | prepend: site.baseurl | prepend: site.url }}" class="nav-link"><span class="octicon {{ p.icon }}"></span>&nbsp;&nbsp;{{ p.title }}</a>
+                          </el-menu-item>
+                      {% else %}
+                          <el-menu-item class="nav-item">
+                              <a class="nav-link" href="{{ p.url | prepend: site.baseurl | prepend: site.url }}" class="nav-link"><span class="octicon {{ p.icon }}"></span>&nbsp;&nbsp;{{ p.title }}</a>
+                          </el-menu-item>
+                      {% endif %}
+                  {% endif %}
+                {% endfor %}
+                
+                <el-form style="display: none;" :model="formInline"  :inline="true" style="float: right;margin-right: 80px;"   label-width="120px">
+                    <el-form-item label="Activity search">
+                        <el-input v-model="formInline.search" placeholder="Approved by" clearable />  
+                    </el-form-item> 
+                    <el-form-item>
+                        <el-button type="default" >Search</el-button>
+                      </el-form-item>
+                  </el-form>
+           </form> 
+        </div> 
+    </header>
