@@ -8,8 +8,9 @@ syntax_highlighter: rouge
 
 
 paginate: 10
-paginate_path: ":num"
-baseurl: ""
+paginate_path: ":num" 
+url:"https://github.com/ManixChen/"
+baseurl: "/manixchen.github.com"
 gems: [jekyll-paginate]
 plugins: [jekyll-paginate]
 
