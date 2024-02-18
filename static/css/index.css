@@ -139,6 +139,8 @@
 
 .article-excerpt .article-box-cloum {
    min-height: 300px;
+   width: 100%;
+   display: block;
 }
 
 .article-excerpt .article-box-cloum header img{
@@ -172,24 +174,5 @@
     z-index: 100;
     bottom: 8px;
     width: 90%;
-}
-/* 
-.article-excerpt .article-box-cloum {
-   min-height: 300px;
-}
+} 
 
-.article-excerpt .article-box-cloum header img{
-    opacity: 0.6;
-}
-.article-excerpt .article-box-cloum .module{
-    position: relative;
-}
-
-.article-excerpt .article-box-cloum .post-excerpt{
-    position: absolute;
-    top: -100%;
-    left: 0;
-    z-index: 100;
-    height: auto;
-    width: 200px;
-} */

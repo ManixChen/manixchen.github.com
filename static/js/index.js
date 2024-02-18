@@ -11,9 +11,9 @@ createApp({
           loading.value = false; 
           if(document.getElementById("gitalk-container")){ 
             const gitalk = new Gitalk({
-              clientID: 'f7c5d9acf154e373d8eb',
-              clientSecret: '475dbefe630689c0e3cf2de79bd74751fd014d9c',
-              repo: 'blog_content',      // The repository of store comments,
+              clientID: 'Iv1.7d7ba78a87e2be26',
+              clientSecret: 'ff1b6230a810f6255eb7b1193b00ec6c6f32783d',
+              repo: 'sunshinemooc',      // The repository of store comments,
               owner: 'manixchen',
               admin: ['manixchen'],
               id: window.location.pathname,      //唯一ID
