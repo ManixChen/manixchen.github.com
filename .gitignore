@@ -1,6 +1,8 @@
+ .gitignore
 .sass-cache
 .idea
 .local
 .local/*
 .jekyll-cache
 _site
+_config.yml
