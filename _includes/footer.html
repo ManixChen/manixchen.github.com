@@ -1,20 +1,16 @@
-    <footer  class="footnote footnote-tiffany">
-        <div class="container">
-                <a class="foot-item" href="mailto:{{ site.email }}" target="_blank">
-                    <span class="octicon octicon-mail"></span>
-                </a>
-                <a class="foot-item" href="https://github.com/{{ site.github_username }}" target="_blank">
-                    git
-                </a>
-                <a class="foot-item" href="{{ '/link/' | prepend: site.baseurl | prepend: site.url }}">必应</a>
-                <a href="#"><strong >&copy; ManixChen</strong></a>
-        </div>
-    </footer> 
+<footer  class="footnote footnote-tiffany">
+    <div class="container">
+            <a class="foot-item" title="后续根据需求可以添加字体图标即可" href="mailto:{{ site.email }}" target="_blank">
+                email
+            </a>
+            <a class="foot-item" href="{{ site.url }}" target="_blank">
+                github
+            </a> 
+            <a href="{{ site.github_username | prepend:'/' | prepend:site.baseurl |   prepend: site.url }}">
+                <strong >&copy; ManixChen</strong></a>
+    </div>
+</footer> 
 </div>
-    <!-- <script src="{{'/static/js/jquery-3.7.1.min.js' | append:script | prepend:site.baseurl | prepend: site.url  }}" ></script>
-    <script src="{{'/static/js/bootstrap.min.js' | append:script | prepend:site.baseurl | prepend: site.url  }}" ></script> -->
- 
-     <!-- <script type="text/javascript" src="{{'/static/js/script.js' | prepend:site.baseurl | prepend: site.url  }}"></script> -->
-    {% for script in page.scripts %}
+  {% for script in page.scripts %}
     <script type="text/javascript" src="{{'/static/js/' | append:script | prepend:site.baseurl | prepend: site.url  }}"></script>
     {%endfor%} 

@@ -212,7 +212,7 @@ imgrepo: "https://manixchen.github.io/static/img" #其实你懂了，你其他�
 10.3 实时编译情况，只要上传便会编译一次，建议萌新不要做太大改动工作流这块，github提供了操作系统环境的一些配置，请查阅文档后操作
 ![All workflows](/static/img/git/blog/2024-02-18_210439.png)
 
-11.这个目前配置所有允许才能更好实现推送编译
+11.这个目前配置所有允许所有用户才能更好实现推送编译(你也可以在本地关联你的gihub账号)
 
 ![All workflows](/static/img/git/blog/2024-02-18_230747.png)
 
