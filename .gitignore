@@ -5,3 +5,4 @@
 .local/*
 .jekyll-cache
 _site
+_config.yml
