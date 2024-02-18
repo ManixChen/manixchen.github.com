@@ -11,15 +11,15 @@ createApp({
           loading.value = false; 
           if(document.getElementById("gitalk-container")){ 
             const gitalk = new Gitalk({
-              clientID: 'Iv1.7d7ba78a87e2be26',
-              clientSecret: 'ff1b6230a810f6255eb7b1193b00ec6c6f32783d',
-              repo: 'sunshinemooc',      // The repository of store comments,
+              clientID: 'f7c5d9acf154e373d8eb',
+              clientSecret: '7ecf0b089f43335e1ed5dd8d2a6f375f6695aa11',
+              repo: 'gitalk-blog',      // The repository of store comments,
               owner: 'manixchen',
               admin: ['manixchen'],
-              id: window.location.pathname,      //唯一ID
+              id: window.location.pathname.slice(0, 50),      //唯一ID
               distractionFreeMode: false  // Facebook-like distraction free mode
           })
-          console.log(gitalk);
+          // console.log(gitalk);
             gitalk.render('gitalk-container') 
           }
         }, 4000)
