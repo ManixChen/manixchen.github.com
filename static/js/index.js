@@ -4,15 +4,31 @@ createApp({
   setup() {
     const message = ref('Hello Vue!')
     const loading = ref(true) 
+    
     // 改变加载状态
     function changeLoading(){ 
-        setTimeout(()=>loading.value = false, 4000)
-        
+        setTimeout(function(){
+          loading.value = false; 
+          if(document.getElementById("gitalk-container")){ 
+            const gitalk = new Gitalk({
+              clientID: 'f7c5d9acf154e373d8eb',
+              clientSecret: '475dbefe630689c0e3cf2de79bd74751fd014d9c',
+              repo: 'blog_content',      // The repository of store comments,
+              owner: 'manixchen',
+              admin: ['manixchen'],
+              id: window.location.pathname,      //唯一ID
+              distractionFreeMode: false  // Facebook-like distraction free mode
+          })
+          console.log(gitalk);
+            gitalk.render('gitalk-container') 
+          }
+        }, 4000)
     } 
     const formInline = reactive({
     search: '', 
     date: '',
     })
+      const activeNames = ref(['1','2','3']);
 
     
     function loadedDuoshuo(){
@@ -63,7 +79,6 @@ createApp({
         }
       }; 
 
-      const activeNames = ref(['1','2','3'])
     return {
       message,
       loading,

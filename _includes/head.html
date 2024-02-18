@@ -17,8 +17,10 @@
     <link rel="stylesheet" type="text/css" href="{{ '/static/css/' | append: style | prepend: site.baseurl | prepend: site.url}}" />
     {%endfor%}
     <!-- <link rel="stylesheet" type="text/css" href="{{ '/static/scss/style.css' | prepend: site.baseurl | prepend: site.url}}" /> -->
+    <link rel="stylesheet" href="{{'/static/css/gitalk.css' | prepend:site.baseurl | prepend: site.url}} ">
 
     <script type="text/javascript" src="{{'/static/js/vue@3.js' | prepend:site.baseurl | prepend: site.url  }}"></script>
     <script type="text/javascript" src="{{'/static/js/element-plus.js' | prepend:site.baseurl | prepend: site.url  }}"></script>
-    
+  <script src="{{'/static/js/gitalk.min.js' | prepend:site.baseurl | prepend: site.url  }}"></script>
+
 </head>

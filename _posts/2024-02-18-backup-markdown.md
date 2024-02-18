@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  Mardown语法小计，其他的可以使用html标签
-tags: Mardown语法 
+title:  Mardown图片网址表格语法
+tags: Mardown语法
 categories: Mardown
 ---
   
