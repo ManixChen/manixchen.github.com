@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  Mardown图片网址表格语法
-tags: Mardown语法
+title:  Mardown图片网址表格等常用语法简记
+tags: Mardown语法 编辑器
 categories: Mardown
 ---
   

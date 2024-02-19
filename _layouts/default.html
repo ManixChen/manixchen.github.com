@@ -3,30 +3,36 @@
 
 {% include head.html %}
 
-<body>
-<div id="app" >
-    <div class="loading-box"  :class="`${loading?'loading':'loaded'}`" v-loading="loading" :title="message" >
-        <div class="spinner">
-            <div class="double-bounce1"></div>
-            <div class="double-bounce2"></div>
-            <p class="loading-text">
-                请稍等ManixChens Rudy jekyll 静态站
-                <br>
-                正在解析mkdown 过程中………………
-            </p>
-          </div> 
-    </div>
+<body >
+<div id="app"   v-cloak  >
 {% include header.html %}
+ 
+	         
+<div class="loading-box"   :class="`${loading?'loading':'loaded'}`"  
+body
+fullscreen  v-loading="loading"
+:title="message" >
+<!-- 
+element-loading-text="请稍等 正在解析mkdown 过程中………………" 
+element-loading-background="rgba(255, 100, 100, 0.99)"  -->
+    <div class="spinner">
+        <div class="double-bounce1"></div>
+        <div class="double-bounce2"></div>
+        <p class="loading-text">
+            请稍等ManixChens 正在解析 过程中………………
+        </p>
+    </div> 
+</div>
 
-	 
-<div class="main">
+<div class="main" >
     {{ content }}
+    <el-backtop :right="100" :bottom="100" />
+    
 </div>
 <div class="epcl-waves-wrapper"> 
     
 </div>  
 </div>
-<el-backtop :right="100" :bottom="100" />
 <!-- git  gitalk 评论区 -->
 <div class="blog_content_container" > 
     <div  id="gitalk-container" ></div>

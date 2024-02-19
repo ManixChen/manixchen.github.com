@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 设计模式与原则
+title: 基础知识-设计模式与原则
 tags: design pattern 设计模式 原则 面向对象
 categories: common
 ---

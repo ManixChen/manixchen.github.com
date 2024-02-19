@@ -24,26 +24,30 @@ ul,li{
  .loading-box {
      /* transition: all 1s;   */
      /* transition: width 1.5s ease, color 0.8s, transform 1s 0.5s ease-in-out;  */
-     opacity: 1;
      position: fixed; 
      left: 0;
      top: 0;
-     z-index: 11;
+     z-index: 111;
      height: 100%;
      width: 100%;
      display: flex;
      justify-content: center;
      align-items: center;
       
-     animation: colorswitch 2s 3 ease;
-     -moz-animation: colorswitch 2s 3 ease;
-     -webkit-animation: colorswitch 2s 3 ease;
-     -o-animation: colorswitch 2s 3; 
+     animation: colorswitch 4s 4 ease;
+     -moz-animation: colorswitch 4s 4 ease;
+     -webkit-animation: colorswitch 4s 4 ease;
+     -o-animation: colorswitch 4s 3; 
+     
+    /* animation-name:colorswitch;
+    animation-duration:4s;
+    animation-iteration-count: infinite;
+    transform: initial;  */
  }
 
  /* 加载完毕只等待三秒，飞出屏幕外 */
  .loading-box.loaded {
-    transform:  scale(0.1) rotate(360deg) translateX(-150%);
+    transform:  scale(0) rotate(360deg);
     transition: transform 1.2s ease-in-out;
     color: #000; 
     z-index: -100;
@@ -188,8 +192,8 @@ ul,li{
 
  /* 中心动画 */
  .spinner {
-     width: 160px;
-     height: 160px;
+     width: 16rem;
+     height: 16rem;
      position: relative;
      margin: 100px auto;
  }
@@ -198,10 +202,11 @@ ul,li{
      position: absolute;
      top: 110%;
      left: -100px;
-     z-index: 300;
+     z-index: 300; 
      width: 350px;
      color: #000;
-     font-size: 18px;
+     opacity: 1;
+     font-size: 1.3rem;
      font-weight: 600;
      text-align: center;
  }
@@ -407,3 +412,12 @@ ul,li{
     height: 250px;
     margin: 30px;
   }
+
+  [v-cloak ]{
+    opacity: 0;
+   }
+
+
+   .el-backtop{
+    z-index: 200;
+   }

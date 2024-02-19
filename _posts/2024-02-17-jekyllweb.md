@@ -1,11 +1,11 @@
 ---
 layout: post
 title: markdown自动生成github博客(前篇)
-tags: jekyll vue3 elementplus
-categories: web建站 jekyll建站 github
+tags: jekyll vue3 elementplus git-pages blog 免费博客
+categories: web blog
 ---
  
-1. <b> 为什么我要用这么不知名的语言写这个系统</b>
+1. 为什么我要用这么不知名的语言写这个系统
 * 好奇心驱使，热爱新鲜技术，希望避免重复性劳动
 * 复用率高，每天写写markdown日记便可以同步到github
 * 学的东西都来自开源，总的回馈点什么

@@ -2,7 +2,7 @@
 layout: post
 title:  github本地关联远程秘钥
 tags: github 远程秘钥
-categories: github本秘钥
+categories: github 
 ---
   
  ### github本地关联远程秘钥

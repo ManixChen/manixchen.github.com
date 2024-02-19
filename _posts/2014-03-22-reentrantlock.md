@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 可重入锁
-tags: Java Concurrent Lock
+tags: Java synchronized Lock
 categories: Java
 ---
 

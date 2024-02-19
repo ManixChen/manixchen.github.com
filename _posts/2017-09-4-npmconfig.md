@@ -1,8 +1,8 @@
 ---
 layout: post
 title: node npm环境变量以及npm默认保存路径
-tags: node npm npmpackage环境包
-categories: node_npm
+tags: node npmpackage
+categories: nodejs
 ---
 ## I、软件包
 安装nodejs》

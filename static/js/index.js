@@ -2,7 +2,7 @@ const { createApp, ref,reactive } = Vue
 
 createApp({
   setup() {
-    const message = ref('Hello Vue!')
+    const message = ref('Hello there is manixchens blog!')
     const loading = ref(true) 
     
     // 改变加载状态

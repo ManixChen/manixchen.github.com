@@ -2,7 +2,7 @@
 layout: post
 title: spring security 探秘
 tags: spring security Java
-categories: web
+categories: java
 ---
 
 # 概述
