@@ -1,8 +1,7 @@
     
     <header  v-cloak>
         <div class="container">
-           <form action=""> 
-                <el-menu 
+            <el-menu 
                   class="el-menu-demo"
                   mode="horizontal"
                   :ellipsis="false" 
@@ -37,14 +36,12 @@
                   {% endif %}
                 {% endfor %}
                 
-                <el-form style="display: none;" :model="formInline"  :inline="true" style="float: right;margin-right: 80px;"   label-width="120px">
-                    <el-form-item label="Activity search">
-                        <el-input v-model="formInline.search" placeholder="Approved by" clearable />  
-                    </el-form-item> 
-                    <el-form-item>
-                        <el-button type="default" >Search</el-button>
-                      </el-form-item>
-                  </el-form>
-           </form> 
+              <div class="flex-grow" /> 
+              <el-form-item  index="1" class="search-container" > 
+                <label for="pageSearch"></label>    
+                <input name="pageSearch" class="search" id="pageSearch"  placeholder="仅支持页面检索"  />  
+                <ul id="searchResultScontainer"></ul>
+              </el-form-item>  
+            </el-menu>
         </div> 
     </header>

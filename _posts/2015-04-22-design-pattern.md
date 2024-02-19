@@ -627,22 +627,4 @@ java.util.Set#addAll(Collection)
 **相关**
 
 可与迭代器模式搭配使用
-
-
-
-
-[Strategy]: http://my.csdn.net/uploads/201205/11/1336732187_4598.jpg
-[Singleton]: http://my.csdn.net/uploads/201204/26/1335439688_4086.jpg
-[factorymethod]: http://hi.csdn.net/attachment/201203/15/0_1331817716F3IJ.gif
-[absfactory]: http://my.csdn.net/uploads/201204/25/1335357105_2682.jpg
-[templatemethod]: http://my.csdn.net/uploads/201205/14/1336965093_1048.jpg
-[state]: http://my.csdn.net/uploads/201205/11/1336719144_5496.jpg
-[cmd]: http://my.csdn.net/uploads/201205/09/1336547877_9980.jpg
-[Observer]: http://my.csdn.net/uploads/201205/11/1336707179_9037.jpg
-[Iterator]: http://my.csdn.net/uploads/201205/28/1338213169_8415.jpg
-[decorater]: http://my.csdn.net/uploads/201205/03/1336034007_4657.jpg
-[adapter1]: http://my.csdn.net/uploads/201205/02/1335939433_8937.jpg
-[adapter2]: http://my.csdn.net/uploads/201205/02/1335939552_3860.jpg
-[proxy]: http://my.csdn.net/uploads/201205/07/1336371130_8874.jpg
-[facade]: http://my.csdn.net/uploads/201207/05/1341473411_7539.JPG
-[composive]: http://my.csdn.net/uploads/201205/03/1336015104_5713.jpg
+ 

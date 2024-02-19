@@ -1,3 +1,8 @@
+.highlight,.highlight code{ 
+    line-height: 2.1rem;
+    white-space: break-spaces;
+    font-size: 1.1rem;  
+}
 .highlight .c { color: #999988; font-style: italic } /* Comment */
 .highlight .err { color: #a61717; background-color: #e3d2d2 } /* Error */
 .highlight .k { color: #000000; font-weight: bold } /* Keyword */
@@ -61,3 +66,7 @@
 .highlight .lineno{ color: rgba(0,0,0,0.3); border-right: solid 1px rgba(0,0,0,0.3); padding-right: 5px;}
 
 
+
+.highlight code{  
+    color: rgba(0,0,0,0.8);
+}

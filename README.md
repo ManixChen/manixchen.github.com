@@ -222,6 +222,45 @@ imgrepo: "https://manixchen.github.io/static/img" #其实你懂了，你其他�
 ![All workflows](/static/img/git/blog/2024-02-18_230747.png)
 
 
+12. gitalk  此服务提供评论功能 [git免费的服务其实可以申请给其他项目用也行，你懂得， 别人帮你托管](https://github.com/gitalk/gitalk)
+
+设置方法可参考 <https://github.com/gitalk/gitalk>
+
+设置完毕后, 你需要修改 `_config.yml` 中的 `clientID /  clientSecret / repo owner`  
+直接引入方式,其他的可以npm安装形式
+
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+使用 
+直接引入，先创建一个index.html文件 
+创建一个容器用于存放 gitalk 
+<div id="gitalk-container"></div>
+new 一个 gitalk 来进行配置  
+var gitalk = new Gitalk({
+    clientID: 'GitHub Application Client ID',
+    clientSecret: 'GitHub Application Client Secret',
+    repo: 'GitHub repo',
+    owner: 'GitHub repo owner',
+    admin:  ['GitHub repo owner and collaborators, only these guys can initialize github issues'],
+    id: location.pathname,      // Ensure uniqueness and len
+    distractionFreeMode: false  // Facebook-like distraction
+})
+render 一下
+
+gitalk.render('gitalk-container')
+
+
+
+
+
+13.
+
+
+
+
+
+
+
 ####  后期需要改内容
 
 #### 1. swiftype
@@ -243,17 +282,6 @@ imgrepo: "https://manixchen.github.io/static/img" #其实你懂了，你其他�
   _st('install','swiftype_searchId','2.0.0');
 </script>
 ```
-
-#### 2.disqus
-
-此服务提供评论功能
-
-服务地址：<https://disqus.com/>
-
-设置方法可参考 <http://blog.ihurray.com/blog/Disqus-learning.php>
-
-设置完毕后, 你需要修改 `_config.yml` 中的 `disqus_shortname` ,否则对您博客的评论将归到本人名下。
-
-
+ 
 #### 目前以上功能我全部移除了，后续有时间再添加定制，常用的免费的还是挺多的，页面搜索还有网站排名
 
