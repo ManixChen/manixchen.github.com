@@ -16,44 +16,6 @@ layout: default
         <div class="blog-article-box"> 
             {{content}}
         </div>
-        <el-row class="row-bg blog-article-bottom" justify="space-around">
-            <el-col :sm="24"   :md="14"> 
-                {% for cat in page.categories %}
-                <a href="{{ '/category' | prepend: site.baseurl | prepend: site.url }}/#{{ cat }}">
-                    {{ cat }}
-                </a>
-                {% endfor %}
-
-                {% for tag in page.tags %}
-                    <a class="categori-tag" href="{{ '/tags' | prepend: site.baseurl | prepend: site.url }}/#{{ tag }}">
-                        {{ tag }}</a>
-                {% endfor %} 
-            </el-col>
-            <el-col :sm="24"   :md="7">
-                <a class="title" href="{{ post.url | prepend: site.baseurl | prepend: site.url }}">
-                    {{ post.title }}
-                </a>
-            </el-col>
-            <el-col :sm="24"   :md="3">
-                <span> {% if page.author %}  
-                    {{ page.author }}
-                {% endif %}
-                {% if page.meta %}  {{ page.meta }}{% endif %}</span>
-                <span class="pull-right"> 
-                   
-                    
-                    {{ page.date | date: "%b %-d, %Y" }} 
-                 </span>
-                </el-col>
-          </el-row> 
-
-
-        <!-- 外部引用 --> 
-          <hr class="boundary">
-          <div id="post-share" class="bdsharebuttonbox">  </div>
-              <div id="disqus_shortname"></div>
-              
-          </div> 
     </el-col> 
     <!-- right top -->
     <el-col :sm="24" :md="4" :lg="3" class="nav-padding"> 
@@ -110,4 +72,42 @@ layout: default
     </el-col> 
      
 </el-row> 
+<el-row class="row-bg blog-article-bottom" justify="space-around">
+    <el-col :sm="24"   :md="14"> 
+        {% for cat in page.categories %}
+        <a href="{{ '/category' | prepend: site.baseurl | prepend: site.url }}/#{{ cat }}">
+            {{ cat }}
+        </a>
+        {% endfor %}
+
+        {% for tag in page.tags %}
+            <a class="categori-tag" href="{{ '/tags' | prepend: site.baseurl | prepend: site.url }}/#{{ tag }}">
+                {{ tag }}</a>
+        {% endfor %} 
+    </el-col>
+    <el-col :sm="24"   :md="7">
+        <a class="title" href="{{ post.url | prepend: site.baseurl | prepend: site.url }}">
+            {{ post.title }}
+        </a>
+    </el-col>
+    <el-col :sm="24"   :md="3">
+        <span> {% if page.author %}  
+            {{ page.author }}
+        {% endif %}
+        {% if page.meta %}  {{ page.meta }}{% endif %}</span>
+        <span class="pull-right"> 
+           
+            
+            {{ page.date | date: "%b %-d, %Y" }} 
+         </span>
+        </el-col>
+  </el-row> 
  
+
+
+<!-- 外部引用 --> 
+<hr class="boundary">
+<div id="post-share" class="bdsharebuttonbox">  </div>
+    <div id="disqus_shortname"></div>
+    
+</div> 
