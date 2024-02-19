@@ -39,8 +39,7 @@
 点击仓库 setting 再点击 Pages 当出现如下画面，可以点击 Visit site 查看或者直接浏览器输入你的Github账号名.github.io 
 
 4. 查看项目结构
-> 网站GitHub Pages + Jekyll实现的静态网页，Jekyll 网站基础结构如下
-
+> 网站GitHub Pages + Jekyll实现的静态网页，Jekyll 网站基础结构如下 
 ├── _config.yml
 ├── _drafts
 |   ├── begin-with-the-crazy-ideas.markdown
