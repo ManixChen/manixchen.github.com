@@ -8,21 +8,18 @@
 {% include header.html %}
 
 
-<div class="loading-box"   :class="`${loading?'loading':'loaded'}`"
-body
-fullscreen  v-loading="loading"
-:title="message" >
-<!--
-element-loading-text="请稍等 正在解析mkdown 过程中………………"
-element-loading-background="rgba(255, 100, 100, 0.99)"  -->
-    <div class="spinner">
-        <div class="double-bounce1"></div>
-        <div class="double-bounce2"></div>
-        <p class="loading-text">
-            请稍等ManixChens 正在解析 过程中………………
-        </p>
-    </div>
-</div>
+  <div class="loading-box"   :class="`${loading?'loading':'loaded'}`"
+  body
+  fullscreen  v-loading="loading"
+  :title="message" >
+      <div class="spinner">
+          <div class="double-bounce1"></div>
+          <div class="double-bounce2"></div>
+          <p class="loading-text">
+              请稍等ManixChen正在解析过程中………
+          </p>
+      </div>
+  </div>
 
 <div class="main" >
     {{ content }}
