@@ -1,16 +1,16 @@
 <footer  class="footnote footnote-tiffany">
     <div class="container">
-            <a class="foot-item" title="后续根据需求可以添加字体图标即可" href="mailto:{{ site.email }}" target="_blank">
-                email
+            <a class="foot-item" title="后续根据需求可以添加字体图标即可" href="{{ site.csdn }}" target="_blank">
+                csdn
             </a>
             <a class="foot-item" href="{{ site.url }}" target="_blank">
-                github
-            </a> 
-            <a href="{{ site.github_username | prepend:'/' | prepend:site.baseurl |   prepend: site.url }}">
-                <strong >&copy; ManixChen</strong></a>
+                ManixChen
+            </a>
+            <a href="{{ site.github}}"  target="_blank">
+                <strong >&copy; github</strong></a>
     </div>
-</footer> 
+</footer>
 </div>
   {% for script in page.scripts %}
     <script type="text/javascript" src="{{'/static/js/' | append:script | prepend:site.baseurl | prepend: site.url  }}"></script>
-    {%endfor%} 
+    {%endfor%}

@@ -8,7 +8,7 @@ syntax_highlighter: rouge
 
 
 paginate: 10
-paginate_path: ":num" 
+paginate_path: ":num"
 url: "https://github.com/"
 baseurl: ""
 gems: [jekyll-paginate]
@@ -25,19 +25,23 @@ defaults:
       styles : [elementplus.css,style.css,index.css,highlight.css]
       scripts : [index.js]
 
+manix:
+  -
+    scope:
+      path: ""
+      type: "manix"
+      output: true
+    values:
+      layout: "manix"
 
 autor: "manixchen"
 title: "沐辰"
 email: "manixchensunshine@163.com"
 description: "ManixChen的个人技术博客,此博客采用VUE3+elementPlus+ jeklly markdown构建，仅供github个人主页使用，废弃了17年第一版本的jquery bootstrap"
 github_username:  "ManixChen"
-#搜索功能
-swiftype_searchId: "NPWtAox5cwrizmB19q9k"
-disqus_shortname: "manixchen"
 
-segment: https://segmentfault.com/u/manix
-qqContact: http://wpa.qq.com/msgrd?v=3&uin=1183108660&site=qq&menu=yes
-qqSpace: http://user.qzone.qq.com/1183108660
+csdn: https://blog.csdn.net/manixchenyang?
+github: https://github.com/ManixChen
 
 
 
@@ -47,5 +51,3 @@ imgrepo: "https://manixchen.github.io/static/img"
 
 # url: "http://127.0.0.1:4000"
 # imgrepo: "http://127.0.0.1:4000/static/img"
-
- 

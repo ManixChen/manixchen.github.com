@@ -1,0 +1,1 @@
+import{n as a,B as e,x as n,$ as o,m as _,a2 as c}from"./index-BDACBBkc.js";const m={__name:"index",setup(r){return(s,l)=>{const t=o;return _(),a("div",null,[e(t,null,{default:n(()=>[e(c,{current:"vue",title:"所有相册"})]),_:1})])}}};export{m as default};

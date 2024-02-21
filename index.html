@@ -1,10 +1,10 @@
 ---
-layout: default     
+layout: default
 title: Sunshine知识库
 styles : [elementplus.css,style.css,index.css]
 scripts: [index.js]
 ---
- 
+
 <el-row class="article-box" post-cate="All" justify="center">
   <el-col>
     <br>
@@ -36,8 +36,8 @@ scripts: [index.js]
                     {{ post.content | strip_html | strip_newlines | truncate: 100 }}
                   </div>
                   {% endif %}
-                
-                
+
+
                 <div class="article-tags">
                     {% for tag in post.tags %}
                       <a class="categori-tag" href="{{ site.baseurl | prepend: site.url }}/tags/#{{ tag }}">
@@ -50,10 +50,10 @@ scripts: [index.js]
                       </a>
                     </span>
                 </div>
-                
+
               </main>
-              <footer> 
-                
+              <footer>
+
                 <a href="{{ post.url | prepend: site.baseurl | prepend: site.url }}#post-comment">
                   Comment
                 </a>
@@ -69,7 +69,7 @@ scripts: [index.js]
     </el-row>
   </el-col>
   <el-col :sm="24" class="pager-container">
-    <ul class="pagers text-warning">  
+    <ul class="pagers text-warning">
       {% if paginator.total_pages > 1 %}
           {% if paginator.previous_page %}
                 <li><a href="{{ paginator.previous_page_path | prepend: site.baseurl | prepend: site.url }}" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
@@ -85,10 +85,8 @@ scripts: [index.js]
           {% endfor %}
           {% if paginator.next_page %}
                 <li><a href="{{ paginator.next_page_path | prepend: site.baseurl | prepend: site.url }}" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>
-          {% endif %} 
+          {% endif %}
       {% endif %}
       </ul>
   </el-col>
 </el-row>
-
- 
