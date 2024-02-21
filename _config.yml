@@ -13,6 +13,7 @@ url: "https://github.com/"
 baseurl: ""
 gems: [jekyll-paginate]
 plugins: [jekyll-paginate]
+# theme: manix #主题
 
 
 defaults:
@@ -33,6 +34,16 @@ manix:
       output: true
     values:
       layout: "manix"
+
+# defaults:
+#   -
+#     scope:
+#       path: ""
+#       type: "posts"
+#     values:
+#       layout: post
+#       styles : [elementplus.css,style.css,index.css,highlight.css]
+#       scripts : [index.js]
 
 autor: "manixchen"
 title: "沐辰"

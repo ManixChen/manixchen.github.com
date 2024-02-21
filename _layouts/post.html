@@ -1,8 +1,8 @@
 ---
-layout: default 
+layout: default
 ---
 
- 
+
 
 <el-row class="article-box-container" post-cate="All" justify="center">
     <el-col :sm="24"  >
@@ -11,24 +11,24 @@ layout: default
       <h1 justify="center">{{ page.title }}</h1>
       <br>
       <br>
-    </el-col> 
+    </el-col>
     <el-col :sm="24" :md="20" :lg="18">
-        <div class="blog-article-box"> 
+        <div class="blog-article-box">
             {{content}}
         </div>
-    </el-col> 
+    </el-col>
     <!-- right top -->
-    <el-col :sm="24" :md="4" :lg="3" class="nav-padding"> 
+    <el-col :sm="24" :md="4" :lg="3" class="nav-padding">
         <el-collapse  v-model="activeNames">
             <el-collapse-item title="top" name="1">
-              
+
             </el-collapse-item>
             <el-collapse-item title="Tags" name="2">
-               
-                {% for tag in page.tags %} 
+
+                {% for tag in page.tags %}
                     <h4>
                         <a href="{{ '/tags' | prepend: site.baseurl | prepend: site.url }}#{{ tag }}">
-                            
+
                             {{ tag }}
                         </a>
                     </h4>
@@ -66,14 +66,14 @@ layout: default
                         </h4>
                     {% endfor %}
                 {% endif %}
-            </el-collapse-item> 
+            </el-collapse-item>
           </el-collapse>
- 
-    </el-col> 
-     
-</el-row> 
+
+    </el-col>
+
+</el-row>
 <el-row class="row-bg blog-article-bottom" justify="space-around">
-    <el-col :sm="24"   :md="14"> 
+    <el-col :sm="24"   :md="14">
         {% for cat in page.categories %}
         <a href="{{ '/category' | prepend: site.baseurl | prepend: site.url }}/#{{ cat }}">
             {{ cat }}
@@ -83,7 +83,7 @@ layout: default
         {% for tag in page.tags %}
             <a class="categori-tag" href="{{ '/tags' | prepend: site.baseurl | prepend: site.url }}/#{{ tag }}">
                 {{ tag }}</a>
-        {% endfor %} 
+        {% endfor %}
     </el-col>
     <el-col :sm="24"   :md="7">
         <a class="title" href="{{ post.url | prepend: site.baseurl | prepend: site.url }}">
@@ -91,23 +91,23 @@ layout: default
         </a>
     </el-col>
     <el-col :sm="24"   :md="3">
-        <span> {% if page.author %}  
+        <span> {% if page.author %}
             {{ page.author }}
         {% endif %}
         {% if page.meta %}  {{ page.meta }}{% endif %}</span>
-        <span class="pull-right"> 
-           
-            
-            {{ page.date | date: "%b %-d, %Y" }} 
+        <span class="pull-right">
+
+
+            {{ page.date | date: "%b %-d, %Y" }}
          </span>
         </el-col>
-  </el-row> 
- 
+  </el-row>
 
 
-<!-- 外部引用 --> 
+
+<!-- 外部引用 -->
 <hr class="boundary">
 <div id="post-share" class="bdsharebuttonbox">  </div>
     <div id="disqus_shortname"></div>
-    
-</div> 
+
+</div>
