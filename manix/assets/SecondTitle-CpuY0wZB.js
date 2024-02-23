@@ -1,1 +1,0 @@
-import{o as s,j as c,k as t,x as n,v as _,S as l}from"./index-Cv3_oK_S.js";import{a as r,E as p}from"./col-AFYffnGn.js";const i={class:"page-second-title"},h={__name:"SecondTitle",props:["title"],setup(e){return(m,d)=>{const o=r,a=p;return s(),c(a,{gutter:10},{default:t(()=>[n(o,{span:24},{default:t(()=>[_("h2",i,l(e.title),1)]),_:1})]),_:1})}}};export{h as _};
