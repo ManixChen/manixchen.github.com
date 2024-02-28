@@ -1,1 +1,0 @@
-import{n as o,A as t,v as r,Y as n,m as a}from"./index-DCkmKyww.js";import _ from"./index-BlmOiqW4.js";import"./image-viewer-kp1qFHKh.js";import"./index-oZ5vU6PM.js";const f={__name:"index",setup(c){return(l,m)=>{const e=n;return a(),o("div",null,[t(e,null,{default:r(()=>[t(_,{current:"php",title:"所有相册"})]),_:1})])}}};export{f as default};

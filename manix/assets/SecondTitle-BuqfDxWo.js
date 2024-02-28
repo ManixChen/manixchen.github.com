@@ -1,1 +1,0 @@
-import{m as a,t as c,v as t,A as n,q as _,K as l,X as r,Y as p}from"./index-DCkmKyww.js";const i={class:"page-second-title"},f={__name:"SecondTitle",props:["title"],setup(e){return(d,m)=>{const o=r,s=p;return a(),c(s,{gutter:10},{default:t(()=>[n(o,{span:24},{default:t(()=>[_("h2",i,l(e.title),1)]),_:1})]),_:1})}}};export{f as _};

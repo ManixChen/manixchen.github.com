@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      function initStr(str) {
+        if(!str.length) return true;
+          const defaltObj={
+              "{":"}",
+              "(":")",
+              "[":"]"
+          };
+          const defaltAtrr=["{","}", "(",")","[","]"];
+          let newArr=[];
+          let insure = true;
+          for(let i=0;i<str.length;i++){
+            const strI=str[i];
+            //储存所以开口
+            if(strI=="("||strI=="["||strI=="{"){
+                newArr.push(strI);
+                insure=false;
+            }
+            if(strI==="}"||strI==="]"||strI===")"){
+              //如果没有开口储存，直接退出
+              if(!newArr.length) return false;
+              // for(let key =0;k<newArr.length;key++){
+              /****
+              *  *1.对应 直接闭合 返回 true
+              *  *
+              *  *2  {[((   (([{)]])        //))]}
+              *  *
+              *  *
+              **/
+              let reverNewArr=newArr.reverse();
+              for(let dataLeft of reverNewArr){
+                // 有且仅有一对
+                if(defaltObj[dataLeft]===strI){//&&newArr.indexOf(dataLeft)!=-1
+                    newArr.splice(newArr.indexOf(dataLeft));
+                    insure = false;
+                }else{
+                    insure=false;
+                }
+              }
+            }
+          }
+          if(!newArr.length){
+            return false;
+          }
+          return insure;
+      }
+      // initStr("[ssss]{");
+    </script>
+
+    <script type="text/javascript">
+      function meiqiu(index){
+        /**.
+        * 1     *                1   2                          1             （1+n)*n /2
+          3     ***              2   3                          2+1
+          6     ******           3   4                          3+2+1
+          10    **********       4   5                          4+3+2+1
+          15    ***************  5   6                          5+4+3+2+1
+        */
+
+        let sum =0;
+        let text="";
+        let total=0;
+        for(let i=0;i<=index;i++){
+          sum=sum+i;
+            total=total+sum;
+          for(let k=0;k<=2*i+1;k++){
+            if(k==0){
+              text=text+"\n";
+            }
+            text=text+"*"
+          }
+
+        }
+        console.log("total:"+total);
+        console.log(sum);
+        console.log(text);
+      }
+      console.log(meiqiu(100));
+    </script>
+  </body>
+</html>

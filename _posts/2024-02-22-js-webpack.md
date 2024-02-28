@@ -5,6 +5,53 @@ tags: javascript ES6 webpack 代码压缩
 categories: webpack
 ---
 
+
+1.前端模块化打包初识
+commonjs语法形式
+```
+> user.js
+const login = function(formData){
+  console.log("logoing")
+  return {}
+}
+const register = function(formData){
+  console.log("register")
+}
+module.exports = {
+  login:login,
+  register:register
+}
+>login_index.js  引入
+const user =require('./user.js')
+const resp = user.login({})
+```
+
+
+
+ecmascript语法形式
+```
+> user.js
+export const login = function(formData){
+  console.log("logoing")
+}
+export const register = function(formData){
+  console.log("register")
+}
+
+>login_index.js  引入
+import {login,register} from './user.js'
+```
+
+
+
+
+2. *** npm包管理工具 ***
+npm init -y
+npm i packagename
+
+
+
+
 1.
  Tree Shaking中文含义是摇树，在webpack中指的是打包时把无用的代码摇掉，以优化打包结果。
 而webpack5已经自带了这个功能了，当打包环境为production时，默认开启tree-shaking功能
@@ -62,4 +109,3 @@ js复制代码// 所有文件都有副作用，全都不可 tree-shaking
   "./src/file2.js"
  ]
 }
- 

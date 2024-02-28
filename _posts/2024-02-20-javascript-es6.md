@@ -6,7 +6,7 @@ categories: ES6
 ---
 
 **** 常用的API ***
-下面是 Proxy 支持的拦截操作一览，一共 13 种。
+一、下面是 Proxy 支持的拦截操作一览，一共 13 种。
 ```
 get(target, propKey, receiver)：拦截对象属性的读取，比如proxy.foo和proxy['foo']。
 set(target, propKey, value, receiver)：拦截对象属性的设置，比如proxy.foo = v或proxy['foo'] = v，返回一个布尔值。
@@ -68,3 +68,90 @@ var proxy = new Proxy(person, {
 proxy.name // "张三"
 proxy.age // 抛出一个错误
 上面代码表示，如果访问目标对象不存在的属性，会抛出一个错误。如果没有这个拦截函数，访问不存在的属性，只会返回undefined。
+
+
+
+npm login --registry=https://npm.pkg.github.com
+
+
+
+二、bind、call、apply的作用
+关于call、apply、bind函数，它们主要用来改变this指向的，在很多框架中常有用到，而且也是面试官喜欢问到的问题：多数会问道三者的区别， 以及手动实现它们。
+1、call的用法
+```
+fn.call(thisArg, arg1, arg2, arg3, ...)
+1
+调用fn.call时会将fn中的this指向修改为传入的第一个参数thisArg；将后面的参数传入给fn,并立即执行函数fn。
+
+let obj = {
+        name: "xiaoming",
+        age: 24,
+        sayHello: function (job, hobby) {
+            console.log(`我叫${this.name},今年${this.age}岁。我的工作是: ${job}，我的爱好是: ${hobby}。`);
+        }
+    }
+    obj.sayHello('程序员', '看美女'); // 我叫xiaoming,今年24岁。我的工作是: 程序员，我的爱好是: 看美女。
+
+
+    let obj1 = {
+        name: "lihua",
+        age: 30
+    }
+    // obj1.sayHello(); // Uncaught TypeError: obj1.sayHello is not a function
+    obj.sayHello.call(obj1, '设计师', '画画'); // 我叫lihua,今年30岁。我的工作是: 设计师，我的爱好是: 画画。
+```
+
+
+2、 apply的用法
+apply(thisArg, [argsArr])
+1、fn.apply的作用和call相同：修改this指向，并立即执行fn。区别在于传参形式不同，apply接受两个参数，第一个参数是要指向的this对象，第二个参数是一个数组，数组里面的元素会被展开传入fn,作为fn的参数。
+
+let obj = {
+        name: "xiaoming",
+        age: 24,
+        sayHello: function (job, hobby) {
+            console.log(`我叫${this.name},今年${this.age}岁。我的工作是: ${job}，我的爱好是: ${hobby}。`);
+        }
+    }
+    obj.sayHello('程序员', '看美女'); // 我叫xiaoming,今年24岁。我的工作是: 程序员，我的爱好是: 看美女。
+
+
+    let obj1 = {
+        name: "lihua",
+        age: 30
+    }
+
+    obj.sayHello.apply(obj1, ['设计师', '画画']); // 我叫lihua,今年30岁。我的工作是: 设计师，我的爱好是: 画画。
+
+
+3、bind的用法
+bind(thisArg, arg1, arg2, arg3, ...)
+1
+fn.bind的作用是只修改this指向，但不会立即执行fn；会返回一个修改了this指向后的fn。需要调用才会执行:bind(thisArg, arg1, arg2, arg3, ...)()。bind的传参和call相同。
+
+    let obj = {
+        name: "xiaoming",
+        age: 24,
+        sayHello: function (job, hobby) {
+            console.log(`我叫${this.name},今年${this.age}岁。我的工作是: ${job}，我的爱好是: ${hobby}。`);
+        }
+    }
+    // obj.sayHello('程序员', '看美女'); // 我叫xiaoming,今年24岁。我的工作是: 程序员，我的爱好是: 看美女。
+
+    let obj1 = {
+        name: "lihua",
+        age: 30
+    }
+
+    obj.sayHello.bind(obj1, '设计师', '画画'); // 无输出结果
+    obj.sayHello.bind(obj1, '设计师', '画画')(); // 我叫lihua,今年30岁。我的工作是: 设计师，我的爱好是: 画画。
+
+4、bind、call、apply的区别
+1、相同点
+三个都是用于改变this指向；
+接收的第一个参数都是this要指向的对象；
+都可以利用后续参数传参。
+2、不同点
+call和bind传参相同，多个参数依次传入的；
+apply只有两个参数，第二个参数为数组；
+call和apply都是对函数进行直接调用，而bind方法不会立即调用函数，而是返回一个修改this后的函数。
