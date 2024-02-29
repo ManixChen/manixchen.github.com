@@ -1,0 +1,1 @@
+import{a1 as r,i as a}from"./index-BSqOno0d.js";const t=o=>{const u=r(o)?o:[o],e=[];return u.forEach(s=>{var n;r(s)?e.push(...t(s)):a(s)&&r(s.children)?e.push(...t(s.children)):(e.push(s),a(s)&&((n=s.component)!=null&&n.subTree)&&e.push(...t(s.component.subTree)))}),e};export{t as f};
