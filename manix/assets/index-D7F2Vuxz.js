@@ -1,1 +1,0 @@
-import{n as o,A as t,v as r,Y as n,m as a}from"./index-CwYgsghi.js";import _ from"./index-DDvAP0dg.js";import"./image-viewer-DiVd7nRQ.js";import"./index-C38Tw09e.js";import"./scroll-DXgRRphB.js";const d={__name:"index",setup(c){return(m,l)=>{const e=n;return a(),o("div",null,[t(e,null,{default:r(()=>[t(_,{current:"vue",title:"所有相册"})]),_:1})])}}};export{d as default};

@@ -1,0 +1,1 @@
+import{m as a,q as c,t,A as n,x as _,K as l,X as r,Y as p}from"./index-DPMXIFBI.js";const i={class:"page-second-title"},f={__name:"SecondTitle",props:["title"],setup(e){return(d,m)=>{const o=r,s=p;return a(),c(s,{gutter:10},{default:t(()=>[n(o,{span:24},{default:t(()=>[_("h2",i,l(e.title),1)]),_:1})]),_:1})}}};export{f as _};
