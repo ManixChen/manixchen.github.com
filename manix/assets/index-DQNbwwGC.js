@@ -1,0 +1,1 @@
+import{n as o,A as t,t as r,Y as a,m as n}from"./index-CaZaQ9on.js";import _ from"./index-DJEgkpsR.js";import"./image-viewer-Bu2T5GKA.js";import"./index-Bn3mk5cZ.js";import"./scroll-inuxvSxR.js";const d={__name:"index",setup(c){return(m,l)=>{const e=a;return n(),o("div",null,[t(e,null,{default:r(()=>[t(_,{current:"java",title:"所有相册"})]),_:1})])}}};export{d as default};
