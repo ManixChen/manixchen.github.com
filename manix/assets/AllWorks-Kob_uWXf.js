@@ -1,0 +1,1 @@
+import{n as o,A as t,t as r,Y as l,m as a}from"./index-DK5HkDXa.js";import n from"./index-uFptaXJQ.js";import"./image-viewer-Cnsljs3f.js";import"./index-BvNsDrGx.js";import"./scroll-DGpnu8Pa.js";const d={__name:"AllWorks",setup(_){return(c,m)=>{const e=l;return a(),o("div",null,[t(e,null,{default:r(()=>[t(n,{current:"all",title:"所有相册"})]),_:1})])}}};export{d as default};
