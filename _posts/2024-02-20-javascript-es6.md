@@ -21,8 +21,7 @@ isExtensible(target)：拦截Object.isExtensible(proxy)，返回一个布尔值�
 setPrototypeOf(target, proto)：拦截Object.setPrototypeOf(proxy, proto)，返回一个布尔值。如果目标对象是函数，那么还有两种额外操作可以拦截。
 apply(target, object, args)：拦截 Proxy 实例作为函数调用的操作，比如proxy(...args)、proxy.call(object, ...args)、proxy.apply(...)。
 construct(target, args)：拦截 Proxy 实例作为构造函数调用的操作，比如new proxy(...args)。
-```
-```
+
 var obj = new Proxy({}, {
   get: function (target, propKey, receiver) {
     console.log(`getting ${propKey}!`);
@@ -46,10 +45,8 @@ obj.count = 1
 ES6 原生提供 Proxy 构造函数，用来生成 Proxy 实例。
 
 var proxy = new Proxy(target, handler);
-```
 
 
-```
 强制特点属性，锁死
 var person = {
   name: "张三"
@@ -72,15 +69,14 @@ proxy.age // 抛出一个错误
 
 
 npm login --registry=https://npm.pkg.github.com
-
+```
 
 
 二、bind、call、apply的作用
-关于call、apply、bind函数，它们主要用来改变this指向的，在很多框架中常有用到，而且也是面试官喜欢问到的问题：多数会问道三者的区别， 以及手动实现它们。
-1、call的用法
 ```
-fn.call(thisArg, arg1, arg2, arg3, ...)
-1
+关于call、apply、bind函数，它们主要用来改变this指向的，在很多框架中常有用到，而且也是面试官喜欢问到的问题：多数会问道三者的区别， 以及手动实现它们。
+1、call的用法 
+fn.call(thisArg, arg1, arg2, arg3, ...) 
 调用fn.call时会将fn中的this指向修改为传入的第一个参数thisArg；将后面的参数传入给fn,并立即执行函数fn。
 
 let obj = {
@@ -98,11 +94,10 @@ let obj = {
         age: 30
     }
     // obj1.sayHello(); // Uncaught TypeError: obj1.sayHello is not a function
-    obj.sayHello.call(obj1, '设计师', '画画'); // 我叫lihua,今年30岁。我的工作是: 设计师，我的爱好是: 画画。
-```
+    obj.sayHello.call(obj1, '设计师', '画画'); // 我叫lihua,今年30岁。我的工作是: 设计师，我的爱好是: 画画。 
 
 
-2、 apply的用法
+2、 apply的用法 
 apply(thisArg, [argsArr])
 1、fn.apply的作用和call相同：修改this指向，并立即执行fn。区别在于传参形式不同，apply接受两个参数，第一个参数是要指向的this对象，第二个参数是一个数组，数组里面的元素会被展开传入fn,作为fn的参数。
 
@@ -121,8 +116,7 @@ let obj = {
         age: 30
     }
 
-    obj.sayHello.apply(obj1, ['设计师', '画画']); // 我叫lihua,今年30岁。我的工作是: 设计师，我的爱好是: 画画。
-
+    obj.sayHello.apply(obj1, ['设计师', '画画']); // 我叫lihua,今年30岁。我的工作是: 设计师，我的爱好是: 画画。 
 
 3、bind的用法
 bind(thisArg, arg1, arg2, arg3, ...)
@@ -155,3 +149,64 @@ fn.bind的作用是只修改this指向，但不会立即执行fn；会返回一�
 call和bind传参相同，多个参数依次传入的；
 apply只有两个参数，第二个参数为数组；
 call和apply都是对函数进行直接调用，而bind方法不会立即调用函数，而是返回一个修改this后的函数。
+```
+
+
+5.JavaScript判断一个变量是否是数组的五种方式
+```
+1. Array.isArray() 方法进行数组判断的示例代码： 
+let arr = [1, 2, 3];
+console.log(Array.isArray(arr)); // 输出: true
+ 
+let obj = { name: "John", age: 25 };
+console.log(Array.isArray(obj)); // 输出: false 
+```
+
+2. Object.prototype.toString.call(arr)
+``` 
+let arr = [1, 2, 3];
+let arrType = Object.prototype.toString.call(arr);
+console.log(arrType === "[object Array]"); // 输出: true
+ 
+let obj = { name: "John", age: 25 };
+let objType = Object.prototype.toString.call(obj);
+console.log(objType === "[ Array]"); // 输出: false
+
+```
+
+
+3. instanceof
+```
+let arr = [1, 2, 3];
+console.log(arr instanceof Array); // 输出: true
+ 
+let obj = { name: "John", age: 25 };
+console.log(obj instanceof Array); // 输出: false
+
+**** 注意的是，prototype属性是可以修改的，所以并不是最初判断为true就一定永远为真。**** 
+*** instanceof 运算符在判断是否为数组时可能存在误判的情况。下面是一个可能产生误判的示例代码：***
+function MyArray() {
+  // 自定义的类似数组的对象
+  this.length = 0;
+}
+MyArray.prototype = Array.prototype;
+ 
+const myArr = new MyArray();
+ 
+console.log(myArr instanceof Array); // 输出: true 
+```
+
+4.constructor
+```
+实例的构造函数属性constructor指向构造函数，那么通过constructor属性也可以判断是否为一个数组。
+这种判断也会存在多个全局环境的问题，导致的问题与instanceof相同。
+
+console.log('方法2',arr.constructor === Array);//true 
+```
+
+5.typeof
+```
+使用该方法 判断数组时 打印结果为object 
+console.log('方法4',typeof n); //number
+console.log('方法4',typeof(b)) //object
+```
