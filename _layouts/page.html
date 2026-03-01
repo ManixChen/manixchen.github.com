@@ -1,17 +1,12 @@
 ---
 layout: default
 ---
- <el-row>
-    <el-col>
-      <br>
-      <br>
-      <h1 justify="center">欢迎来到  {{page.title}}</h1>
-      <br>
-      <br>
-    </el-col>
-    <el-col :sm="24">
-        <article>
-            {{ content }}
-        </article>
-    </el-col>
- </el-row>
+<section class="page-hero">
+  <h1 class="page-hero-title">{{ page.title }}</h1>
+  <p class="page-hero-subtitle">
+    {% if page.description %}{{ page.description }}{% else %}保持创作节奏，持续沉淀成长轨迹。{% endif %}
+  </p>
+</section>
+<article>
+  {{ content }}
+</article>

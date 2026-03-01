@@ -9,11 +9,21 @@
     　　　　<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
     <![endif]-->
     <title>Manichen的个人博客</title>
+    <link rel="stylesheet" type="text/css" href="{{ '/static/css/tokens.css' | prepend: site.baseurl | prepend: site.url}}" />
+    <link rel="stylesheet" type="text/css" href="{{ '/static/css/base.css' | prepend: site.baseurl | prepend: site.url}}" />
+    <link rel="stylesheet" type="text/css" href="{{ '/static/css/components.css' | prepend: site.baseurl | prepend: site.url}}" />
+    {% for style in page.styles %}
+    {% unless style == 'tokens.css' or style == 'base.css' or style == 'components.css' %}
+    <link rel="stylesheet" type="text/css" href="{{ '/static/css/' | append: style | prepend: site.baseurl | prepend: site.url}}" />
+    {% endunless %}
+    {% endfor %}
     <script type="module" crossorigin src="/manix/assets/index-DK5HkDXa.js"></script>
     <link rel="stylesheet" crossorigin href="/manix/assets/index-DWrdaYQO.css">
   </head>
-  <body>
-    <div id="app"></div>
-        {{ content }}
+  <body class="theme-light">
+    <div class="manix-shell">
+      <div id="app"></div>
+      {{ content }}
+    </div>
   </body>
 </html>

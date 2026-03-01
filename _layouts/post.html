@@ -1,113 +1,85 @@
 ---
 layout: default
 ---
+<section class="page-hero">
+  <h1 class="page-hero-title">{{ page.title }}</h1>
+  <p class="page-hero-subtitle">
+    {% if page.subtitle %}{{ page.subtitle }}{% else %}沉浸式阅读与结构化知识沉淀。{% endif %}
+  </p>
+  <div class="post-hero-meta">
+    <span class="meta-pill">{{ page.date | date: "%Y-%m-%d" }}</span>
+    <span class="meta-pill">作者：{% if page.author %}{{ page.author }}{% else %}{{ site.autor }}{% endif %}</span>
+    <span class="meta-pill">字数：{{ content | number_of_words }}</span>
+  </div>
+</section>
 
+<div class="post-layout">
+  <article class="blog-article-box">
+    {{ content }}
+  </article>
 
-
-<el-row class="article-box-container" post-cate="All" justify="center">
-    <el-col :sm="24"  >
-      <br>
-      <br>
-      <h1 justify="center">{{ page.title }}</h1>
-      <br>
-      <br>
-    </el-col>
-    <el-col :sm="24" :md="20" :lg="18">
-        <div class="blog-article-box">
-            {{content}}
-        </div>
-    </el-col>
-    <!-- right top -->
-    <el-col :sm="24" :md="4" :lg="3" class="nav-padding">
-        <el-collapse  v-model="activeNames">
-            <el-collapse-item title="top" name="1">
-
-            </el-collapse-item>
-            <el-collapse-item title="Tags" name="2">
-
-                {% for tag in page.tags %}
-                    <h4>
-                        <a href="{{ '/tags' | prepend: site.baseurl | prepend: site.url }}#{{ tag }}">
-
-                            {{ tag }}
-                        </a>
-                    </h4>
-                {% endfor %}
-            </el-collapse-item>
-            <el-collapse-item title="Related" name="3">
-                {% assign postsAfterFilter = '-' | split: "-" %}
-
-                {% for p in site.posts %}
-                    {%if p.url != page.url %}
-                        {% assign commonTagCount = 0 %}
-
-                        {% for tag in p.tags %}
-                            {% if page.tags contains tag %}
-                                {% assign commonTagCount = commonTagCount | plus: 1 %}
-                            {% endif %}
-                        {% endfor %}
-
-                        {% for cat in p.categories %}
-                            {% if page.categories contains cat %}
-                                {% assign commonTagCount = commonTagCount | plus: 1 %}
-                            {% endif %}
-                        {% endfor %}
-
-                        {% if commonTagCount > 0 %}
-                            {% assign postsAfterFilter = postsAfterFilter | push: p %}
-                        {% endif %}
-                    {% endif %}
-                {% endfor %}
-
-                {% if postsAfterFilter.size > 0 %}
-                    {% for p in postsAfterFilter limit: 15 %}
-                        <h4>
-                            <a href="{{ p.url | prepend: site.baseurl | prepend: site.url }}">{{ p.title }}</a>
-                        </h4>
-                    {% endfor %}
-                {% endif %}
-            </el-collapse-item>
-          </el-collapse>
-
-    </el-col>
-
-</el-row>
-<el-row class="row-bg blog-article-bottom" justify="space-around">
-    <el-col :sm="24"   :md="14">
-        {% for cat in page.categories %}
-        <a href="{{ '/category' | prepend: site.baseurl | prepend: site.url }}/#{{ cat }}">
-            {{ cat }}
-        </a>
-        {% endfor %}
-
+  <aside class="post-side-panel">
+    <section class="post-side-card">
+      <h3>标签</h3>
+      <div class="tag-list">
         {% for tag in page.tags %}
-            <a class="categori-tag" href="{{ '/tags' | prepend: site.baseurl | prepend: site.url }}/#{{ tag }}">
-                {{ tag }}</a>
+        <a class="tag-pill" href="{{ '/tags' | prepend: site.baseurl | prepend: site.url }}#{{ tag }}">{{ tag }}</a>
         {% endfor %}
-    </el-col>
-    <el-col :sm="24"   :md="7">
-        <a class="title" href="{{ post.url | prepend: site.baseurl | prepend: site.url }}">
-            {{ post.title }}
-        </a>
-    </el-col>
-    <el-col :sm="24"   :md="3">
-        <span> {% if page.author %}
-            {{ page.author }}
-        {% endif %}
-        {% if page.meta %}  {{ page.meta }}{% endif %}</span>
-        <span class="pull-right">
+      </div>
+    </section>
 
-
-            {{ page.date | date: "%b %-d, %Y" }}
-         </span>
-        </el-col>
-  </el-row>
-
-
-
-<!-- 外部引用 -->
-<hr class="boundary">
-<div id="post-share" class="bdsharebuttonbox">  </div>
-    <div id="disqus_shortname"></div>
-
+    <section class="post-side-card">
+      <h3>相关文章</h3>
+      {% assign postsAfterFilter = '-' | split: "-" %}
+      {% for p in site.posts %}
+      {% if p.url != page.url %}
+      {% assign commonTagCount = 0 %}
+      {% for tag in p.tags %}
+      {% if page.tags contains tag %}
+      {% assign commonTagCount = commonTagCount | plus: 1 %}
+      {% endif %}
+      {% endfor %}
+      {% for cat in p.categories %}
+      {% if page.categories contains cat %}
+      {% assign commonTagCount = commonTagCount | plus: 1 %}
+      {% endif %}
+      {% endfor %}
+      {% if commonTagCount > 0 %}
+      {% assign postsAfterFilter = postsAfterFilter | push: p %}
+      {% endif %}
+      {% endif %}
+      {% endfor %}
+      {% if postsAfterFilter.size > 0 %}
+      <ul class="post-related-list">
+        {% for p in postsAfterFilter limit: 10 %}
+        <li><a href="{{ p.url | prepend: site.baseurl | prepend: site.url }}">{{ p.title }}</a></li>
+        {% endfor %}
+      </ul>
+      {% else %}
+      <p class="post-related-empty">暂无相关文章。</p>
+      {% endif %}
+    </section>
+  </aside>
 </div>
+
+<section class="blog-article-bottom">
+  <div class="post-bottom-tags">
+    <span class="post-bottom-label">分类与标签</span>
+    <div class="tag-list">
+      {% for cat in page.categories %}
+      <a class="tag-pill" href="{{ '/category' | prepend: site.baseurl | prepend: site.url }}/#{{ cat }}">{{ cat }}</a>
+      {% endfor %}
+      {% for tag in page.tags %}
+      <a class="categori-tag" href="{{ '/tags' | prepend: site.baseurl | prepend: site.url }}/#{{ tag }}">{{ tag }}</a>
+      {% endfor %}
+    </div>
+  </div>
+  <div class="post-bottom-info">
+    <span>作者：{% if page.author %}{{ page.author }}{% else %}{{ site.autor }}{% endif %}</span>
+    <span>发布时间：{{ page.date | date: "%Y-%m-%d" }}</span>
+  </div>
+</section>
+
+<hr class="boundary">
+<div id="post-share" class="bdsharebuttonbox"></div>
+<div id="disqus_shortname"></div>

@@ -23,7 +23,7 @@ defaults:
       type: "posts"
     values:
       layout: post
-      styles : [elementplus.css,style.css,index.css,highlight.css]
+      styles : [elementplus.css,pages/post.css,highlight.css]
       scripts : [index.js]
 
 manix:

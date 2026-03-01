@@ -1,36 +1,49 @@
 ---
 layout: page
 title: 时间简史
+description: 按时间回看所有文章，快速定位你的知识节点。
 permalink: /archive/
 icon: octicon-repo
 isNavItem: true
-styles: [elementplus.css,style.css]
+styles: [elementplus.css,pages/archive.css]
 scripts: [index.js]
 --- 
-<el-row justify="center">
-    <el-col :sm="24" :md="18" :xl="12">
-        <el-timeline> 
-            {% for post in site.posts  %} 
-            <el-timeline-item timestamp="{{ post.date | date: '%Y-%m-%d' }}" placement="bottom">
-              <el-card>
-                <div class="timeline-box">
-                    <div class="timeline-img ">
-                        <img src="{{ '/clock.webp' | prepend: site.imgrepo }}" alt="Picture">
-                    </div>
-                    <div class="timeline-content">
-                        <h2><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h2>
-                         
-                        <div class="post-excerpt" >
-                            {{ post.content | strip_html | strip_newlines | truncate: 100 }}
+<section class="archive-page">
+  <div class="archive-shortcuts">
+    {% assign postsByYear = site.posts | group_by_exp: "post", "post.date | date: '%Y'" %}
+    {% for yearGroup in postsByYear %}
+    <a href="#year-{{ yearGroup.name }}">{{ yearGroup.name }}</a>
+    {% endfor %}
+  </div>
 
-                          </div>
-                        <span class="time-date">{{ post.date | date: '%Y-%m-%d' }}</span>
-                    </div>
-
+  {% for yearGroup in postsByYear %}
+  <section class="archive-year-group" id="year-{{ yearGroup.name }}">
+    <div class="archive-year-title">
+      <span>{{ yearGroup.name }}</span>
+      <span>共 {{ yearGroup.items | size }} 篇</span>
+    </div>
+    <div class="timeline-shell">
+      <el-timeline>
+        {% for post in yearGroup.items %}
+        <el-timeline-item timestamp="{{ post.date | date: '%Y-%m-%d' }}" placement="bottom">
+          <article class="timeline-card">
+            <div class="timeline-box">
+              <div class="timeline-img">
+                <img src="{{ '/clock.webp' | prepend: site.imgrepo }}" alt="clock" />
+              </div>
+              <div class="timeline-content">
+                <h3><a href="{{ post.url | prepend: site.baseurl | prepend: site.url }}">{{ post.title }}</a></h3>
+                <div class="post-excerpt">
+                  {{ post.content | strip_html | strip_newlines | truncate: 120 }}
                 </div>
-              </el-card>
-            </el-timeline-item> 
-            {% endfor %}
-          </el-timeline>
-    </el-col>
-</el-row>
+                <span class="time-date">{{ post.date | date: '%Y-%m-%d' }}</span>
+              </div>
+            </div>
+          </article>
+        </el-timeline-item>
+        {% endfor %}
+      </el-timeline>
+    </div>
+  </section>
+  {% endfor %}
+</section>

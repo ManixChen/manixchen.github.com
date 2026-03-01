@@ -1,47 +1,25 @@
-    
-    <header  v-cloak>
-        <div class="container">
-            <el-menu 
-                  class="el-menu-demo"
-                  mode="horizontal"
-                  :ellipsis="false" 
-                >
-                  <el-menu-item index="0">
-                    <a class="navbar-brand" href="{{ site.baseurl | prepend: site.url }}" title="{{ site.title }}">
-                        <img src="{{ site.baseurl | prepend: site.url }}/static/img/logo.png" alt=""> 
-                      </a>
-                  </el-menu-item> 
-                  {% if page.url == "/index.html" %}
-                  <el-menu-item index="1" class="nav-item  active">
-                    <a class="nav-link active" href="{{ site.baseurl | prepend: site.url }}/" class="nav-link">首页</a>
-                    
-                  </el-menu-item> 
-                  {% else %}
-                  <el-menu-item class="nav-item "> 
-                      <a class="nav-link" href="{{ site.baseurl | prepend: site.url }}/" class="nav-link">首页</a>
-                  </el-menu-item>
-                  {% endif %}
-                {% for p in site.pages %}
-                
-                  {% if p.isNavItem %}
-                      {% if p.url == page.url %}
-                          <el-menu-item class="nav-item active">
-                              <a class="nav-link active" href="{{ p.url | prepend: site.baseurl | prepend: site.url }}" class="nav-link"><span class="octicon {{ p.icon }}"></span>&nbsp;&nbsp;{{ p.title }}</a>
-                          </el-menu-item>
-                      {% else %}
-                          <el-menu-item class="nav-item">
-                              <a class="nav-link" href="{{ p.url | prepend: site.baseurl | prepend: site.url }}" class="nav-link"><span class="octicon {{ p.icon }}"></span>&nbsp;&nbsp;{{ p.title }}</a>
-                          </el-menu-item>
-                      {% endif %}
-                  {% endif %}
-                {% endfor %}
-                
-              <div class="flex-grow" /> 
-              <el-form-item  index="1" class="search-container" > 
-                <label for="pageSearch"></label>    
-                <input name="pageSearch" class="search" id="pageSearch"  placeholder="仅支持页面检索"  />  
-                <ul id="searchResultScontainer"></ul>
-              </el-form-item>  
-            </el-menu>
-        </div> 
-    </header>
+<header class="site-header" v-cloak>
+  <div class="container site-header-inner">
+    <a class="site-brand" href="{{ site.baseurl | prepend: site.url }}" title="{{ site.title }}">
+      <span class="site-brand-mark">M</span>
+      <span class="site-brand-text">{{ site.title }}</span>
+    </a>
+
+    <nav class="site-nav" aria-label="Main Navigation">
+      <a class="nav-link {% if page.url == '/index.html' or page.url == '/' %}active{% endif %}" href="{{ site.baseurl | prepend: site.url }}/">首页</a>
+      {% for p in site.pages %}
+      {% if p.isNavItem %}
+      <a class="nav-link {% if p.url == page.url %}active{% endif %}" href="{{ p.url | prepend: site.baseurl | prepend: site.url }}">
+        {{ p.title }}
+      </a>
+      {% endif %}
+      {% endfor %}
+    </nav>
+
+    <div class="search-container">
+      <label for="pageSearch" class="sr-only">Search pages</label>
+      <input name="pageSearch" class="search" id="pageSearch" placeholder="搜索文章 / 标签" />
+      <ul id="searchResultScontainer"></ul>
+    </div>
+  </div>
+</header>

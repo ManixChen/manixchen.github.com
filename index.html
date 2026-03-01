@@ -1,6 +1,19 @@
 ---
 layout: manix
 title: Sunshine知识库
-styles : [elementplus.css,style.css,index.css]
+styles : [pages/home.css]
 scripts: [index.js]
 ---
+<section class="home-fallback">
+  <div class="home-hero">
+    <h1>简约唯美的技术博客</h1>
+    <p>
+      这里沉淀技术实践、设计思考与创作灵感。你可以通过时间轴快速回溯知识演进，也可以从技术栈与标签维度高效检索内容。
+    </p>
+    <div class="home-hero-actions">
+      <a class="action-link primary" href="{{ '/archive/' | prepend: site.baseurl | prepend: site.url }}">浏览时间轴</a>
+      <a class="action-link" href="{{ '/category/' | prepend: site.baseurl | prepend: site.url }}">查看技术栈</a>
+      <a class="action-link" href="{{ '/tags/' | prepend: site.baseurl | prepend: site.url }}">按标签探索</a>
+    </div>
+  </div>
+</section>

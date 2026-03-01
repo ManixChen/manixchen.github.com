@@ -3,12 +3,12 @@
 
 {% include head.html %}
 
-<body >
-<div id="app"   v-cloak  >
+<body class="theme-light">
+<div id="app" class="site-shell page-{{ page.layout | default: 'default' }}" v-cloak>
 {% include header.html %}
 
 
-  <div class="loading-box"   :class="`${loading?'loading':'loaded'}`"
+  <div class="loading-box" :class="`${loading?'loading':'loaded'}`"
   body
   fullscreen  v-loading="loading"
   :title="message" >
@@ -21,17 +21,14 @@
       </div>
   </div>
 
-<div class="main" >
+<div class="main">
     {{ content }}
     <el-backtop :right="100" :bottom="100" ></el-backtop>
 
 
-    <div class="blog_content_container" title="git  gitalk 评论区 ">
+    <div class="blog_content_container" title="git  gitalk 评论区">
         <div  id="gitalk-container" ></div>
     </div>
-</div>
-<div class="epcl-waves-wrapper">
-
 </div>
 </div>
   {% include footer.html %}

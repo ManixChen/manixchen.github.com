@@ -19,7 +19,124 @@ createApp({
         exclude: ['Welcome']
       }) 
     }
-    // 改变加载状态
+    function initTabCarousel() {
+      const tabShells = document.querySelectorAll('[data-expandable-tabs]');
+      if (!tabShells.length) {
+        return;
+      }
+
+      tabShells.forEach((shell) => {
+        const tabsNav = shell.querySelector('.taxonomy-tabs .el-tabs__nav');
+        const tabsNavScroll = shell.querySelector('.taxonomy-tabs .el-tabs__nav-scroll');
+        const tabsHeader = shell.querySelector('.taxonomy-tabs .el-tabs__header');
+        const controls = shell.querySelector('.taxonomy-tabs-controls');
+        const prevBtn = shell.querySelector('.taxonomy-tabs-prev');
+        const nextBtn = shell.querySelector('.taxonomy-tabs-next');
+        const searchInput = shell.querySelector('.taxonomy-tabs-search');
+        if (!tabsNav || !tabsNavScroll || !tabsHeader || !controls || !prevBtn || !nextBtn) {
+          return;
+        }
+
+        if (controls.parentElement !== tabsHeader) {
+          tabsHeader.appendChild(controls);
+        }
+
+        const getMetrics = () => {
+          const maxScroll = tabsNav.scrollWidth - tabsNavScroll.clientWidth;
+          const hasOverflow = maxScroll > 8;
+          return { maxScroll, hasOverflow };
+        };
+
+        const pageWidth = () => Math.max(220, Math.floor(tabsNavScroll.clientWidth * 0.82));
+
+        const goNext = () => {
+          const { maxScroll, hasOverflow } = getMetrics();
+          if (!hasOverflow) return;
+          const current = tabsNavScroll.scrollLeft;
+          const step = pageWidth();
+          const target = current + step >= maxScroll - 2 ? 0 : current + step;
+          tabsNavScroll.scrollTo({ left: target, behavior: 'smooth' });
+        };
+
+        const goPrev = () => {
+          const { maxScroll, hasOverflow } = getMetrics();
+          if (!hasOverflow) return;
+          const current = tabsNavScroll.scrollLeft;
+          const step = pageWidth();
+          const target = current - step <= 0 ? maxScroll : current - step;
+          tabsNavScroll.scrollTo({ left: target, behavior: 'smooth' });
+        };
+
+        if (!shell.dataset.carouselBound) {
+          shell.dataset.carouselBound = '1';
+          prevBtn.addEventListener('click', goPrev);
+          nextBtn.addEventListener('click', goNext);
+          tabsNav.addEventListener('click', () => {
+            const activeItem = tabsNav.querySelector('.is-active');
+            if (activeItem && typeof activeItem.scrollIntoView === 'function') {
+              activeItem.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+            }
+          });
+        }
+
+        if (searchInput && !searchInput.dataset.bound) {
+          searchInput.dataset.bound = '1';
+          searchInput.addEventListener('input', () => {
+            const keyword = searchInput.value.trim().toLowerCase();
+            const items = tabsNav.querySelectorAll('.el-tabs__item');
+            let firstVisible = null;
+            items.forEach((item) => {
+              const text = (item.textContent || '').trim().toLowerCase();
+              const matched = !keyword || text.includes(keyword);
+              item.style.display = matched ? '' : 'none';
+              if (matched && !firstVisible) {
+                firstVisible = item;
+              }
+            });
+            if (firstVisible && !firstVisible.classList.contains('is-active')) {
+              firstVisible.click();
+            }
+            const { hasOverflow } = getMetrics();
+            controls.hidden = !hasOverflow;
+          });
+        }
+
+        const { hasOverflow } = getMetrics();
+        controls.hidden = !hasOverflow;
+        shell.classList.toggle('has-overflow', hasOverflow);
+        if (!hasOverflow) {
+          tabsNavScroll.scrollTo({ left: 0, behavior: 'smooth' });
+        }
+
+        if (shell.__carouselTimer) {
+          clearInterval(shell.__carouselTimer);
+          shell.__carouselTimer = null;
+        }
+
+        if (hasOverflow) {
+          const startTimer = () => {
+            if (shell.__carouselTimer) clearInterval(shell.__carouselTimer);
+            shell.__carouselTimer = setInterval(() => {
+              goNext();
+            }, 4200);
+          };
+          const stopTimer = () => {
+            if (shell.__carouselTimer) {
+              clearInterval(shell.__carouselTimer);
+              shell.__carouselTimer = null;
+            }
+          };
+          startTimer();
+          if (!shell.dataset.hoverBound) {
+            shell.dataset.hoverBound = '1';
+            shell.addEventListener('mouseenter', stopTimer);
+            shell.addEventListener('mouseleave', startTimer);
+          }
+        }
+      });
+    }
+
+    // Update loading state and initialize page widgets.
     function changeLoading(){ 
         setTimeout(function(){
           loading.value = false; 
@@ -39,7 +156,8 @@ createApp({
           if(document.getElementById("pageSearch")){ 
             pageSearch();
           }
-        }, 4000)
+          initTabCarousel();
+        }, 1200)
     } 
       const formInline = reactive({
       search: '', 
@@ -60,11 +178,21 @@ createApp({
       message,
       loading,
       formInline,activeNames,
-      changeLoading,loadedShare
+      changeLoading,loadedShare,initTabCarousel
     }
   }, 
   mounted() {  
-    Vue.nextTick(this.changeLoading) 
+    Vue.nextTick(this.changeLoading)
+    window.addEventListener('resize', this.initTabCarousel)
+  },
+  beforeUnmount() {
+    window.removeEventListener('resize', this.initTabCarousel)
+    document.querySelectorAll('[data-expandable-tabs]').forEach((shell) => {
+      if (shell.__carouselTimer) {
+        clearInterval(shell.__carouselTimer)
+        shell.__carouselTimer = null
+      }
+    })
   },
   delimiters:['[[[',']]]']
 //   delimiters:['${','}']

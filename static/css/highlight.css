@@ -70,3 +70,78 @@
 .highlight code{  
     color: rgba(0,0,0,0.8);
 }
+
+/* Modern frontend code block theme */
+.blog-article-box .highlighter-rouge {
+    margin: 1.1rem 0 1.25rem;
+}
+
+.blog-article-box .highlight {
+    border-radius: 14px;
+    border: 1px solid #2f3650;
+    background: #151b2f;
+    box-shadow: 0 14px 28px rgba(17, 24, 42, 0.28);
+    overflow: hidden;
+}
+
+.blog-article-box .highlight pre {
+    margin: 0;
+    padding: 16px 18px;
+    overflow: auto;
+    background: transparent;
+}
+
+.blog-article-box .highlight code {
+    white-space: pre;
+    line-height: 1.72;
+    font-size: 14px;
+    font-family: "JetBrains Mono", "Fira Code", Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+    color: #d8def5;
+    background: transparent;
+}
+
+.blog-article-box .highlight .lineno {
+    color: #7f89b8;
+    border-right: 1px solid rgba(127, 137, 184, 0.45);
+    margin-right: 12px;
+    padding-right: 10px;
+}
+
+.blog-article-box .highlight .c,
+.blog-article-box .highlight .c1,
+.blog-article-box .highlight .cm {
+    color: #7f89b8;
+    font-style: italic;
+}
+
+.blog-article-box .highlight .k,
+.blog-article-box .highlight .kd,
+.blog-article-box .highlight .kn,
+.blog-article-box .highlight .kr,
+.blog-article-box .highlight .nt {
+    color: #89b4ff;
+}
+
+.blog-article-box .highlight .s,
+.blog-article-box .highlight .s1,
+.blog-article-box .highlight .s2,
+.blog-article-box .highlight .sb {
+    color: #ffd483;
+}
+
+.blog-article-box .highlight .nf,
+.blog-article-box .highlight .na,
+.blog-article-box .highlight .nb {
+    color: #7de4b4;
+}
+
+.blog-article-box .highlight .m,
+.blog-article-box .highlight .mi,
+.blog-article-box .highlight .mf {
+    color: #ff9ab3;
+}
+
+.blog-article-box .highlight .o,
+.blog-article-box .highlight .ow {
+    color: #b4bee9;
+}

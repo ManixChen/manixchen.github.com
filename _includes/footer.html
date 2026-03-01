@@ -1,16 +1,13 @@
-<footer  class="footnote footnote-tiffany">
-    <div class="container">
-            <a class="foot-item" title="后续根据需求可以添加字体图标即可" href="{{ site.csdn }}" target="_blank">
-                csdn
-            </a>
-            <a class="foot-item" href="{{ site.url }}" target="_blank">
-                ManixChen
-            </a>
-            <a href="{{ site.github}}"  target="_blank">
-                <strong >&copy; github</strong></a>
+<footer class="site-footer">
+  <div class="container site-footer-inner">
+    <p class="site-footer-title">{{ site.title }}</p>
+    <div class="site-footer-links">
+      <a class="foot-item" title="CSDN" href="{{ site.csdn }}" target="_blank">CSDN</a>
+      <a class="foot-item" href="{{ site.url }}" target="_blank">Blog</a>
+      <a class="foot-item" href="{{ site.github}}" target="_blank">&copy; GitHub</a>
     </div>
+  </div>
 </footer>
-</div>
-  {% for script in page.scripts %}
-    <script type="text/javascript" src="{{'/static/js/' | append:script | prepend:site.baseurl | prepend: site.url  }}"></script>
-    {%endfor%}
+{% for script in page.scripts %}
+<script type="text/javascript" src="{{'/static/js/' | append:script | prepend:site.baseurl | prepend: site.url  }}"></script>
+{% endfor %}
